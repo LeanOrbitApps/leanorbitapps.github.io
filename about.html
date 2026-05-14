@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Lean Orbit</title>
+  <meta name="description" content="Lean Orbit is an independent iOS studio. We build small, quietly intelligent apps that respect your privacy and your time." />
+  <meta name="theme-color" content="#FAF8F4" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,30..100,0..1;1,9..144,300..600,30..100,0..1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a class="brand" href="/" aria-label="Lean Orbit — home">
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+          <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+          <circle cx="12" cy="12" r="2"  fill="currentColor"/>
+        </svg>
+        <span class="brand__name">Lean <strong>Orbit</strong></span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="4" y1="8"  x2="20" y2="8"/>
+          <line x1="4" y1="16" x2="20" y2="16"/>
+        </svg>
+      </button>
+
+      <nav aria-label="Primary">
+        <ul id="nav-menu" class="nav__links">
+          <li><a href="/">Home</a></li>
+          <li><a href="products.html">Apps</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="mailto:support@leanorbit.app">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================ PAGE HEADER ============================ -->
+    <section class="section section--tight">
+      <div class="container">
+        <span class="eyebrow reveal">About the studio</span>
+        <h1 class="h-page reveal" style="margin-top: var(--space-3);">
+          We make software the way <em>good furniture</em> gets made.
+        </h1>
+        <p class="lede reveal" style="max-width: 44ch;">
+          Few pieces. Honest materials. Built to be used for years, by one
+          person at a time.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ PHILOSOPHY QUOTE ============================ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="philosophy reveal">
+          <blockquote>
+            "The best apps disappear into your day. They do one thing, do it
+            <em>quietly</em>, and never ask for more than you came to give."
+          </blockquote>
+          <div class="philosophy__cite">— Studio principle, no. 1</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ THE STORY ============================ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="about-grid">
+          <div class="reveal">
+            <h2>The studio.</h2>
+          </div>
+          <div class="prose reveal">
+            <p>
+              Lean Orbit is a small, independent iOS studio. We design and ship
+              focused apps for people who feel a little crowded by their tools
+              and a little uneasy about where their data ends up.
+            </p>
+            <p>
+              We are deliberately small. One person makes most of the decisions,
+              writes most of the code, and answers most of the email. That is by
+              design — not as a humblebrag, but because the alternative is the
+              kind of software you already have too much of.
+            </p>
+            <p>
+              Every app we ship is built on three rules. They are simple, and
+              they are non-negotiable.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="reveal">
+            <h2>01 — Lean.</h2>
+            <div class="pillar__num" style="margin-top: var(--space-2);">In the literal sense</div>
+          </div>
+          <div class="prose reveal">
+            <p>
+              Our apps are small downloads, fast to open, and don't follow you
+              around with notifications. We do not ship features just because
+              someone in a forum asked for them. Every screen has a reason to
+              exist, or it doesn't ship.
+            </p>
+            <p>
+              We prefer a one-time purchase over a subscription whenever it's
+              honest to do so. You should be able to buy an app, own it, and
+              not have it ransom your data later.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="reveal">
+            <h2>02 — Intelligent.</h2>
+            <div class="pillar__num" style="margin-top: var(--space-2);">AI, but quietly</div>
+          </div>
+          <div class="prose reveal">
+            <p>
+              We use AI where it earns its place. That usually means small,
+              focused models doing useful work in the background — categorizing
+              an idea, drafting a summary, surfacing a connection — and then
+              getting out of the way.
+            </p>
+            <p>
+              We are skeptical of AI that performs intelligence for the camera.
+              The version we like is the version you barely notice, the kind
+              that makes the app feel a little more thoughtful than it has any
+              right to be.
+            </p>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="reveal">
+            <h2>03 — Private.</h2>
+            <div class="pillar__num" style="margin-top: var(--space-2);">On-device by default</div>
+          </div>
+          <div class="prose reveal">
+            <p>
+              Whenever it's technically possible, your data stays on your
+              device. We do not require accounts. We do not run analytics that
+              follow your behavior. We do not sell anything to anyone, because
+              we do not collect anything to sell.
+            </p>
+            <p>
+              When an app does need to talk to a server, we say so plainly in
+              the app and on the App Store listing. Privacy isn't a marketing
+              section here — it's a default we have to work to justify
+              breaking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA BAND ============================ -->
+    <section class="cta-band">
+      <div class="container">
+        <span class="eyebrow reveal" style="margin-bottom: 1rem;">Stay in touch</span>
+        <h2 class="reveal">
+          Questions, feedback, or a quiet word about what we're working on?
+        </h2>
+        <p class="reveal">
+          We read everything that comes through. No support tickets, no bots —
+          just an inbox we actually open.
+        </p>
+        <div class="reveal">
+          <a class="btn" href="mailto:support@leanorbit.app">
+            support@leanorbit.app
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a class="brand" href="/" aria-label="Lean Orbit — home">
+            <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+              <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+              <circle cx="12" cy="12" r="2"  fill="currentColor"/>
+            </svg>
+            <span class="brand__name">Lean <strong>Orbit</strong></span>
+          </a>
+          <p>Independent iOS studio. Small apps, quietly intelligent. Made with care in the Pacific Northwest.</p>
+        </div>
+
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h4>Studio</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="products.html">Apps</a></li>
+              <li><a href="mailto:support@leanorbit.app">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="mailto:support@leanorbit.app?subject=Privacy">Privacy</a></li>
+              <li><a href="mailto:support@leanorbit.app?subject=Support">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Lean Orbit LLC</span>
+        <span>support@leanorbit.app</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

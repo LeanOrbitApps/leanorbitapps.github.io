@@ -1,14 +1,274 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Lean Orbit | Home</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lean Orbit — Small software, in quiet orbit around your day.</title>
+  <meta name="description" content="Lean Orbit is an independent iOS studio building lean, quietly intelligent apps that respect your privacy. No accounts. No tracking. One-time purchase." />
+  <meta name="theme-color" content="#FAF8F4" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Lean Orbit — Quiet, private iOS apps" />
+  <meta property="og:description" content="Lean iOS apps that are quietly intelligent and stay on your device." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.leanorbit.app/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,30..100,0..1;1,9..144,300..600,30..100,0..1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a> | 
-        <a href="about.html">About</a>
-    </nav>
-    <h1>Welcome to Lean Orbit</h1>
-    <p>This site is under construction. More content coming soon.</p>
+
+  <!-- ============================ NAV ============================ -->
+  <header class="nav" role="banner">
+    <div class="nav__inner">
+      <a class="brand" href="/" aria-label="Lean Orbit — home">
+        <svg class="brand__mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+          <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+          <circle cx="12" cy="12" r="2"  fill="currentColor"/>
+        </svg>
+        <span class="brand__name">Lean <strong>Orbit</strong></span>
+      </a>
+
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <line x1="4" y1="8"  x2="20" y2="8"/>
+          <line x1="4" y1="16" x2="20" y2="16"/>
+        </svg>
+      </button>
+
+      <nav aria-label="Primary">
+        <ul id="nav-menu" class="nav__links">
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="products.html">Apps</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="mailto:support@leanorbit.app">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <span class="eyebrow hero__eyebrow reveal">Independent iOS studio</span>
+            <h1 class="h-display hero__title reveal">
+              Small software, in <em>quiet orbit</em> around your day.
+            </h1>
+            <p class="lede hero__lede reveal">
+              Lean Orbit builds focused iOS apps for people who want their tools
+              intelligent, intentional, and entirely their own.
+            </p>
+            <div class="hero__cta reveal">
+              <a class="btn" href="products.html">
+                See the apps
+                <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a class="btn btn--ghost" href="about.html">Our philosophy</a>
+            </div>
+          </div>
+
+          <div class="hero__visual" aria-hidden="true">
+            <svg class="orbit" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- outermost faint ring -->
+              <circle cx="50" cy="50" r="46" class="orbit__ring orbit__ring--faint"/>
+
+              <!-- ring 3 (outer) -->
+              <g class="orbit__spinner-3">
+                <circle cx="50" cy="50" r="38" class="orbit__ring"/>
+                <circle cx="88" cy="50" r="1.1" class="orbit__dot"/>
+              </g>
+
+              <!-- ring 2 (mid) -->
+              <g class="orbit__spinner-2">
+                <circle cx="50" cy="50" r="25" class="orbit__ring"/>
+                <circle cx="25" cy="50" r="1.4" class="orbit__dot orbit__dot--clay"/>
+              </g>
+
+              <!-- ring 1 (inner) -->
+              <g class="orbit__spinner-1">
+                <circle cx="50" cy="50" r="12" class="orbit__ring"/>
+                <circle cx="62" cy="50" r="0.9" class="orbit__dot"/>
+              </g>
+
+              <!-- core -->
+              <circle cx="50" cy="50" r="1.8" class="orbit__core"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PILLARS ============================ -->
+    <section class="section" id="principles">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Three rules. We hold them like gravity.</h2>
+          <p class="section-header__meta">
+            Every feature, every line of code, every release decision passes
+            through these three checks before it ships.
+          </p>
+        </div>
+
+        <div class="pillars">
+          <article class="pillar reveal">
+            <div class="pillar__num">01 — Lean</div>
+            <h3>Every feature earns its place.</h3>
+            <p>
+              No bloat. No upsells. No dark patterns. Apps that load fast, stay
+              small, and respect the seconds of your day.
+            </p>
+          </article>
+
+          <article class="pillar reveal">
+            <div class="pillar__num">02 — Intelligent</div>
+            <h3>AI shows up where it actually helps.</h3>
+            <p>
+              Quietly in the background — to summarize, surface, suggest.
+              Never demanding your attention or pretending to be your friend.
+            </p>
+          </article>
+
+          <article class="pillar reveal">
+            <div class="pillar__num">03 — Private</div>
+            <h3>Your data stays on your device.</h3>
+            <p>
+              We don't collect it, sell it, or send it anywhere. No accounts
+              required. No analytics watching. No telling.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURED APP ============================ -->
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Now in orbit.</h2>
+          <p class="section-header__meta">
+            What we've shipped and what's coming next. The full list lives on
+            the <a href="products.html" style="text-decoration: underline; text-decoration-color: var(--color-clay); text-underline-offset: 4px;">apps</a> page.
+          </p>
+        </div>
+
+        <div class="apps">
+          <article class="app-card reveal">
+            <span class="app-card__status app-card__status--live">Live on the App Store</span>
+            <div class="app-card__icon" aria-hidden="true">W</div>
+            <h3 class="app-card__name">Wattdo</h3>
+            <p class="app-card__tagline">An energy-based to-do list. Match the task to the energy you actually have.</p>
+            <div class="app-card__meta">
+              <span class="app-card__tag">iOS</span>
+              <span class="app-card__tag">One-time purchase</span>
+              <span class="app-card__tag">No accounts</span>
+            </div>
+            <div class="app-card__cta">
+              <a class="app-card__link" href="https://apps.apple.com/app/id6758806733" target="_blank" rel="noopener">
+                View on App Store
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="app-card reveal">
+            <span class="app-card__status">In development</span>
+            <div class="app-card__icon" aria-hidden="true">·</div>
+            <h3 class="app-card__name">More on the way</h3>
+            <p class="app-card__tagline">A small, quiet pipeline of focused apps. We'll share each one when it's earned the spotlight.</p>
+            <div class="app-card__meta">
+              <span class="app-card__tag">2026</span>
+            </div>
+            <div class="app-card__cta">
+              <a class="app-card__link" href="about.html">
+                Read our approach
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ CTA BAND ============================ -->
+    <section class="cta-band">
+      <div class="container">
+        <span class="eyebrow reveal" style="margin-bottom: 1rem;">A note from the studio</span>
+        <h2 class="reveal">
+          We'd rather make <em style="font-style:italic;color:var(--color-clay);font-variation-settings:'opsz' 100,'SOFT' 100,'WONK' 1;">five small things</em> people love than one big thing that demands their day.
+        </h2>
+        <p class="reveal">
+          That's the whole brief. If it lands, you'll probably like what we ship next.
+        </p>
+        <div class="reveal">
+          <a class="btn" href="about.html">
+            Read the philosophy
+            <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a class="brand" href="/" aria-label="Lean Orbit — home">
+            <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+              <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+              <circle cx="12" cy="12" r="2"  fill="currentColor"/>
+            </svg>
+            <span class="brand__name">Lean <strong>Orbit</strong></span>
+          </a>
+          <p>Independent iOS studio. Small apps, quietly intelligent. Made with care in the Pacific Northwest.</p>
+        </div>
+
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h4>Studio</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="products.html">Apps</a></li>
+              <li><a href="mailto:support@leanorbit.app">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="mailto:support@leanorbit.app?subject=Privacy">Privacy</a></li>
+              <li><a href="mailto:support@leanorbit.app?subject=Support">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Lean Orbit LLC</span>
+        <span>support@leanorbit.app</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
