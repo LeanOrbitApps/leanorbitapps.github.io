@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Stockroom Inventory: ReStocker</title>
+<style>
+    :root {
+        --blue:#2E8BF0; --cyan:#1FB6D8; --teal:#16C7B6;
+        --ink:#0F1B28; --body:#39505F; --muted:#6E8597;
+        --line:#E3ECF3; --bg:#F6FAFD; --card:#FFFFFF;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        background:var(--bg); color:var(--body); line-height:1.7; -webkit-font-smoothing:antialiased;
+    }
+    .hero {
+        background:linear-gradient(135deg,#2E8BF0 0%,#1FB6D8 55%,#16C7B6 100%);
+        color:#fff; padding:64px 24px 56px;
+    }
+    .wrap { max-width:760px; margin:0 auto; }
+    .hero .wrap { display:flex; align-items:center; gap:20px; }
+    .badge {
+        width:64px; height:64px; border-radius:16px; flex-shrink:0;
+        background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.3);
+        display:flex; align-items:center; justify-content:center; font-size:34px;
+    }
+    .hero h1 { font-size:30px; font-weight:800; letter-spacing:-0.5px; line-height:1.2; }
+    .hero p { opacity:.92; font-size:15px; margin-top:4px; }
+    main { max-width:760px; margin:-28px auto 0; padding:0 24px 40px; }
+    .card {
+        background:var(--card); border:1px solid var(--line); border-radius:18px;
+        padding:36px 40px; box-shadow:0 14px 40px -24px rgba(20,60,90,0.3);
+    }
+    .lead { font-size:16px; color:var(--ink); margin-bottom:8px; }
+    .contact-box {
+        background:linear-gradient(135deg,rgba(46,139,240,0.07),rgba(22,199,182,0.07));
+        border:1px solid var(--line); border-radius:14px;
+        padding:22px 24px; margin:24px 0 8px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+    }
+    .contact-box .ic { font-size:30px; }
+    .contact-box .ct { flex:1; min-width:200px; }
+    .contact-box .ct .k { font-size:13px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
+    .contact-box .ct .v { font-size:19px; font-weight:700; color:var(--ink); }
+    .btn {
+        display:inline-block; background:linear-gradient(135deg,#2E8BF0,#16C7B6);
+        color:#fff; font-weight:700; padding:13px 26px; border-radius:10px; font-size:15px;
+    }
+    .btn:hover { opacity:.92; }
+    h2 {
+        color:var(--ink); font-size:21px; font-weight:700; letter-spacing:-0.3px;
+        margin:38px 0 16px; padding-left:14px; border-left:4px solid var(--cyan);
+    }
+    .faq { border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+    details { border-bottom:1px solid var(--line); }
+    details:last-child { border-bottom:none; }
+    summary {
+        cursor:pointer; padding:18px 22px; font-weight:600; color:var(--ink);
+        font-size:16px; list-style:none; position:relative; padding-right:48px;
+    }
+    summary::-webkit-details-marker { display:none; }
+    summary::after {
+        content:"+"; position:absolute; right:22px; top:50%; transform:translateY(-50%);
+        font-size:22px; color:var(--blue); font-weight:400;
+    }
+    details[open] summary::after { content:"–"; }
+    details[open] summary { color:var(--blue); }
+    .answer { padding:0 22px 20px; }
+    .answer p { margin-bottom:10px; }
+    .answer ul { margin:0 0 10px 4px; padding-left:22px; }
+    .answer li { margin-bottom:6px; }
+    strong { color:var(--ink); }
+    a { color:var(--blue); text-decoration:none; font-weight:600; }
+    a:hover { text-decoration:underline; }
+    .pill-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+    .pill {
+        font-size:13px; font-weight:600; color:var(--blue);
+        background:rgba(46,139,240,0.08); border:1px solid rgba(46,139,240,0.2);
+        padding:7px 14px; border-radius:50px;
+    }
+    footer {
+        max-width:760px; margin:0 auto; padding:24px 24px 60px;
+        text-align:center; color:var(--muted); font-size:13px;
+    }
+    footer a { color:var(--muted); }
+</style>
+</head>
+<body>
+    <header class="hero">
+        <div class="wrap">
+            <div class="badge">📦</div>
+            <div>
+                <h1>ReStocker Support</h1>
+                <p>Stockroom Inventory: ReStocker</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <p class="lead">Need a hand? Most questions are answered below. If you're still stuck, we're happy to help directly.</p>
+
+            <div class="contact-box">
+                <div class="ic">✉️</div>
+                <div class="ct">
+                    <div class="k">Email support</div>
+                    <div class="v">support@leanorbit.com</div>
+                </div>
+                <a class="btn" href="mailto:support@leanorbit.com?subject=ReStocker%20Support">Contact Support</a>
+            </div>
+            <p style="font-size:14px; color:var(--muted);">We typically reply within 1–2 business days. To help us help you faster, include your device model and iOS version.</p>
+
+            <h2>Getting Started</h2>
+            <div class="faq">
+                <details open>
+                    <summary>How do I add my first item?</summary>
+                    <div class="answer">
+                        <p>Tap the <strong>+</strong> button to add an item manually, or tap <strong>Scan</strong> to point your camera at a barcode or QR code. When you scan a code, ReStocker adds the item (or increases its count) instantly. You can fill in details like name, SKU, unit cost, location, category, par/reorder level, photo, and expiration date.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>How does scanning to count work?</summary>
+                    <div class="answer">
+                        <p>Open the scan view and point the camera at a barcode. Each scan logs a count change for that item, so you can walk your shelves and tally stock without typing. The on-hand quantity updates in real time, and every change is recorded in the item's count history.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I import my existing inventory?</summary>
+                    <div class="answer">
+                        <p>Go to <strong>Import</strong> and choose a CSV file. ReStocker walks you through mapping your spreadsheet columns (name, quantity, SKU, cost, etc.) to the app's fields. CSV import is free and unlimited.</p>
+                    </div>
+                </details>
+            </div>
+
+            <h2>Reorder &amp; Stock Levels</h2>
+            <div class="faq">
+                <details>
+                    <summary>How do low-stock items and the reorder list work?</summary>
+                    <div class="answer">
+                        <p>Set a <strong>par/reorder level</strong> on any item. When the on-hand quantity drops to or below that level, the item is flagged with a low-stock badge and automatically rolls up into your <strong>Reorder</strong> list, grouped by location. You can adjust order quantities there and export the list to send to a supplier.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Does the app send me push notifications when stock is low?</summary>
+                    <div class="answer">
+                        <p>Not currently. ReStocker shows low-stock <strong>badges</strong> and builds a reorder list inside the app, but it does not send push or local notifications. Check the Reorder tab to see what needs restocking.</p>
+                    </div>
+                </details>
+            </div>
+
+            <h2>Sync &amp; Backup</h2>
+            <div class="faq">
+                <details>
+                    <summary>How does syncing across my devices work?</summary>
+                    <div class="answer">
+                        <p>ReStocker uses Apple's iCloud (CloudKit) to keep your inventory in sync across <strong>your own</strong> iPhone and iPad, and to back it up automatically. There's no separate account to create — it uses the Apple Account you're already signed in to.</p>
+                        <div class="pill-row">
+                            <span class="pill">No login required</span>
+                            <span class="pill">Private to you</span>
+                            <span class="pill">Automatic backup</span>
+                        </div>
+                    </div>
+                </details>
+                <details>
+                    <summary>My data isn't syncing between devices. What should I check?</summary>
+                    <div class="answer">
+                        <ul>
+                            <li>Make sure both devices are signed in to the <strong>same Apple Account</strong>.</li>
+                            <li>Confirm <strong>iCloud Drive</strong> is on and that ReStocker is enabled in <strong>Settings → [your name] → iCloud</strong>.</li>
+                            <li>Check that you have an internet connection on both devices.</li>
+                            <li>Open the app and give it a moment — large libraries can take time on first sync.</li>
+                            <li>If it's still stuck, try closing and reopening the app on both devices.</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary>Can I share my inventory with my team?</summary>
+                    <div class="answer">
+                        <p>ReStocker syncs across one person's own devices via private iCloud. It does not currently support multi-user or team sharing. If team collaboration is something you'd like to see, let us know at <a href="mailto:support@leanorbit.com">support@leanorbit.com</a>.</p>
+                    </div>
+                </details>
+            </div>
+
+            <h2>Data, Export &amp; Privacy</h2>
+            <div class="faq">
+                <details>
+                    <summary>How do I export or back up my data manually?</summary>
+                    <div class="answer">
+                        <p>Use <strong>Export</strong> to save your inventory as a CSV or text file via the iOS share sheet — send it to email, Files, or another app. Export is free and unlimited, so you always have a copy of your data.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>The camera won't scan. How do I fix it?</summary>
+                    <div class="answer">
+                        <ul>
+                            <li>Grant camera access in <strong>Settings → ReStocker → Camera</strong>.</li>
+                            <li>Make sure the barcode is well lit and fully inside the frame.</li>
+                            <li>Hold steady for a moment so the scanner can focus.</li>
+                            <li>Clean the camera lens if codes are blurry.</li>
+                        </ul>
+                    </div>
+                </details>
+                <details>
+                    <summary>Where is my data stored, and who can see it?</summary>
+                    <div class="answer">
+                        <p>Your inventory is stored on your device and in your private iCloud account. We can't see it, and we don't sell or share your data. Read the full <a href="./privacy-policy.html">Privacy Policy</a> for details.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>How do I delete my data?</summary>
+                    <div class="answer">
+                        <p>Delete individual items in the app, delete the app to remove its local data, or manage the app's iCloud data in <strong>Settings → [your name] → iCloud → Manage Account Storage</strong>.</p>
+                    </div>
+                </details>
+            </div>
+
+            <h2>Still need help?</h2>
+            <p>Email us at <a href="mailto:support@leanorbit.com?subject=ReStocker%20Support">support@leanorbit.com</a> with a description of the issue, your device model, and your iOS version. Screenshots are always welcome.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 LeanOrbit · Stockroom Inventory: ReStocker · <a href="./privacy-policy.html">Privacy Policy</a> · <a href="mailto:support@leanorbit.com">support@leanorbit.com</a></p>
+    </footer>
+</body>
+</html>
