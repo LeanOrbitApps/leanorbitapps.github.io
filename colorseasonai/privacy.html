@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Color Season Analysis AI</title>
+<meta name="description" content="Privacy policy for the Color Season Analysis AI iOS app.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --text: #1d1d1f;
+    --muted: #6e6e73;
+    --accent: #b4468a;
+    --card: #f5f5f7;
+    --border: #e5e5ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --text: #f5f5f7;
+      --muted: #98989d;
+      --accent: #e07ab8;
+      --card: #2c2c2e;
+      --border: #3a3a3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 44em; margin: 0 auto; padding: 24px 20px 64px; }
+  h1 { font-size: 1.9em; line-height: 1.2; margin: 0.6em 0 0.2em; }
+  h2 { font-size: 1.25em; margin: 2em 0 0.5em; }
+  p, li { color: var(--text); }
+  .meta { color: var(--muted); font-size: 0.9em; }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 1.5em 0;
+  }
+  .summary ul { margin: 0.4em 0 0; padding-left: 1.2em; }
+  .summary li { margin: 0.35em 0; }
+  a { color: var(--accent); }
+  nav.top {
+    display: flex; gap: 18px; padding: 18px 0 0;
+    font-size: 0.95em;
+  }
+  footer {
+    margin-top: 4em; padding-top: 1.5em;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 0.85em;
+  }
+</style>
+</head>
+<body>
+<main>
+  <nav class="top">
+    <a href="index.html">Home</a>
+    <a href="support.html">Support</a>
+  </nav>
+
+  <h1>Privacy Policy</h1>
+  <p class="meta">Color Season Analysis AI (iOS) · Effective July 12, 2026</p>
+
+  <div class="summary">
+    <strong>The short version</strong>
+    <ul>
+      <li>No account, no sign-up — we don't know who you are.</li>
+      <li>Your selfie is sent securely to an AI service <em>only</em> to run your color analysis, then the result comes straight back to your phone.</li>
+      <li>We don't store your photo on our servers, and it is never used to train AI models.</li>
+      <li>Your results, answers, and saved selfie live on your device. Delete the app and they're gone.</li>
+      <li>No ads, no third-party analytics, no selling or sharing of personal data. Ever.</li>
+    </ul>
+  </div>
+
+  <h2>Who we are</h2>
+  <p>Color Season Analysis AI ("the app") is a personal color analysis app for iPhone, made by Lean Orbit LLC ("we"). This policy explains what data the app handles, where it goes, and the choices you have. Questions? Email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
+
+  <h2>Information the app handles</h2>
+  <p>The app works without an account, so we never collect your name, email address, contacts, or location. The only information involved is:</p>
+  <ul>
+    <li><strong>Your photo.</strong> The selfie you take or choose is used for one purpose: analyzing your color season.</li>
+    <li><strong>Your onboarding answers.</strong> Optional style questions (experience with color analysis, your goal, style struggles, natural hair color). These stay on your device; your hair color and goal may be included as text alongside your photo to improve the analysis.</li>
+    <li><strong>Purchase status.</strong> Whether you have an active subscription or lifetime purchase, provided to the app by Apple. We never see your payment details.</li>
+  </ul>
+
+  <h2>How your photo is processed</h2>
+  <p>When you run an analysis:</p>
+  <ol>
+    <li>The photo is reduced in size on your device.</li>
+    <li>It is sent over an encrypted connection (HTTPS) through our secure relay (hosted on Cloudflare) to OpenAI, the AI provider that performs the analysis. The relay exists only to keep our API credentials off your device — it does not save your photo.</li>
+    <li>The analysis result (your season and palette) is returned to your device. That's the end of the trip.</li>
+  </ol>
+  <p>Per <a href="https://openai.com/policies/api-data-usage-policies" rel="noopener">OpenAI's API data usage policy</a>, content sent through the API is <strong>not used to train their models</strong> and may be retained for up to 30 days solely for abuse monitoring before deletion.</p>
+  <p>The "Draping Reveal" feature (your selfie shown against different colors) is processed <strong>entirely on your device</strong> — those images never leave your phone unless you choose to share them.</p>
+
+  <h2>What stays on your device</h2>
+  <ul>
+    <li>Your latest analysis result (season, palette, tips).</li>
+    <li>A copy of your analyzed selfie, stored in the app's private storage (excluded from iCloud backup) so the Draping Reveal can use it.</li>
+    <li>Your onboarding answers.</li>
+  </ul>
+  <p>None of this is uploaded to us. You can clear your answers and results anytime via <em>Settings → Redo Onboarding</em> in the app, and deleting the app removes everything.</p>
+
+  <h2>What we don't do</h2>
+  <ul>
+    <li>No advertising, and no ad networks or trackers in the app.</li>
+    <li>No third-party analytics SDKs.</li>
+    <li>No selling of personal data, and no sharing of personal data for cross-context behavioral advertising.</li>
+    <li>No "tracking" as defined by Apple's App Tracking Transparency framework.</li>
+  </ul>
+
+  <h2>Purchases</h2>
+  <p>Subscriptions and the lifetime purchase are processed entirely by Apple through your App Store account. Apple's handling of your payment information is covered by <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's Privacy Policy</a>. You can manage or cancel your subscription anytime in your device's Settings, or from inside the app.</p>
+
+  <h2>Notifications</h2>
+  <p>If you allow notifications, the app may schedule a local reminder (for example, before a free trial ends). These are created and delivered entirely on your device — no push servers involved.</p>
+
+  <h2>Service providers</h2>
+  <p>The app relies on three service providers, each receiving only what's needed to do its job:</p>
+  <ul>
+    <li><strong>OpenAI</strong> — performs the color analysis on your photo (see above).</li>
+    <li><strong>Cloudflare</strong> — hosts the secure relay between the app and OpenAI, and may process standard technical data (such as IP address) transiently to deliver the service, as any internet host does.</li>
+    <li><strong>Apple</strong> — App Store distribution and purchase processing.</li>
+  </ul>
+
+  <h2>Data retention and deletion</h2>
+  <p>We run no user database, so there is nothing for us to retain or delete on our side. Photos pass through the analysis service transiently (subject to OpenAI's up-to-30-day abuse-monitoring window described above). Everything else lives on your device and is removed when you delete the app.</p>
+
+  <h2>Security</h2>
+  <p>All network communication uses HTTPS/TLS encryption. Our relay accepts only the exact type of request the app makes, and our AI provider credentials are stored server-side so they never ship inside the app.</p>
+
+  <h2>Children</h2>
+  <p>The app is not directed at children under 13 (or the equivalent minimum age in your region), and we do not knowingly process personal information from children. If you believe a child has used the app in a way that concerns you, contact us and we will help.</p>
+
+  <h2>Your rights</h2>
+  <p>Depending on where you live (for example, the EU/EEA under GDPR or California under the CCPA/CPRA), you may have rights to access, correct, or delete personal information. Because we don't hold personal information about you, most of these rights are satisfied by design — but if you have any request or question, email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a> and we will respond.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we change how the app handles data, we will update this page and revise the effective date above. Material changes will be highlighted in the app's release notes.</p>
+
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
+
+  <footer>
+    © 2026 Lean Orbit LLC · <a href="support.html">Support</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener">Terms of Use (Apple standard EULA)</a>
+  </footer>
+</main>
+</body>
+</html>
