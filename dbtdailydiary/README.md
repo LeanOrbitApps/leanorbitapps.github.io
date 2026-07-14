@@ -59,12 +59,12 @@ No subscription. No account required. Works entirely offline.
 
 | | |
 |--|--|
-| 🌐 **Website** | [dbt-diary-daily.github.io](https://spicalabsai.github.io/DBT-Diary/dbt-diary-card.html )|
-| 🔒 **Privacy Policy** | [Privacy Policy](https://spicalabsai.github.io/DBT-Diary/privacy.html) |
-| 💬 **Support** | [Support & FAQ](https://spicalabsai.github.io/DBT-Diary/support.html) |
-| 📋 **DBT Diary Card** | [Landing page](https://spicalabsai.github.io/DBT-Diary/dbt-diary-card.html) |
-| 🎯 **DBT Skills Tracker** | [Landing page](https://spicalabsai.github.io/DBT-Diary/dbt-skills-tracker.html) |
-| 📊 **DBT Mood Tracker** | [Landing page](https://spicalabsai.github.io/DBT-Diary/dbt-mood-tracker.html) |
+| 🌐 **Website** | [dbt-diary-daily.github.io](https://www.leanorbit.app/dbtdailydiary/privacy.html/dbt-diary-card.html )|
+| 🔒 **Privacy Policy** | [Privacy Policy](https://www.leanorbit.app/dbtdailydiary/privacy.html) |
+| 💬 **Support** | [Support & FAQ](https://www.leanorbit.app/dbtdailydiary/support.html) |
+| 📋 **DBT Diary Card** | [Landing page](https://www.leanorbit.app/dbtdailydiary/dbt-diary-card.html) |
+| 🎯 **DBT Skills Tracker** | [Landing page](https://www.leanorbit.app/dbtdailydiary/dbt-skills-tracker.html) |
+| 📊 **DBT Mood Tracker** | [Landing page](https://www.leanorbit.app/dbtdailydiary/dbt-mood-tracker.html) |
 
 ---
 
