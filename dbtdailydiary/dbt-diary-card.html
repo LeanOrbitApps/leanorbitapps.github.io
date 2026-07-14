@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DBT Diary Card App — DBT Diary Daily</title>
+<meta name="description" content="The digital DBT diary card your therapist already knows. Track emotions, log skills, export a clean PDF — all in under 3 minutes a day.">
+<meta property="og:title" content="DBT Diary Card — Digital, Private, Therapist-Ready">
+<meta property="og:description" content="The paper card you know, now on your iPhone. No accounts. No cloud. Just your diary card, finally fixed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:     #4A9B8E;
+    --teal-lt:  #5CC4B4;
+    --teal-dk:  #2d6b62;
+    --gold:     #C9A84C;
+    --gold-lt:  #E8C86E;
+    --bg:       #090e0d;
+    --surface:  #101918;
+    --border:   #1e2f2c;
+    --text:     #e4efec;
+    --muted:    #6b8f89;
+    --serif:    'Instrument Serif', Georgia, serif;
+    --sans:     'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── Grain overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(9,14,13,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(74,155,142,0.1);
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-logo .leaf { font-size: 18px; }
+
+  .nav-badge {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--teal-lt);
+    background: rgba(74,155,142,0.1);
+    border: 1px solid rgba(74,155,142,0.25);
+    padding: 4px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+
+  /* Radial glow behind hero */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -60%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(ellipse, rgba(74,155,142,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .hero-eyebrow span {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(52px, 8vw, 88px);
+    line-height: 1.06;
+    color: var(--text);
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal-lt);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+  }
+
+  .hero-sub strong {
+    color: rgba(228,239,236,0.75);
+    font-weight: 500;
+  }
+
+  .cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--teal);
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 12px;
+    transition: all 0.2s;
+    letter-spacing: 0.2px;
+  }
+
+  .btn-primary:hover {
+    background: var(--teal-lt);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(74,155,142,0.3);
+  }
+
+  .btn-primary svg { width: 20px; height: 20px; fill: currentColor; }
+
+  .btn-sub {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* ── Card visual ── */
+  .card-visual {
+    margin: 80px auto 0;
+    max-width: 560px;
+    position: relative;
+  }
+
+  .paper-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .paper-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text);
+  }
+
+  .card-date {
+    font-size: 12px;
+    color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .card-row {
+    margin-bottom: 20px;
+  }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .emotion-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .emotion-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .emotion-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .dot-sad { background: #7BA7C4; }
+  .dot-anxious { background: #C4A87B; }
+  .dot-shame { background: #C47B7B; }
+  .dot-joy { background: #7DC4A8; }
+
+  .intensity-row {
+    display: flex;
+    gap: 6px;
+  }
+
+  .intensity-seg {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .intensity-seg.on { background: var(--teal); }
+  .intensity-seg.on.hi { background: #C47B7B; }
+
+  .skills-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .skill-chip {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  .chip-mind { background: rgba(74,155,142,0.15); color: var(--teal-lt); }
+  .chip-dist { background: rgba(196,120,122,0.15); color: #E0A0A0; }
+  .chip-emot { background: rgba(201,168,76,0.15); color: var(--gold-lt); }
+
+  .card-glow {
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(74,155,142,0.08), transparent);
+    pointer-events: none;
+  }
+
+  /* ── Feature strip ── */
+  .features {
+    padding: 100px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 48px);
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 64px;
+    line-height: 1.15;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .feature-cell {
+    background: var(--surface);
+    padding: 36px 32px;
+    transition: background 0.2s;
+  }
+
+  .feature-cell:hover { background: #141f1e; }
+
+  .feature-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .feature-cell h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  .feature-cell p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ── Therapist strip ── */
+  .therapist-strip {
+    padding: 80px 24px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .therapist-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .therapist-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .therapist-text h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .therapist-text h2 em { font-style: italic; color: var(--gold-lt); }
+
+  .therapist-text p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .pdf-mock {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    font-size: 11px;
+    position: relative;
+  }
+
+  .pdf-mock::before {
+    content: 'PDF Preview';
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: var(--surface);
+    padding: 0 8px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .pdf-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: rgba(228,239,236,0.6);
+  }
+
+  .pdf-row:last-child { border-bottom: none; }
+
+  .pdf-val { color: var(--teal-lt); font-weight: 500; }
+
+  /* ── Privacy ── */
+  .privacy-section {
+    padding: 100px 24px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .privacy-section h2 {
+    font-family: var(--serif);
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .privacy-section p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .privacy-badges {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .priv-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(74,155,142,0.08);
+    border: 1px solid rgba(74,155,142,0.2);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--teal-lt);
+    font-weight: 500;
+  }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    padding: 120px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(74,155,142,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 60px);
+    margin-bottom: 16px;
+    color: var(--text);
+    font-weight: 400;
+    position: relative;
+  }
+
+  .final-cta h2 em { font-style: italic; color: var(--teal-lt); }
+
+  .final-cta p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 40px;
+    font-weight: 300;
+    position: relative;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  footer p { font-size: 13px; color: var(--muted); }
+
+  footer a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--teal-lt); }
+
+  .footer-links { display: flex; gap: 24px; }
+
+  /* ── Module dots ── */
+  .module-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .mdot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .mdot-mind { background: #4A9B8E; }
+  .mdot-inter { background: #9B8EC4; }
+  .mdot-emot { background: #D4A84B; }
+  .mdot-dist { background: #C47A6E; }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-inner > * {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-eyebrow { animation-delay: 0.05s; }
+  .hero h1      { animation-delay: 0.15s; }
+  .hero-sub     { animation-delay: 0.25s; }
+  .cta-group    { animation-delay: 0.35s; }
+  .card-visual  { animation-delay: 0.45s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span class="leaf">🍃</span> DBT Diary Daily</div>
+  <span class="nav-badge">DBT Diary Card</span>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow"><span></span> For iOS · iPhone & iPad <span></span></p>
+
+    <h1>Your DBT Diary Card,<br><em>Finally Digital.</em></h1>
+
+    <p class="hero-sub">
+      The paper card you fill out in therapy — now in your pocket.
+      <strong>Emotions, skills, behaviors, notes.</strong> All in under 3 minutes.
+      Export a clean PDF your therapist already knows how to read.
+    </p>
+
+    <div class="cta-group">
+      <a href="https://apps.apple.com/app/id6759234731" class="btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on the App Store
+      </a>
+      <span class="btn-sub">$4.99 one-time · No subscription · No account</span>
+    </div>
+
+    <!-- Diary card mockup -->
+    <div class="card-visual">
+      <div class="paper-card">
+        <div class="card-header">
+          <span class="card-title">DBT Diary Card</span>
+          <span class="card-date">Today</span>
+        </div>
+
+        <div class="card-row">
+          <div class="card-label">Emotions</div>
+          <div class="emotion-row">
+            <div class="emotion-pill"><span class="emotion-dot dot-sad"></span> Sadness · 2</div>
+            <div class="emotion-pill"><span class="emotion-dot dot-anxious"></span> Anxiety · 3</div>
+            <div class="emotion-pill"><span class="emotion-dot dot-joy"></span> Joy · 4</div>
+            <div class="emotion-pill"><span class="emotion-dot dot-shame"></span> Shame · 1</div>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card-label">Urges · Misery</div>
+          <div class="intensity-row">
+            <div class="intensity-seg on"></div>
+            <div class="intensity-seg on"></div>
+            <div class="intensity-seg on"></div>
+            <div class="intensity-seg"></div>
+            <div class="intensity-seg"></div>
+            <div class="intensity-seg"></div>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card-label">Skills Used</div>
+          <div class="skills-chips">
+            <span class="skill-chip chip-mind">Mindful Breathing</span>
+            <span class="skill-chip chip-dist">TIPP</span>
+            <span class="skill-chip chip-emot">Opposite Action</span>
+          </div>
+        </div>
+
+        <div class="card-glow"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Features ── -->
+<section class="features">
+  <p class="section-label">What's inside</p>
+  <h2 class="section-title">Every part of the real diary card.<br>Nothing extra.</h2>
+
+  <div class="feature-grid">
+    <div class="feature-cell">
+      <span class="feature-icon">📋</span>
+      <h3>The Real Format</h3>
+      <p>Built around the standard Linehan diary card — not a simplified version. Emotions, behaviors, skills, and notes in the same structure your therapist uses.</p>
+    </div>
+    <div class="feature-cell">
+      <span class="feature-icon">⚡</span>
+      <h3>Under 3 Minutes</h3>
+      <p>Segmented intensity controls instead of sliders. Collapsible sections. Auto-save. No submit button. Fill your card and close the app — it's done.</p>
+    </div>
+    <div class="feature-cell">
+      <span class="feature-icon">📄</span>
+      <h3>Therapist-Ready PDF</h3>
+      <p>Export your week as a clean landscape PDF — matching the paper card format your therapist already knows. Share by email, AirDrop, or Messages.</p>
+    </div>
+    <div class="feature-cell">
+      <span class="feature-icon">🔒</span>
+      <h3>Private by Design</h3>
+      <p>All data lives only on your device. No account, no cloud, no analytics. Face ID and Touch ID keep your diary yours alone.</p>
+    </div>
+    <div class="feature-cell">
+      <span class="feature-icon">📊</span>
+      <h3>Weekly Summary</h3>
+      <p>Charts for emotion trends, skill usage, and behavior patterns — across the full week. Arrive at therapy knowing what you want to talk about.</p>
+    </div>
+    <div class="feature-cell">
+      <span class="feature-icon">🎯</span>
+      <h3>All 30 DBT Skills</h3>
+      <p>Every skill across all four modules: Mindfulness, Distress Tolerance, Emotion Regulation, and Interpersonal Effectiveness. All included, none locked.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Therapist strip ── -->
+<section class="therapist-strip">
+  <div class="therapist-inner">
+    <div class="therapist-text">
+      <h2>The PDF your therapist<br>will <em>recognize.</em></h2>
+      <p>When you export, your therapist sees the same layout as the paper card they already use in session. No translation needed. Just your week, clearly presented.</p>
+    </div>
+    <div class="pdf-mock">
+      <div class="pdf-row"><span>Week of</span><span class="pdf-val">Dec 9–15</span></div>
+      <div class="pdf-row"><span>Avg Misery</span><span class="pdf-val">2.4 / 5</span></div>
+      <div class="pdf-row"><span>Skills Used</span><span class="pdf-val">14 entries</span></div>
+      <div class="pdf-row"><span>Target Behaviors</span><span class="pdf-val">All tracked</span></div>
+      <div class="pdf-row"><span>Export Format</span><span class="pdf-val">US Letter PDF</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Privacy ── -->
+<section class="privacy-section">
+  <h2>Zero data collection. Ever.</h2>
+  <p>Your diary contains your most private thoughts. DBT Diary Daily makes zero network calls. No servers see your data — not even ours. Your entries exist only on your device.</p>
+  <div class="privacy-badges">
+    <span class="priv-badge">🔒 Face ID + Touch ID</span>
+    <span class="priv-badge">📴 No network calls</span>
+    <span class="priv-badge">🚫 No account needed</span>
+    <span class="priv-badge">☁️ No cloud sync</span>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="final-cta">
+  <div class="module-dots">
+    <div class="mdot mdot-mind"></div>
+    <div class="mdot mdot-inter"></div>
+    <div class="mdot mdot-emot"></div>
+    <div class="mdot mdot-dist"></div>
+  </div>
+  <h2>Your diary card.<br><em>Finally fixed.</em></h2>
+  <p>$4.99 one-time purchase. No subscription. No account. Your data stays on your device.</p>
+  <a href="https://apps.apple.com/app/id6759234731" class="btn-primary">
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on the App Store
+  </a>
+</section>
+
+<footer>
+  <p>© 2025 DBT Diary Daily. All data stays on your device.</p>
+  <div class="footer-links">
+    <a href="../privacy.html">Privacy Policy</a>
+    <a href="../support.html">Support</a>
+    <a href="https://apps.apple.com/app/id6759234731">App Store</a>
+  </div>
+</footer>
+
+</body>
+</html>

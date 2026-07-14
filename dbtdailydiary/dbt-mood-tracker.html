@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DBT Mood Tracker App — DBT Diary Daily</title>
+<meta name="description" content="Track your emotions on the clinical DBT 0–5 scale. Name every feeling, rate its intensity, and bring real data to your next therapy session.">
+<meta property="og:title" content="DBT Mood Tracker — Name It. Rate It. Track It.">
+<meta property="og:description" content="The clinical emotion tracker built for DBT therapy. 0–5 intensity scale. Trend charts. Fully private — no cloud, no accounts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --violet:    #8B78C8;
+    --violet-lt: #B4A0E8;
+    --violet-dk: #4a3d78;
+    --teal:      #4A9B8E;
+    --rose:      #C47A7A;
+    --rose-lt:   #E0A4A4;
+    --gold:      #C9A84C;
+    --bg:        #0b090f;
+    --surface:   #13101a;
+    --surface2:  #18141f;
+    --border:    #231d2e;
+    --text:      #ede8f5;
+    --muted:     #6b6080;
+    --serif:     'Playfair Display', Georgia, serif;
+    --sans:      'Nunito', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* Soft noise */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Ambient violet glow top */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(139,120,200,0.08), transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(11,9,15,0.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(139,120,200,0.12);
+  }
+
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-pill {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--violet-lt);
+    background: rgba(139,120,200,0.12);
+    border: 1px solid rgba(139,120,200,0.25);
+    padding: 5px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 24px 80px;
+    text-align: center;
+  }
+
+  .hero-tag {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(50px, 8vw, 96px);
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -1.5px;
+    font-weight: 400;
+    max-width: 800px;
+  }
+
+  .hero h1 .accent { color: var(--violet-lt); font-style: italic; }
+  .hero h1 .accent2 { color: var(--rose-lt); }
+
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 520px;
+    margin: 24px auto 48px;
+  }
+
+  .hero-sub strong { color: rgba(237,232,245,0.7); font-weight: 500; }
+
+  /* Emotion wheel display */
+  .emotion-display {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+
+  .em-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px;
+    min-width: 110px;
+    text-align: left;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .em-card:hover { transform: translateY(-3px); }
+
+  .em-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(237,232,245,0.7);
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .em-bar-track {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .em-seg {
+    flex: 1;
+    height: 5px;
+    border-radius: 2.5px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .em-val {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* emotion-specific segment colors */
+  .em-card.sadness .em-seg.on   { background: #7BA7C4; }
+  .em-card.anxiety .em-seg.on   { background: #C4A87B; }
+  .em-card.anger   .em-seg.on   { background: #C47A7A; }
+  .em-card.shame   .em-seg.on   { background: #A87BC4; }
+  .em-card.joy     .em-seg.on   { background: #7DC4A8; }
+  .em-card.fear    .em-seg.on   { background: #C47B9B; }
+
+  .btn-dl {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--violet);
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 34px;
+    border-radius: 12px;
+    transition: all 0.2s;
+  }
+
+  .btn-dl:hover {
+    background: var(--violet-lt);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 44px rgba(139,120,200,0.3);
+  }
+
+  .btn-dl svg { width: 20px; height: 20px; fill: currentColor; }
+
+  .dl-note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ── Scale explainer ── */
+  .scale-section {
+    position: relative;
+    z-index: 1;
+    padding: 100px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .scale-eyebrow {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .scale-h {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 46px);
+    text-align: center;
+    color: var(--text);
+    font-weight: 400;
+    margin-bottom: 60px;
+    line-height: 1.2;
+  }
+
+  .scale-h em { font-style: italic; color: var(--violet-lt); }
+
+  .scale-visual {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+  }
+
+  .scale-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .scale-row:last-child { border-bottom: none; }
+
+  .scale-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--violet-lt);
+    width: 40px;
+    text-align: center;
+    flex-shrink: 0;
+    font-style: italic;
+  }
+
+  .scale-dots {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .sdot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .sdot.filled { background: var(--violet-lt); }
+  .sdot.empty  { background: rgba(255,255,255,0.08); }
+
+  .scale-desc {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .scale-desc strong { color: rgba(237,232,245,0.7); font-weight: 500; }
+
+  .scale-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── Trend section ── */
+  .trend-section {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 24px;
+  }
+
+  .trend-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  @media (max-width: 700px) {
+    .trend-inner { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  .trend-text h2 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 40px);
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .trend-text h2 em { font-style: italic; color: var(--rose-lt); }
+
+  .trend-text p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  /* Mini chart */
+  .mini-chart {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .chart-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 80px;
+    margin-bottom: 8px;
+  }
+
+  .chart-bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+
+  .chart-bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s;
+  }
+
+  .bar-sad    { background: rgba(123,167,196,0.6); }
+  .bar-anxious{ background: rgba(196,168,123,0.6); }
+  .bar-shame  { background: rgba(168,123,196,0.6); }
+  .bar-joy    { background: rgba(125,196,168,0.6); }
+
+  .chart-day {
+    font-size: 9px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ── Name your emotions ── */
+  .name-section {
+    position: relative;
+    z-index: 1;
+    padding: 100px 24px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .name-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(30px, 4vw, 44px);
+    color: var(--text);
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .name-section h2 em { font-style: italic; color: var(--violet-lt); }
+
+  .name-section p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  .emotion-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .eg-pill {
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+
+  .eg-sad   { background: rgba(123,167,196,0.1); color: #7BA7C4; border-color: rgba(123,167,196,0.2); }
+  .eg-anx   { background: rgba(196,168,123,0.1); color: #C4A87B; border-color: rgba(196,168,123,0.2); }
+  .eg-ang   { background: rgba(196,122,122,0.1); color: #C47A7A; border-color: rgba(196,122,122,0.2); }
+  .eg-sha   { background: rgba(168,123,196,0.1); color: #A87BC4; border-color: rgba(168,123,196,0.2); }
+  .eg-joy   { background: rgba(125,196,168,0.1); color: #7DC4A8; border-color: rgba(125,196,168,0.2); }
+  .eg-fear  { background: rgba(196,123,155,0.1); color: #C47B9B; border-color: rgba(196,123,155,0.2); }
+  .eg-guilt { background: rgba(196,168,123,0.1); color: #C4A87B; border-color: rgba(196,168,123,0.2); }
+  .eg-love  { background: rgba(196,122,122,0.1); color: #E0A4A4; border-color: rgba(196,122,122,0.2); }
+  .eg-cust  { background: rgba(139,120,200,0.1); color: var(--violet-lt); border-color: rgba(139,120,200,0.2); }
+
+  /* ── Privacy strip ── */
+  .privacy-strip {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .privacy-strip h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .privacy-strip p {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  .priv-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .priv-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--violet-lt);
+    background: rgba(139,120,200,0.08);
+    border: 1px solid rgba(139,120,200,0.18);
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  /* ── Final CTA ── */
+  .final-cta {
+    position: relative;
+    z-index: 1;
+    padding: 120px 24px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(139,120,200,0.09), transparent 65%);
+    pointer-events: none;
+  }
+
+  .final-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5vw, 64px);
+    color: var(--text);
+    font-weight: 400;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .final-cta h2 em { font-style: italic; color: var(--violet-lt); }
+
+  .final-cta p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer p { font-size: 13px; color: var(--muted); }
+
+  footer a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--violet-lt); }
+  .footer-links { display: flex; gap: 24px; }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag       { animation: fadeUp 0.6s ease both 0.05s; }
+  .hero h1        { animation: fadeUp 0.6s ease both 0.15s; }
+  .hero-sub       { animation: fadeUp 0.6s ease both 0.25s; }
+  .emotion-display { animation: fadeUp 0.7s ease both 0.3s; }
+  .btn-dl         { animation: fadeUp 0.6s ease both 0.4s; }
+  .dl-note        { animation: fadeUp 0.6s ease both 0.45s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">🍃 DBT Diary Daily</div>
+  <span class="nav-pill">DBT Mood Tracker</span>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <p class="hero-tag">For iPhone · Emotion Tracking</p>
+
+  <h1>Name it.<br><span class="accent">Rate it.</span><br><span class="accent2">Track it.</span></h1>
+
+  <p class="hero-sub">
+    The clinical DBT emotion tracking tool your therapist wants you to keep.
+    <strong>Rate each feeling on the 0–5 scale</strong> — daily, honestly, in under a minute.
+    Then watch what emerges week by week.
+  </p>
+
+  <!-- Live emotion display -->
+  <div class="emotion-display">
+    <div class="em-card sadness">
+      <div class="em-name">Sadness</div>
+      <div class="em-bar-track">
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+      </div>
+      <div class="em-val">2 / 5</div>
+    </div>
+
+    <div class="em-card anxiety">
+      <div class="em-name">Anxiety</div>
+      <div class="em-bar-track">
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg"></div>
+      </div>
+      <div class="em-val">4 / 5</div>
+    </div>
+
+    <div class="em-card shame">
+      <div class="em-name">Shame</div>
+      <div class="em-bar-track">
+        <div class="em-seg on"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+      </div>
+      <div class="em-val">1 / 5</div>
+    </div>
+
+    <div class="em-card joy">
+      <div class="em-name">Joy</div>
+      <div class="em-bar-track">
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+      </div>
+      <div class="em-val">3 / 5</div>
+    </div>
+
+    <div class="em-card anger">
+      <div class="em-name">Anger</div>
+      <div class="em-bar-track">
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+      </div>
+      <div class="em-val">2 / 5</div>
+    </div>
+
+    <div class="em-card fear">
+      <div class="em-name">Fear</div>
+      <div class="em-bar-track">
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg on"></div>
+        <div class="em-seg"></div>
+        <div class="em-seg"></div>
+      </div>
+      <div class="em-val">3 / 5</div>
+    </div>
+  </div>
+
+  <a href="https://apps.apple.com/app/id6759234731" class="btn-dl">
+    <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on the App Store
+  </a>
+  <p class="dl-note">$4.99 one-time · No subscription · No account</p>
+</section>
+
+<!-- ── Scale explainer ── -->
+<section class="scale-section">
+  <p class="scale-eyebrow">The DBT Intensity Scale</p>
+  <h2 class="scale-h">Not just "how are you feeling."<br><em>How much.</em></h2>
+
+  <div class="scale-visual">
+    <div class="scale-row">
+      <span class="scale-num">0</span>
+      <div class="scale-dots">
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+      </div>
+      <span class="scale-desc"><strong>Not present.</strong> The emotion isn't there right now.</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-num">1</span>
+      <div class="scale-dots">
+        <div class="sdot filled"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+      </div>
+      <span class="scale-desc"><strong>Barely there.</strong> You notice it but it's not affecting you much.</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-num">2</span>
+      <div class="scale-dots">
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+      </div>
+      <span class="scale-desc"><strong>Mild.</strong> Present but manageable without effort.</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-num">3</span>
+      <div class="scale-dots">
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot empty"></div>
+        <div class="sdot empty"></div>
+      </div>
+      <span class="scale-desc"><strong>Moderate.</strong> Noticeable, requires some attention to manage.</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-num">4</span>
+      <div class="scale-dots">
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot empty"></div>
+      </div>
+      <span class="scale-desc"><strong>Intense.</strong> Affecting your behavior, hard to redirect.</span>
+    </div>
+    <div class="scale-row">
+      <span class="scale-num">5</span>
+      <div class="scale-dots">
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+        <div class="sdot filled"></div>
+      </div>
+      <span class="scale-desc"><strong>Overwhelming.</strong> The most intense this emotion gets.</span>
+    </div>
+  </div>
+
+  <p class="scale-note">This is the scale your therapist uses. Tracking it daily — not just "remembering" how you felt — is what makes the data useful in session.</p>
+</section>
+
+<!-- ── Trend section ── -->
+<section class="trend-section">
+  <div class="trend-inner">
+    <div class="trend-text">
+      <h2>See which emotions are<br><em>actually running the week.</em></h2>
+      <p>Memory is unreliable. We forget the hard days when things improve, and forget the good moments when we're struggling. Daily ratings create a record that doesn't depend on recall.</p>
+      <p>The weekly chart shows you and your therapist exactly what the week looked like — which emotions spiked, which stayed low, and what coincided with what.</p>
+    </div>
+
+    <div class="mini-chart">
+      <div class="chart-label">Week · Emotion Trends</div>
+      <div class="chart-bars">
+        <div class="chart-bar-col">
+          <div class="chart-bar bar-sad"    style="height:40%"></div>
+          <div class="chart-day">M</div>
+        </div>
+        <div class="chart-bar-col">
+          <div class="chart-bar bar-anxious" style="height:80%"></div>
+          <div class="chart-day">T</div>
+        </div>
+        <div class="chart-bar-col">
+          <div class="chart-bar bar-sad"    style="height:60%"></div>
+          <div class="chart-day">W</div>
+        </div>
+        <div class="chart-bar-col">
+          <div class="chart-bar bar-joy"    style="height:70%"></div>
+          <div class="chart-day">T</div>
+        </div>
+        <div class="chart-bar-col">
+          <div class="chart-bar bar-anxious" style="height:50%"></div>
+          <div class="chart-day">F</div>
+        </div>
+        <div class="chart-bar-col">
+          <div class="chart-bar bar-joy"    style="height:90%"></div>
+          <div class="chart-day">S</div>
+        </div>
+        <div class="chart-bar-col">
+          <div class="chart-bar bar-sad"    style="height:30%"></div>
+          <div class="chart-day">S</div>
+        </div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#7BA7C4"></div>Sadness</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#C4A87B"></div>Anxiety</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7DC4A8"></div>Joy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Name your emotions ── -->
+<section class="name-section">
+  <h2>"Name it to<br><em>tame it."</em></h2>
+  <p>DBT Diary Daily includes the standard emotion set your therapist will recognize — plus custom labels for anything specific to you. You're not limited to someone else's list.</p>
+
+  <div class="emotion-gallery">
+    <span class="eg-pill eg-sad">Sadness</span>
+    <span class="eg-pill eg-anx">Anxiety</span>
+    <span class="eg-pill eg-ang">Anger</span>
+    <span class="eg-pill eg-sha">Shame</span>
+    <span class="eg-pill eg-joy">Joy</span>
+    <span class="eg-pill eg-fear">Fear</span>
+    <span class="eg-pill eg-guilt">Guilt</span>
+    <span class="eg-pill eg-love">Love</span>
+    <span class="eg-pill eg-anx">Disgust</span>
+    <span class="eg-pill eg-sha">Envy</span>
+    <span class="eg-pill eg-joy">Contentment</span>
+    <span class="eg-pill eg-cust">+ Your custom emotions</span>
+  </div>
+</section>
+
+<!-- ── Privacy ── -->
+<section class="privacy-strip">
+  <h2>Your feelings are private.</h2>
+  <p>DBT Diary Daily stores everything on your device. No servers, no accounts, no analytics. Face ID locks it. Nothing leaves your phone unless you send the PDF yourself.</p>
+  <div class="priv-row">
+    <span class="priv-tag">🔒 Face ID &amp; Touch ID</span>
+    <span class="priv-tag">📴 Zero network calls</span>
+    <span class="priv-tag">🚫 No accounts</span>
+    <span class="priv-tag">☁️ No cloud storage</span>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="final-cta">
+  <h2>Start tracking today.<br><em>See the pattern.</em></h2>
+  <p>$4.99 one-time purchase. No subscription. No account. Your data stays on your device.</p>
+  <a href="https://apps.apple.com/app/id6759234731" class="btn-dl" style="display:inline-flex;">
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on the App Store
+  </a>
+</section>
+
+<footer>
+  <p>© 2025 DBT Diary Daily. Your data never leaves your device.</p>
+  <div class="footer-links">
+    <a href="../privacy.html">Privacy Policy</a>
+    <a href="../support.html">Support</a>
+    <a href="https://apps.apple.com/app/id6759234731">App Store</a>
+  </div>
+</footer>
+
+</body>
+</html>
