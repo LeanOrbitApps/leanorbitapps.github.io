@@ -49,7 +49,7 @@ DBT Diary Daily is a straightforward replacement. It follows the same four-secti
 
 ## Download
 
-**[$4.99 — one-time purchase on the App Store](https://apps.apple.com/app/id6759234731)**
+**[On the App Store](https://apps.apple.com/app/id6759234731)**
 
 No subscription. No account required. Works entirely offline.
 
