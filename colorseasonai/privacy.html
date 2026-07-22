@@ -67,7 +67,7 @@
   </nav>
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Color Season Analysis AI (iOS) · Effective July 12, 2026</p>
+  <p class="meta">Color Season Analysis AI (iOS) · Effective July 22, 2026</p>
 
   <div class="summary">
     <strong>The short version</strong>
@@ -100,6 +100,17 @@
   </ol>
   <p>Per <a href="https://openai.com/policies/api-data-usage-policies" rel="noopener">OpenAI's API data usage policy</a>, content sent through the API is <strong>not used to train their models</strong> and may be retained for up to 30 days solely for abuse monitoring before deletion.</p>
   <p>The "Draping Reveal" feature (your selfie shown against different colors) is processed <strong>entirely on your device</strong> — those images never leave your phone unless you choose to share them.</p>
+
+  <h2 id="face-data">Face data</h2>
+  <p>The selfie you submit contains an image of your face, so we want to be exact about how it is handled:</p>
+  <ul>
+    <li><strong>What is collected:</strong> the photo itself — nothing more. The app does not extract, generate, or store facial geometry, faceprints, facial measurements, or any biometric identifier, and the photo is never used to identify you or anyone else.</li>
+    <li><strong>How it is used:</strong> for one purpose only — estimating your seasonal color palette from visible characteristics (skin undertone, hair color, eye color, and overall contrast). It is not used for advertising, profiling, identification, or any other purpose.</li>
+    <li><strong>Consent:</strong> the app explains what will be sent and asks for your explicit consent before your first analysis. A photo is only ever transmitted when you actively start an analysis.</li>
+    <li><strong>Sharing:</strong> to run the analysis, the photo is transmitted over an encrypted connection (HTTPS) through our Cloudflare relay to OpenAI, which performs the analysis. It is shared with no other party, and never sold.</li>
+    <li><strong>Storage:</strong> we operate no server that stores photos. Our relay forwards the request without saving it, writing it to a database, or logging its contents. The only stored copy is the one kept on your own device for the Draping Reveal feature, in the app's private storage.</li>
+    <li><strong>Retention and deletion:</strong> we retain no copy of your photo. OpenAI may retain API content for up to 30 days solely for abuse monitoring, after which it is deleted, and API content is not used to train OpenAI's models (see <a href="https://openai.com/policies/api-data-usage-policies" rel="noopener">OpenAI's API data usage policy</a>). The on-device copy remains until you replace it with a new analysis, clear it, or delete the app.</li>
+  </ul>
 
   <h2>What stays on your device</h2>
   <ul>
