@@ -3,226 +3,379 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lean Orbit — Small software, in quiet orbit around your day.</title>
-  <meta name="description" content="Lean Orbit is an independent iOS studio building lean, quietly intelligent apps that respect your privacy. No accounts. No tracking. One-time purchase." />
-  <meta name="theme-color" content="#FAF8F4" />
+  <title>Lean Orbit — Small, quietly intelligent iOS apps</title>
+  <meta name="description" content="Lean Orbit is an independent iOS studio building small, focused apps that use AI where it earns its place and keep your data on your device wherever it can." />
+  <meta name="theme-color" content="#08090D" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#FBFBFD" media="(prefers-color-scheme: light)" />
+  <link rel="canonical" href="https://www.leanorbit.app/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- Social -->
-  <meta property="og:title" content="Lean Orbit — Quiet, private iOS apps" />
-  <meta property="og:description" content="Lean iOS apps that are quietly intelligent and stay on your device." />
+  <meta property="og:title" content="Lean Orbit — Small, quietly intelligent iOS apps" />
+  <meta property="og:description" content="An independent iOS studio. Small apps, built one at a time, that respect your attention and your data." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.leanorbit.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,30..100,0..1;1,9..144,300..600,30..100,0..1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Set the theme before first paint to avoid a flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lo-theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
 
-  <!-- ============================ NAV ============================ -->
-  <header class="nav" role="banner">
-    <div class="nav__inner">
-      <a class="brand" href="/" aria-label="Lean Orbit — home">
-        <svg class="brand__mark" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-          <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
-          <circle cx="12" cy="12" r="2"  fill="currentColor"/>
-        </svg>
-        <span class="brand__name">Lean <strong>Orbit</strong></span>
-      </a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <line x1="4" y1="8"  x2="20" y2="8"/>
-          <line x1="4" y1="16" x2="20" y2="16"/>
+  <!-- ============================ NAV ============================ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="./" aria-label="Lean Orbit — home">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse class="ring-o" cx="16" cy="16" rx="14" ry="8" fill="none" stroke="currentColor" stroke-width="1.2" transform="rotate(-28 16 16)"/>
+          <circle class="ring-i" cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <circle class="core" cx="16" cy="16" r="3.2"/>
+          <circle class="sat" cx="28.3" cy="10.2" r="2"/>
         </svg>
-      </button>
+        <span class="brand__name">Lean <span>Orbit</span></span>
+      </a>
 
       <nav aria-label="Primary">
         <ul id="nav-menu" class="nav__links">
-          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="./" aria-current="page">Home</a></li>
           <li><a href="products.html">Apps</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="mailto:support@leanorbit.app">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        </button>
+
+        <button class="icon-btn nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 8h16M4 16h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ============================ HERO ============================ -->
     <section class="hero">
+      <div class="aurora" aria-hidden="true"></div>
+      <div class="grid-field" aria-hidden="true"></div>
+
       <div class="container">
         <div class="hero__grid">
           <div class="hero__copy">
             <span class="eyebrow hero__eyebrow reveal">Independent iOS studio</span>
-            <h1 class="h-display hero__title reveal">
-              Small software, in <em>quiet orbit</em> around your day.
+
+            <h1 class="h-hero hero__title reveal">
+              Small software, in <span class="accent-serif">quiet orbit</span> around your day.
             </h1>
+
             <p class="lede hero__lede reveal">
-              Lean Orbit builds focused iOS apps for people who want their tools
-              intelligent, intentional, and entirely their own.
+              Nine apps, built one at a time, for people who want their tools
+              focused, quietly intelligent, and entirely their own.
             </p>
+
             <div class="hero__cta reveal">
-              <a class="btn" href="products.html">
-                See the apps
+              <a class="btn btn--primary" href="products.html">
+                Browse the apps
                 <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
-              <a class="btn btn--ghost" href="about.html">Our philosophy</a>
+              <a class="btn btn--ghost" href="about.html">How we build</a>
+            </div>
+
+            <div class="hero__proof reveal">
+              <span>7 live on the App Store</span>
+              <span>2 in review</span>
+              <span>No ads, ever</span>
             </div>
           </div>
 
-          <div class="hero__visual" aria-hidden="true">
-            <svg class="orbit" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <!-- outermost faint ring -->
-              <circle cx="50" cy="50" r="46" class="orbit__ring orbit__ring--faint"/>
+          <div class="hero__visual reveal" aria-hidden="true">
+            <div class="orbit">
+              <div class="orbit__glow"></div>
 
-              <!-- ring 3 (outer) -->
-              <g class="orbit__spinner-3">
-                <circle cx="50" cy="50" r="38" class="orbit__ring"/>
-                <circle cx="88" cy="50" r="1.1" class="orbit__dot"/>
-              </g>
+              <svg class="orbit__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle class="orbit__ring orbit__ring--dashed" cx="50" cy="50" r="47"/>
 
-              <!-- ring 2 (mid) -->
-              <g class="orbit__spinner-2">
-                <circle cx="50" cy="50" r="25" class="orbit__ring"/>
-                <circle cx="25" cy="50" r="1.4" class="orbit__dot orbit__dot--clay"/>
-              </g>
+                <g class="orbit__spin-3">
+                  <circle class="orbit__ring" cx="50" cy="50" r="38"/>
+                  <circle class="orbit__dot" cx="88" cy="50" r="1.3"/>
+                </g>
 
-              <!-- ring 1 (inner) -->
-              <g class="orbit__spinner-1">
-                <circle cx="50" cy="50" r="12" class="orbit__ring"/>
-                <circle cx="62" cy="50" r="0.9" class="orbit__dot"/>
-              </g>
+                <g class="orbit__spin-2">
+                  <circle class="orbit__ring" cx="50" cy="50" r="27"/>
+                  <circle class="orbit__dot orbit__dot--violet" cx="23" cy="50" r="1.5"/>
+                </g>
 
-              <!-- core -->
-              <circle cx="50" cy="50" r="1.8" class="orbit__core"/>
-            </svg>
+                <g class="orbit__spin-1">
+                  <circle class="orbit__ring orbit__ring--dashed" cx="50" cy="50" r="15"/>
+                  <circle class="orbit__dot orbit__dot--clay" cx="65" cy="50" r="1.1"/>
+                </g>
+
+                <circle class="orbit__core-glow" cx="50" cy="50" r="7"/>
+                <circle class="orbit__core" cx="50" cy="50" r="2.4"/>
+              </svg>
+
+              <div class="orbit__sat orbit__sat--a"><img src="assets/icons/wattdo.png" alt="" width="256" height="256" loading="lazy" /></div>
+              <div class="orbit__sat orbit__sat--b"><img src="assets/icons/loxit.png" alt="" width="256" height="256" loading="lazy" /></div>
+              <div class="orbit__sat orbit__sat--c"><img src="assets/icons/ember.png" alt="" width="256" height="256" loading="lazy" /></div>
+              <div class="orbit__sat orbit__sat--d"><img src="assets/icons/vault.png" alt="" width="256" height="256" loading="lazy" /></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================ PILLARS ============================ -->
+    <!-- ============================ PRINCIPLES ============================ -->
     <section class="section" id="principles">
       <div class="container">
-        <div class="section-header reveal">
-          <h2>Three rules. We hold them like gravity.</h2>
-          <p class="section-header__meta">
-            Every feature, every line of code, every release decision passes
-            through these three checks before it ships.
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">The brief</span>
+            <h2 class="section-head__title">Three rules. We hold them like gravity.</h2>
+          </div>
+          <p class="section-head__meta">
+            Every feature, every release, every "should we ship this" argument
+            gets checked against these three before it goes out.
           </p>
         </div>
 
-        <div class="pillars">
-          <article class="pillar reveal">
-            <div class="pillar__num">01 — Lean</div>
+        <div class="principles reveal-group">
+          <article class="principle reveal" style="--i:0">
+            <div class="principle__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2 4.5 13.5H11l-1 8.5 9-11.5h-6.5z"/>
+              </svg>
+            </div>
+            <div class="principle__num">01 — Lean</div>
             <h3>Every feature earns its place.</h3>
             <p>
-              No bloat. No upsells. No dark patterns. Apps that load fast, stay
-              small, and respect the seconds of your day.
+              Most of our apps are under 3 MB. They open instantly, do the one
+              thing you came for, and get out of the way. No bloat, no upsell
+              carousel, no dark patterns.
             </p>
           </article>
 
-          <article class="pillar reveal">
-            <div class="pillar__num">02 — Intelligent</div>
-            <h3>AI shows up where it actually helps.</h3>
+          <article class="principle reveal" style="--i:1">
+            <div class="principle__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3a4.5 4.5 0 0 0-4.5 4.5v.3A3.7 3.7 0 0 0 5 11.2a3.7 3.7 0 0 0 2.5 3.5v.3A4.5 4.5 0 0 0 12 19.5z"/>
+                <path d="M12 3a4.5 4.5 0 0 1 4.5 4.5v.3A3.7 3.7 0 0 1 19 11.2a3.7 3.7 0 0 1-2.5 3.5v.3A4.5 4.5 0 0 1 12 19.5z"/>
+                <path d="M12 19.5V21"/>
+              </svg>
+            </div>
+            <div class="principle__num">02 — Intelligent</div>
+            <h3>AI where it actually helps.</h3>
             <p>
-              Quietly in the background — to summarize, surface, suggest.
-              Never demanding your attention or pretending to be your friend.
+              On-device OCR that reads a brokerage screenshot. Feedback that
+              scores an interview answer. Useful work in the background —
+              never a chatbot pretending to be your friend.
             </p>
           </article>
 
-          <article class="pillar reveal">
-            <div class="pillar__num">03 — Private</div>
-            <h3>Your data stays on your device.</h3>
+          <article class="principle reveal" style="--i:2">
+            <div class="principle__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3 4.5 6v6c0 4.4 3.1 8.2 7.5 9 4.4-.8 7.5-4.6 7.5-9V6z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <div class="principle__num">03 — Private</div>
+            <h3>On-device unless we say otherwise.</h3>
             <p>
-              We don't collect it, sell it, or send it anywhere. No accounts
-              required. No analytics watching. No telling.
+              No ads, no trackers, no behavioural analytics. Most apps need no
+              account at all. When one does talk to a server, we say so plainly
+              — in the app and on the listing.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============================ FEATURED APP ============================ -->
+    <!-- ============================ STATS ============================ -->
+    <section class="section section--tight section--stack">
+      <div class="container">
+        <div class="stats reveal">
+          <div class="stat">
+            <div class="stat__num">9</div>
+            <div class="stat__label">Apps shipped<br />or in review</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">&lt;3<span style="font-size:0.5em"> MB</span></div>
+            <div class="stat__label">Typical<br />download size</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">0</div>
+            <div class="stat__label">Ads and<br />trackers</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">1</div>
+            <div class="stat__label">Person reading<br />your email</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURED ============================ -->
     <section class="section" id="featured">
       <div class="container">
-        <div class="section-header reveal">
-          <h2>Now in orbit.</h2>
-          <p class="section-header__meta">
-            A taste of what we've shipped. The full ten live on the
-            <a href="products.html" style="text-decoration: underline; text-decoration-color: var(--color-clay); text-underline-offset: 4px;">apps</a> page.
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Now in orbit</span>
+            <h2 class="section-head__title">A few of the nine.</h2>
+          </div>
+          <p class="section-head__meta">
+            The whole catalogue — productivity, inner work, business and
+            learning — lives on the
+            <a class="inline-link" href="products.html">apps page</a>.
           </p>
         </div>
 
-        <div class="apps">
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">W</div>
-            <h3 class="app-card__name">Wattdo</h3>
-            <p class="app-card__tagline">An energy-based to-do list. Match the task to the energy you actually have.</p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iOS</span>
-              <span class="app-card__tag">One-time purchase</span>
-              <span class="app-card__tag">No accounts</span>
+        <div class="apps apps--featured reveal-group">
+
+          <article class="app-card reveal" style="--i:0">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/wattdo.png" alt="Wattdo app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
             </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6758806733" target="_blank" rel="noopener">
-                View on App Store
+            <h3 class="app-card__name">Wattdo</h3>
+            <div class="app-card__kicker">Energy-based to-do · Productivity</div>
+            <p class="app-card__tagline">
+              One honest tap each morning tells Wattdo how much energy you have.
+              Your list reshapes itself around the day you're actually having.
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">One-time</span>
+              <span class="tag">No account</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__price">$0.99</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/wattdo-energy-based-to-do/id6758806733" target="_blank" rel="noopener">
+                App Store
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
             </div>
           </article>
 
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">E</div>
-            <h3 class="app-card__name">Shadow Work — Ember</h3>
-            <p class="app-card__tagline">A shadow-work journal with 370 Jungian prompts and a deliberate burn mode. Your writing stays on your device — no cloud, no AI watching, no account.</p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">One-time purchase</span>
-              <span class="app-card__tag">On-device</span>
+          <article class="app-card reveal" style="--i:1">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/ember.png" alt="Shadow Work — Ember app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
             </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6762090343" target="_blank" rel="noopener">
-                View on App Store
+            <h3 class="app-card__name">Shadow Work — Ember</h3>
+            <div class="app-card__kicker">Journal · Lifestyle</div>
+            <p class="app-card__tagline">
+              One Jungian prompt each morning, written for the part of you that
+              stays quiet. When you're done, Ember asks the question other
+              journals won't: keep it, or burn it?
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">One-time</span>
+              <span class="tag">On-device</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__price">$2.99</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/shadow-work-ember/id6762090343" target="_blank" rel="noopener">
+                App Store
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
             </div>
           </article>
+
+          <article class="app-card reveal" style="--i:2">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/vault.png" alt="Trading Journal: Vault app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
+            <h3 class="app-card__name">Trading Journal: Vault</h3>
+            <div class="app-card__kicker">Trade log · Finance</div>
+            <p class="app-card__tagline">
+              Point the camera at a fill confirmation and on-device OCR pulls
+              the ticker, price and size. Then tag the emotion behind it and
+              watch the pattern show up on the calendar.
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">On-device OCR</span>
+              <span class="tag">One-time</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__price">$3.99</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/trading-journal-vault/id6761550736" target="_blank" rel="noopener">
+                App Store
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- ============================ CTA BAND ============================ -->
-    <section class="cta-band">
+    <!-- ============================ CTA ============================ -->
+    <section class="cta">
+      <div class="aurora aurora--soft" aria-hidden="true"></div>
       <div class="container">
-        <span class="eyebrow reveal" style="margin-bottom: 1rem;">A note from the studio</span>
+        <span class="eyebrow reveal">A note from the studio</span>
         <h2 class="reveal">
-          We'd rather make <em style="font-style:italic;color:var(--color-clay);font-variation-settings:'opsz' 100,'SOFT' 100,'WONK' 1;">five small things</em> people love than one big thing that demands their day.
+          We'd rather make nine small things people keep than
+          <span class="accent-serif">one big thing</span> that eats their day.
         </h2>
         <p class="reveal">
-          That's the whole brief. If it lands, you'll probably like what we ship next.
+          That's the whole brief. If it lands, you'll probably like what we
+          ship next.
         </p>
-        <div class="reveal">
-          <a class="btn" href="about.html">
-            Read the philosophy
+        <div class="cta__actions reveal">
+          <a class="btn btn--primary" href="products.html">
+            See all nine apps
             <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
+          <a class="btn btn--ghost" href="about.html">Read the philosophy</a>
         </div>
       </div>
     </section>
@@ -233,32 +386,37 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__brand">
-          <a class="brand" href="/" aria-label="Lean Orbit — home">
-            <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
-              <circle cx="12" cy="12" r="2"  fill="currentColor"/>
+        <div>
+          <a class="brand" href="./" aria-label="Lean Orbit — home">
+            <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+              <ellipse class="ring-o" cx="16" cy="16" rx="14" ry="8" fill="none" stroke="currentColor" stroke-width="1.2" transform="rotate(-28 16 16)"/>
+              <circle class="ring-i" cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <circle class="core" cx="16" cy="16" r="3.2"/>
+              <circle class="sat" cx="28.3" cy="10.2" r="2"/>
             </svg>
-            <span class="brand__name">Lean <strong>Orbit</strong></span>
+            <span class="brand__name">Lean <span>Orbit</span></span>
           </a>
-          <p>Independent iOS studio. Small apps, quietly intelligent. Made with care in the Pacific Northwest.</p>
+          <p class="footer__blurb">
+            An independent iOS studio. Small apps, quietly intelligent, made
+            with care in the Pacific Northwest.
+          </p>
         </div>
 
         <div class="footer__cols">
           <div class="footer__col">
             <h4>Studio</h4>
             <ul>
-              <li><a href="about.html">About</a></li>
               <li><a href="products.html">Apps</a></li>
+              <li><a href="about.html">About</a></li>
               <li><a href="mailto:support@leanorbit.app">Contact</a></li>
             </ul>
           </div>
           <div class="footer__col">
-            <h4>Legal</h4>
+            <h4>Support</h4>
             <ul>
+              <li><a href="mailto:support@leanorbit.app?subject=Support">Get help</a></li>
               <li><a href="mailto:support@leanorbit.app?subject=Privacy">Privacy</a></li>
-              <li><a href="mailto:support@leanorbit.app?subject=Support">Support</a></li>
+              <li><a href="https://apps.apple.com/us/developer/raymond-laghaeian/id1742356045" target="_blank" rel="noopener">App Store</a></li>
             </ul>
           </div>
         </div>
@@ -266,7 +424,7 @@
 
       <div class="footer__bottom">
         <span>© <span data-year>2026</span> Lean Orbit LLC</span>
-        <span>support@leanorbit.app</span>
+        <span><a href="mailto:support@leanorbit.app">support@leanorbit.app</a></span>
       </div>
     </div>
   </footer>

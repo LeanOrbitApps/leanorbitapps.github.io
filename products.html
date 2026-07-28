@@ -4,385 +4,429 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apps — Lean Orbit</title>
-  <meta name="description" content="The apps from Lean Orbit. Focused, private iOS apps you can buy once and own — for your day, your interior life, your ledger, and your curiosity." />
-  <meta name="theme-color" content="#FAF8F4" />
+  <meta name="description" content="Every app from Lean Orbit: focused iOS apps for your day, your inner life, your work and your curiosity. Seven live on the App Store, two in review." />
+  <meta name="theme-color" content="#08090D" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#FBFBFD" media="(prefers-color-scheme: light)" />
+  <link rel="canonical" href="https://www.leanorbit.app/products.html" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:title" content="Apps — Lean Orbit" />
+  <meta property="og:description" content="Nine focused iOS apps. Buy once where it's honest to. Your data stays on your device wherever it can." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.leanorbit.app/products.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,30..100,0..1;1,9..144,300..600,30..100,0..1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;450;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lo-theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
 
-  <header class="nav" role="banner">
-    <div class="nav__inner">
-      <a class="brand" href="/" aria-label="Lean Orbit — home">
-        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-          <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
-          <circle cx="12" cy="12" r="2"  fill="currentColor"/>
-        </svg>
-        <span class="brand__name">Lean <strong>Orbit</strong></span>
-      </a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <line x1="4" y1="8"  x2="20" y2="8"/>
-          <line x1="4" y1="16" x2="20" y2="16"/>
+  <!-- ============================ NAV ============================ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="./" aria-label="Lean Orbit — home">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <ellipse class="ring-o" cx="16" cy="16" rx="14" ry="8" fill="none" stroke="currentColor" stroke-width="1.2" transform="rotate(-28 16 16)"/>
+          <circle class="ring-i" cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <circle class="core" cx="16" cy="16" r="3.2"/>
+          <circle class="sat" cx="28.3" cy="10.2" r="2"/>
         </svg>
-      </button>
+        <span class="brand__name">Lean <span>Orbit</span></span>
+      </a>
 
       <nav aria-label="Primary">
         <ul id="nav-menu" class="nav__links">
-          <li><a href="/">Home</a></li>
+          <li><a href="./">Home</a></li>
           <li><a href="products.html" aria-current="page">Apps</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="mailto:support@leanorbit.app">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        </button>
+
+        <button class="icon-btn nav__toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 8h16M4 16h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
-    <!-- ============================ PAGE HEADER ============================ -->
-    <section class="section section--tight">
-      <div class="container">
-        <span class="eyebrow reveal">The apps</span>
-        <h1 class="h-page reveal" style="margin-top: var(--space-3);">
-          A small <em>pipeline</em> of focused things.
+    <!-- ============================ PAGE HEAD ============================ -->
+    <section class="section section--tight" style="position:relative; overflow:hidden;">
+      <div class="aurora aurora--soft" aria-hidden="true"></div>
+      <div class="container" style="position:relative; z-index:1;">
+        <span class="eyebrow reveal">The catalogue</span>
+        <h1 class="h-page reveal" style="margin: var(--s-4) 0 var(--s-5);">
+          Nine apps, <span class="accent-serif">four small worlds</span>.
         </h1>
-        <p class="lede reveal" style="max-width: 52ch;">
-          Ten apps, four small worlds. One-time purchase wherever it's honest.
-          Your data stays on your device unless the app is plainly told to do
-          otherwise.
+        <p class="lede reveal" style="max-width: 54ch;">
+          Seven are live on the App Store and two are in review. A one-time
+          purchase wherever that's the honest way to charge — and no ads or
+          trackers in any of them.
         </p>
       </div>
     </section>
 
-    <!-- ============================ FOR YOUR DAY ============================ -->
-    <section class="section section--tight">
+    <!-- ============================ GRID ============================ -->
+    <section class="section section--flush-top">
       <div class="container">
-        <div class="section-header reveal">
-          <h2>For your day.</h2>
-          <p class="section-header__meta">
-            Tools for the working hours. Capture, plan, focus — without the
-            usual nags.
-          </p>
+
+        <div class="filters reveal" role="group" aria-label="Filter apps by category">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All nine</button>
+          <button class="filter" type="button" data-filter="day" aria-pressed="false">For your day</button>
+          <button class="filter" type="button" data-filter="inner" aria-pressed="false">Inner work</button>
+          <button class="filter" type="button" data-filter="work" aria-pressed="false">Work &amp; money</button>
+          <button class="filter" type="button" data-filter="curious" aria-pressed="false">Curiosity</button>
         </div>
 
-        <div class="apps">
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">W</div>
+        <div class="apps reveal-group">
+
+          <!-- ---------------- Wattdo ---------------- -->
+          <article class="app-card reveal" data-cat="day" style="--i:0">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/wattdo.png" alt="Wattdo app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
             <h3 class="app-card__name">Wattdo</h3>
+            <div class="app-card__kicker">Energy-based to-do · Productivity</div>
             <p class="app-card__tagline">
-              An energy-based to-do list. Match the task to the energy you
-              actually have — and stop fighting the day in front of you.
+              Every morning you tell Wattdo one thing: how much energy you have.
+              High, medium, low. Your list reshapes itself around that answer,
+              so a one-bolt afternoon stops looking like an accusation.
             </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">One-time purchase</span>
-              <span class="app-card__tag">On-device</span>
-              <span class="app-card__tag">No accounts</span>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">One-time</span>
+              <span class="tag">No account</span>
+              <span class="tag">1 MB</span>
             </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6758806733" target="_blank" rel="noopener">
-                View on App Store
+            <div class="app-card__foot">
+              <span class="app-card__price">$0.99</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/wattdo-energy-based-to-do/id6758806733" target="_blank" rel="noopener">
+                App Store
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
             </div>
           </article>
 
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">L</div>
+          <!-- ---------------- Loxit ---------------- -->
+          <article class="app-card reveal" data-cat="day" style="--i:1">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/loxit.png" alt="Loxit app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
             <h3 class="app-card__name">Loxit</h3>
+            <div class="app-card__kicker">Lock Screen sticky notes · Productivity</div>
             <p class="app-card__tagline">
-              A frictionless place for the thoughts crowding your head. Capture
-              from the lock screen, Control Center, or a long-press. No tags,
-              no folders, no fuss.
+              A place for the thought you'd otherwise lose. Capture from the
+              Lock Screen, from Control Center, or with a long-press on the
+              icon. No folders, no tags, no sign-up.
             </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">Lock Screen</span>
-              <span class="app-card__tag">One-time purchase</span>
-              <span class="app-card__tag">On-device</span>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">Lock Screen</span>
+              <span class="tag">One-time</span>
+              <span class="tag">No sync</span>
             </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6758485452" target="_blank" rel="noopener">
-                View on App Store
+            <div class="app-card__foot">
+              <span class="app-card__price">$0.99</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/lock-screen-sticky-notes-loxit/id6758485452" target="_blank" rel="noopener">
+                App Store
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
             </div>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <!-- ============================ FOR YOUR INTERIOR ============================ -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2>For your interior.</h2>
-          <p class="section-header__meta">
-            Quiet apps for the inner work. Private by design — your reflections
-            never leave your device.
-          </p>
-        </div>
-
-        <div class="apps">
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">E</div>
+          <!-- ---------------- Ember ---------------- -->
+          <article class="app-card reveal" data-cat="inner" style="--i:2">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/ember.png" alt="Shadow Work — Ember app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
             <h3 class="app-card__name">Shadow Work — Ember</h3>
+            <div class="app-card__kicker">Shadow-work journal · Lifestyle</div>
             <p class="app-card__tagline">
-              A shadow-work journal with 370 Jungian prompts and a deliberate
-              burn mode. No cloud, no AI watching, no account — just the work,
-              and the choice to keep it or let it go.
+              One Jungian prompt each morning — no feed, no dashboard, no
+              streak shaming you for a missed day. Write as long as you need,
+              then decide: keep it in the archive, or burn it.
             </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">One-time purchase</span>
-              <span class="app-card__tag">On-device</span>
-              <span class="app-card__tag">No accounts</span>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">One-time</span>
+              <span class="tag">On-device</span>
+              <span class="tag">No account</span>
             </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6762090343" target="_blank" rel="noopener">
-                View on App Store
+            <div class="app-card__foot">
+              <span class="app-card__price">$2.99</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/shadow-work-ember/id6762090343" target="_blank" rel="noopener">
+                App Store
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
             </div>
           </article>
 
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">D</div>
+          <!-- ---------------- DBT Diary Card ---------------- -->
+          <article class="app-card reveal" data-cat="inner" style="--i:3">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/dbt-diary-card.png" alt="DBT Diary Card &amp; Skill Tracker app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
             <h3 class="app-card__name">DBT Diary Card &amp; Skill Tracker</h3>
+            <div class="app-card__kicker">Therapy companion · Health &amp; Fitness</div>
             <p class="app-card__tagline">
-              A daily diary card built for people actually in the work. Face ID
-              locked, zero network calls, and a weekly summary you can walk
-              into session with.
+              The photocopied card on your therapist's desk, made daily and
+              portable. Log emotions, urges and skills, then walk into session
+              with a weekly summary instead of a blur.
             </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">Face ID</span>
-              <span class="app-card__tag">On-device</span>
-              <span class="app-card__tag">No accounts</span>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">Free</span>
+              <span class="tag">On-device</span>
+              <span class="tag">2 MB</span>
             </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6759234731" target="_blank" rel="noopener">
-                View on App Store
+            <div class="app-card__foot">
+              <span class="app-card__price">Free</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/dbt-diary-card-skill-tracker/id6759234731" target="_blank" rel="noopener">
+                App Store
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </a>
             </div>
           </article>
+
+          <!-- ---------------- Vault ---------------- -->
+          <article class="app-card reveal" data-cat="work" style="--i:4">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/vault.png" alt="Trading Journal: Vault app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
+            <h3 class="app-card__name">Trading Journal: Vault</h3>
+            <div class="app-card__kicker">Trade log · Finance</div>
+            <p class="app-card__tagline">
+              Point the camera at a fill confirmation and on-device AI pulls the
+              ticker, direction, price and quantity. Tag the emotion behind the
+              entry, and let the calendar show you the pattern.
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">On-device OCR</span>
+              <span class="tag">One-time</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__price">$3.99</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/trading-journal-vault/id6761550736" target="_blank" rel="noopener">
+                App Store
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ---------------- ReStocker ---------------- -->
+          <article class="app-card reveal" data-cat="work" style="--i:5">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/restocker.png" alt="Stockroom Inventory: ReStocker app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
+            <h3 class="app-card__name">Stockroom Inventory: ReStocker</h3>
+            <div class="app-card__kicker">Barcode inventory · Business</div>
+            <p class="app-card__tagline">
+              For the shelf that lies to you. Scan a barcode and the count
+              updates in seconds; when an item dips below your reorder level,
+              it's already on the list. Syncs across iPhone and iPad.
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone &amp; iPad</span>
+              <span class="tag">Free</span>
+              <span class="tag">Barcode scan</span>
+              <span class="tag">iCloud sync</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__price">Free</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/stockroom-inventory-restocker/id6779429905" target="_blank" rel="noopener">
+                App Store
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ---------------- PrepLine ---------------- -->
+          <article class="app-card reveal" data-cat="work" style="--i:6">
+            <div class="app-card__top">
+              <div class="app-card__icon">
+                <img src="assets/icons/prepline.png" alt="Interview Prep AI — PrepLine app icon" width="256" height="256" loading="lazy" />
+              </div>
+              <span class="badge badge--live">Live</span>
+            </div>
+            <h3 class="app-card__name">Interview Prep AI — PrepLine</h3>
+            <div class="app-card__kicker">Interview practice · Education</div>
+            <p class="app-card__tagline">
+              Paste the actual job description and PrepLine builds the
+              questions that role will ask. Answer out loud, get your response
+              scored on Situation, Task, Action and Result.
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">Free</span>
+              <span class="tag">STAR feedback</span>
+              <span class="tag">AI</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__price">Free</span>
+              <a class="app-card__link" href="https://apps.apple.com/us/app/interview-prep-ai-prepline/id6773124282" target="_blank" rel="noopener">
+                App Store
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4.5M10 2v5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ---------------- Color Season Analysis AI ---------------- -->
+          <article class="app-card reveal" data-cat="curious" style="--i:7">
+            <div class="app-card__top">
+              <div class="app-card__icon app-card__icon--placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="4"/>
+                  <circle cx="8.5" cy="9" r="1.6"/>
+                  <path d="m4 17 4.5-4.5L12 16l3-3 5 5"/>
+                </svg>
+              </div>
+              <span class="badge badge--pending">In review</span>
+            </div>
+            <h3 class="app-card__name">Color Season Analysis AI</h3>
+            <div class="app-card__kicker">Seasonal colour palette · Lifestyle</div>
+            <p class="app-card__tagline">
+              Seasonal colour analysis from a single photo — your undertone,
+              your contrast, and the palette that actually suits you. Version
+              2.0 is with App Review now.
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">Coming soon</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__soon">With App Review</span>
+              <a class="app-card__link" href="mailto:support@leanorbit.app?subject=Notify%20me%20about%20Color%20Season%20Analysis%20AI">
+                Notify me
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h7M6.5 3 9.5 6l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- ---------------- Leaf Identification ---------------- -->
+          <article class="app-card reveal" data-cat="curious" style="--i:8">
+            <div class="app-card__top">
+              <div class="app-card__icon app-card__icon--placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                </svg>
+              </div>
+              <span class="badge badge--pending">In review</span>
+            </div>
+            <h3 class="app-card__name">Leaf Identification — AI Scanner</h3>
+            <div class="app-card__kicker">Plant identification · Reference</div>
+            <p class="app-card__tagline">
+              Point your camera at a leaf and find out what you're standing
+              under. The first version is with App Review — this one hasn't
+              landed yet.
+            </p>
+            <div class="app-card__tags">
+              <span class="tag">iPhone</span>
+              <span class="tag">Coming soon</span>
+            </div>
+            <div class="app-card__foot">
+              <span class="app-card__soon">With App Review</span>
+              <a class="app-card__link" href="mailto:support@leanorbit.app?subject=Notify%20me%20about%20Leaf%20Identification">
+                Notify me
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6h7M6.5 3 9.5 6l-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
         </div>
+
+        <p class="apps__empty" hidden>No apps in that category yet.</p>
       </div>
     </section>
 
-    <!-- ============================ FOR THE LEDGER ============================ -->
-    <section class="section section--tight">
+    <!-- ============================ CTA ============================ -->
+    <section class="cta">
+      <div class="aurora aurora--soft" aria-hidden="true"></div>
       <div class="container">
-        <div class="section-header reveal">
-          <h2>For the ledger.</h2>
-          <p class="section-header__meta">
-            Money, receipts, and the discipline of looking at what actually
-            happened.
-          </p>
-        </div>
-
-        <div class="apps">
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">V</div>
-            <h3 class="app-card__name">Vault: Trading Journal</h3>
-            <p class="app-card__tagline">
-              A quiet trading journal for the self-reviewer. Track setups,
-              decisions, and patterns — all kept on your device, none of it
-              phoning home.
-            </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">One-time purchase</span>
-              <span class="app-card__tag">On-device</span>
-            </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6761550736" target="_blank" rel="noopener">
-                View on App Store
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">S</div>
-            <h3 class="app-card__name">SnapKeep: Receipt Organizer</h3>
-            <p class="app-card__tagline">
-              Snap, file, and find receipts again later. Built for field work,
-              reimbursements, and the shoebox you've been meaning to deal
-              with.
-            </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">Camera</span>
-              <span class="app-card__tag">Receipts</span>
-            </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6756738607" target="_blank" rel="noopener">
-                View on App Store
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ FOR CURIOSITY ============================ -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="section-header reveal">
-          <h2>For curiosity.</h2>
-          <p class="section-header__meta">
-            Small games and learning companions for travel, idle moments, and
-            the part of you that still wants to know things.
-          </p>
-        </div>
-
-        <div class="apps">
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">M</div>
-            <h3 class="app-card__name">MindSpark Academy</h3>
-            <p class="app-card__tagline">
-              A bright, fast-moving trivia game across every category you'd
-              expect — and a few you wouldn't. Clean rounds, no pestering, no
-              ads pretending to be questions.
-            </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">Game</span>
-              <span class="app-card__tag">Trivia</span>
-            </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6504156248" target="_blank" rel="noopener">
-                View on App Store
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">WM</div>
-            <h3 class="app-card__name">WordMaze Adventure</h3>
-            <p class="app-card__tagline">
-              A word search puzzle with a twist. Eight categories, multiple
-              modes, and the quiet satisfaction of finding the next word.
-            </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">Game</span>
-              <span class="app-card__tag">Word puzzle</span>
-            </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6730126771" target="_blank" rel="noopener">
-                View on App Store
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">FR</div>
-            <h3 class="app-card__name">TravelTalk for French</h3>
-            <p class="app-card__tagline">
-              A practical French companion for travelers. Offline-ready
-              phrases, native audio, and listening practice you can use the
-              day you land.
-            </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">Offline</span>
-              <span class="app-card__tag">Audio</span>
-              <span class="app-card__tag">Education</span>
-            </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6563149061" target="_blank" rel="noopener">
-                View on App Store
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-
-          <article class="app-card reveal">
-            <span class="app-card__status app-card__status--live">Live on the App Store</span>
-            <div class="app-card__icon" aria-hidden="true">ES</div>
-            <h3 class="app-card__name">TravelTalk for Spanish</h3>
-            <p class="app-card__tagline">
-              A practical Spanish companion for travelers. Offline-ready
-              phrases, native audio, and listening practice for real
-              conversations, not classroom drills.
-            </p>
-            <div class="app-card__meta">
-              <span class="app-card__tag">iPhone</span>
-              <span class="app-card__tag">Offline</span>
-              <span class="app-card__tag">Audio</span>
-              <span class="app-card__tag">Education</span>
-            </div>
-            <div class="app-card__cta">
-              <a class="app-card__link" href="https://apps.apple.com/app/id6538715464" target="_blank" rel="noopener">
-                View on App Store
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ CTA BAND ============================ -->
-    <section class="cta-band">
-      <div class="container">
-        <span class="eyebrow reveal" style="margin-bottom: 1rem;">For early users</span>
+        <span class="eyebrow reveal">For early users</span>
         <h2 class="reveal">
-          Want a quiet email when the next one ships?
+          Want a quiet email when the <span class="accent-serif">next one</span> ships?
         </h2>
         <p class="reveal">
-          Drop us a line. We'll add you to a short list — no newsletter, no
-          drip campaign, just a note when there's something worth sharing.
+          Drop us a line and we'll add you to a short list. No newsletter, no
+          drip campaign — just a note when there's something worth sharing.
         </p>
-        <div class="reveal">
-          <a class="btn" href="mailto:support@leanorbit.app?subject=Notify%20me%20when%20you%20ship">
+        <div class="cta__actions reveal">
+          <a class="btn btn--primary" href="mailto:support@leanorbit.app?subject=Notify%20me%20when%20you%20ship">
             Email the studio
             <svg class="btn__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
+          <a class="btn btn--ghost" href="https://apps.apple.com/us/developer/raymond-laghaeian/id1742356045" target="_blank" rel="noopener">All apps on the App Store</a>
         </div>
       </div>
     </section>
@@ -393,32 +437,37 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__brand">
-          <a class="brand" href="/" aria-label="Lean Orbit — home">
-            <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
-              <circle cx="12" cy="12" r="5"  fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
-              <circle cx="12" cy="12" r="2"  fill="currentColor"/>
+        <div>
+          <a class="brand" href="./" aria-label="Lean Orbit — home">
+            <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+              <ellipse class="ring-o" cx="16" cy="16" rx="14" ry="8" fill="none" stroke="currentColor" stroke-width="1.2" transform="rotate(-28 16 16)"/>
+              <circle class="ring-i" cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <circle class="core" cx="16" cy="16" r="3.2"/>
+              <circle class="sat" cx="28.3" cy="10.2" r="2"/>
             </svg>
-            <span class="brand__name">Lean <strong>Orbit</strong></span>
+            <span class="brand__name">Lean <span>Orbit</span></span>
           </a>
-          <p>Independent iOS studio. Small apps, quietly intelligent. Made with care in the Pacific Northwest.</p>
+          <p class="footer__blurb">
+            An independent iOS studio. Small apps, quietly intelligent, made
+            with care in the Pacific Northwest.
+          </p>
         </div>
 
         <div class="footer__cols">
           <div class="footer__col">
             <h4>Studio</h4>
             <ul>
-              <li><a href="about.html">About</a></li>
               <li><a href="products.html">Apps</a></li>
+              <li><a href="about.html">About</a></li>
               <li><a href="mailto:support@leanorbit.app">Contact</a></li>
             </ul>
           </div>
           <div class="footer__col">
-            <h4>Legal</h4>
+            <h4>Support</h4>
             <ul>
+              <li><a href="mailto:support@leanorbit.app?subject=Support">Get help</a></li>
               <li><a href="mailto:support@leanorbit.app?subject=Privacy">Privacy</a></li>
-              <li><a href="mailto:support@leanorbit.app?subject=Support">Support</a></li>
+              <li><a href="https://apps.apple.com/us/developer/raymond-laghaeian/id1742356045" target="_blank" rel="noopener">App Store</a></li>
             </ul>
           </div>
         </div>
@@ -426,7 +475,7 @@
 
       <div class="footer__bottom">
         <span>© <span data-year>2026</span> Lean Orbit LLC</span>
-        <span>support@leanorbit.app</span>
+        <span><a href="mailto:support@leanorbit.app">support@leanorbit.app</a></span>
       </div>
     </div>
   </footer>
