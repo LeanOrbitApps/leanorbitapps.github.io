@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Shadow Work Journal: Ember</title>
+    <meta name="description" content="Help and answers for Shadow Work Journal: Ember. One prompt a day. Burn what doesn't serve you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0b08;
+            --bg-elevated: #1a1410;
+            --border: #2a2520;
+            --border-hover: #3a332c;
+            --text: #F5F0E8;
+            --text-dim: #8A8078;
+            --text-dimmer: #5a5248;
+            --amber: #D4873F;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-weight: 300;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(ellipse 1600px 1000px at 50% -100px, rgba(42, 26, 14, 0.55) 0%, rgba(15, 11, 8, 0) 60%),
+                var(--bg);
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 32px 120px;
+        }
+
+        /* ─── Header ─── */
+        header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .ember-mark {
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 32px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 40%, #F5C98B 0%, var(--amber) 45%, #7a3d12 85%);
+            box-shadow:
+                0 0 40px rgba(212, 135, 63, 0.65),
+                0 0 80px rgba(212, 135, 63, 0.3);
+        }
+
+        .app-name {
+            font-size: 14px;
+            color: var(--amber);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 72px;
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.02;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        h1 .italic { font-style: italic; color: var(--amber); }
+
+        .tagline {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 22px;
+            color: var(--text-dim);
+            font-style: italic;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ─── Contact card (hero CTA) ─── */
+        .contact-card {
+            background: linear-gradient(180deg, var(--bg-elevated) 0%, rgba(26, 20, 16, 0.6) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px 36px;
+            text-align: center;
+            margin-bottom: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -80px; left: 50%;
+            transform: translateX(-50%);
+            width: 400px; height: 120px;
+            background: radial-gradient(ellipse, rgba(212, 135, 63, 0.12) 0%, rgba(212, 135, 63, 0) 70%);
+            pointer-events: none;
+        }
+
+        .contact-card .prompt {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 28px;
+            color: var(--text);
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .contact-card .sub {
+            font-size: 15px;
+            color: var(--text-dim);
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--amber);
+            color: #1a140e;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            border: none;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .contact-btn:hover {
+            background: #E39C56;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(212, 135, 63, 0.3);
+        }
+
+        .contact-btn svg {
+            width: 16px; height: 16px;
+        }
+
+        .response-time {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        /* ─── Section headings ─── */
+        h2 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 42px;
+            font-weight: 400;
+            color: var(--text);
+            margin-top: 80px;
+            margin-bottom: 32px;
+            letter-spacing: -0.8px;
+            line-height: 1.1;
+        }
+
+        h2 .italic { font-style: italic; color: var(--amber); }
+
+        /* ─── FAQ ─── */
+        .faq {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        details {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        details[open] {
+            border-color: var(--border-hover);
+        }
+
+        summary {
+            padding: 22px 28px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--text);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: color 0.15s;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+
+        summary:hover { color: var(--amber); }
+
+        summary::after {
+            content: '';
+            width: 10px; height: 10px;
+            border-right: 2px solid var(--text-dim);
+            border-bottom: 2px solid var(--text-dim);
+            transform: rotate(45deg);
+            transition: transform 0.2s, border-color 0.2s;
+            flex-shrink: 0;
+            margin-top: -4px;
+        }
+
+        details[open] summary::after {
+            transform: rotate(-135deg);
+            margin-top: 4px;
+            border-color: var(--amber);
+        }
+
+        .faq-body {
+            padding: 0 28px 24px;
+            color: var(--text);
+            opacity: 0.85;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .faq-body p { margin-bottom: 14px; }
+        .faq-body p:last-child { margin-bottom: 0; }
+        .faq-body strong { font-weight: 600; color: var(--text); opacity: 1; }
+        .faq-body em { color: var(--amber); font-style: italic; }
+
+        .faq-body ul {
+            list-style: none;
+            margin: 12px 0;
+            padding: 0;
+        }
+        .faq-body ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 8px;
+        }
+        .faq-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 10px;
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--amber);
+            opacity: 0.5;
+        }
+
+        /* ─── Troubleshooting / "if this, try that" grid ─── */
+        .trouble-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .trouble-item {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+        }
+
+        .trouble-item .issue {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 19px;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .trouble-item .fix {
+            font-size: 15px;
+            color: var(--text);
+            opacity: 0.8;
+            font-weight: 300;
+            line-height: 1.55;
+        }
+
+        /* ─── Philosophy section ─── */
+        .philosophy-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--amber);
+            border-radius: 8px;
+            padding: 32px 36px;
+            margin-top: 32px;
+        }
+
+        .philosophy-card blockquote {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 22px;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.45;
+            margin-bottom: 16px;
+        }
+
+        .philosophy-card .attribution {
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .philosophy-text {
+            margin-top: 24px;
+            font-size: 16px;
+            color: var(--text);
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* ─── Footer ─── */
+        footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+
+        footer a { color: var(--amber); text-decoration: none; }
+        footer a:hover { color: #E39C56; }
+
+        footer .nav {
+            display: flex;
+            gap: 28px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        footer .nav a {
+            color: var(--text-dim);
+            letter-spacing: 0.5px;
+        }
+        footer .nav a:hover { color: var(--amber); }
+
+        /* ─── Small screens ─── */
+        @media (max-width: 640px) {
+            .container { padding: 60px 24px 80px; }
+            h1 { font-size: 54px; }
+            h2 { font-size: 34px; }
+            .tagline { font-size: 19px; }
+            .contact-card { padding: 32px 24px; }
+            .contact-card .prompt { font-size: 24px; }
+            summary { padding: 20px 22px; font-size: 16px; }
+            .faq-body { padding: 0 22px 20px; font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="ember-mark"></div>
+        <div class="app-name">Shadow Work Journal · Ember</div>
+        <h1>Support &amp; <span class="italic">help</span></h1>
+        <p class="tagline">One prompt a day. Write what you've been avoiding. Keep it, or watch it burn.</p>
+    </header>
+
+    <!-- ─── Contact card ─── -->
+    <div class="contact-card">
+        <div class="prompt">Can't find your answer below?</div>
+        <div class="sub">Write to us. A real human reads every message.</div>
+        <a href="mailto:support@emberjournal.app?subject=Ember%20support%20question" class="contact-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            support@emberjournal.app
+        </a>
+        <div class="response-time">Typical response time: within 48 hours</div>
+    </div>
+
+    <!-- ═══ FAQ — About the App ═══ -->
+    <h2>Getting <span class="italic">started</span></h2>
+
+    <div class="faq">
+
+        <details>
+            <summary>What is shadow work, exactly?</summary>
+            <div class="faq-body">
+                <p>Shadow work is a psychological practice rooted in the ideas of Carl Jung, who described the "shadow" as the parts of ourselves we've pushed out of conscious awareness — the anger, shame, envy, fear, and self-criticism we've learned to hide from ourselves and others.</p>
+                <p>The practice is simple in concept and difficult in execution: look honestly at those hidden parts, write about them, feel them, and integrate them. Ember is a tool to help you do that, one prompt at a time.</p>
+                <p>Ember is <strong>not</strong> therapy, and it is not a substitute for working with a qualified mental health professional. If you are struggling, please reach out to one.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do I use Ember day-to-day?</summary>
+            <div class="faq-body">
+                <p>Open the app. You'll see a single prompt. Tap it, write whatever comes up — however long or short — and when you're done, choose to keep the entry or burn it.</p>
+                <p>If you want a new prompt on the same day, tap "Show me another." If you enabled the daily reminder, you'll get a gentle notification at the time you set.</p>
+                <p>There is no streak, no word count, no right way to use the app. Missing a day costs you nothing.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>What does "burn" actually do?</summary>
+            <div class="faq-body">
+                <p>Burning an entry <strong>permanently and irreversibly</strong> deletes the text from your device. The animation isn't decorative — the text is actually gone. There is no trash folder, no undo, no cloud backup to recover from (because Ember never uploads anything), and no way for us or Apple or anyone to retrieve it.</p>
+                <p>Ember keeps a small record that a burn happened on a given date — but not <em>what</em> was written — so your history screen can show how many entries you've released over time.</p>
+                <p>This is a deliberate design choice. The act of releasing something is part of the work. If everything is archived, nothing is released.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Where are my entries stored?</summary>
+            <div class="faq-body">
+                <p>Everything you write stays on your iPhone. Ember has no user accounts, no server, no cloud sync, and makes no network requests of any kind. If your iPhone is in airplane mode, the app works identically.</p>
+                <p>Your entries are included in standard iOS backups (iCloud Backup or encrypted Mac backups) only if you have those backups enabled at the device level — that's a system feature, not something Ember does.</p>
+                <p>See the <a href="privacy.html" style="color: var(--amber);">Privacy Policy</a> for the complete picture.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Is there a subscription?</summary>
+            <div class="faq-body">
+                <p>No. Ember is a one-time purchase. You pay once, and every feature — all 370 prompts, burn mode, Live Activity support, notifications — is unlocked from the first launch.</p>
+                <p>There is no premium tier, no upgrade path, and no future "Ember Pro." If you bought the app, you have the full app.</p>
+            </div>
+        </details>
+
+    </div>
+
+    <!-- ═══ FAQ — Troubleshooting ═══ -->
+    <h2>If something's <span class="italic">not working</span></h2>
+
+    <div class="trouble-grid">
+
+        <div class="trouble-item">
+            <div class="issue">The daily reminder notification isn't arriving.</div>
+            <div class="fix">Open iPhone <strong>Settings → Notifications → Ember</strong> and confirm "Allow Notifications" is on. Also check <strong>Settings → Focus</strong> — if you have a Focus mode (like Do Not Disturb or Sleep) active at your reminder time, iOS will silence the notification. Inside Ember, open Settings and toggle the reminder off and on to re-register it with iOS.</div>
+        </div>
+
+        <div class="trouble-item">
+            <div class="issue">My Live Activity isn't showing on the lock screen.</div>
+            <div class="fix">Live Activities require iOS 16.2 or later and must be enabled globally. Check <strong>Settings → Face ID &amp; Passcode → Live Activities</strong> (make sure it's on when locked) and <strong>Settings → Ember → Allow Live Activities</strong>. Live Activities auto-end after a period of inactivity — that's an iOS limit, not an Ember bug.</div>
+        </div>
+
+        <div class="trouble-item">
+            <div class="issue">I burned an entry by mistake. Can I get it back?</div>
+            <div class="fix">Unfortunately, no. Burning is irreversible by design — the text is deleted from your device with no recovery path. If your iPhone is set to auto-backup to iCloud or a Mac, and the backup happened <em>before</em> the burn, restoring the entire device from that backup would restore the entry — but this is a drastic step and only works if the timing lines up.</div>
+        </div>
+
+        <div class="trouble-item">
+            <div class="issue">The app crashed or is behaving strangely.</div>
+            <div class="fix">Try fully closing the app (swipe up from the bottom, then swipe the Ember card up and away) and reopening it. If the issue persists, restart your iPhone. If it still happens, write to <a href="mailto:support@emberjournal.app?subject=Ember%20bug%20report">support@emberjournal.app</a> with a description of what you were doing when it happened and your iOS version (Settings → General → About → Software Version).</div>
+        </div>
+
+        <div class="trouble-item">
+            <div class="issue">I got a new iPhone. Will my entries come with me?</div>
+            <div class="fix">If you restored your new iPhone from an iCloud or Mac backup of your old one, yes — your Ember data is included in that backup along with everything else. If you set up your new iPhone fresh, your Ember entries from the old device are not on the new one, because Ember has no cloud sync of its own.</div>
+        </div>
+
+        <div class="trouble-item">
+            <div class="issue">I want to delete all my data.</div>
+            <div class="fix">Delete the Ember app from your iPhone (long-press the icon → Remove App → Delete App). All entries, history, and settings are removed with it. There is no additional step required on our end because we have none of your data.</div>
+        </div>
+
+    </div>
+
+    <!-- ═══ About the practice ═══ -->
+    <h2>About the <span class="italic">practice</span></h2>
+
+    <div class="philosophy-card">
+        <blockquote>"Until you make the unconscious conscious, it will direct your life and you will call it fate."</blockquote>
+        <div class="attribution">— Carl Jung</div>
+    </div>
+
+    <p class="philosophy-text" style="margin-top: 28px;">Ember is built for a specific kind of writing — not the morning-pages productivity journal, not the gratitude log, not the bullet-journal habit tracker. It's built for the writing you do when you need to look at something you've been avoiding.</p>
+
+    <p class="philosophy-text">Some prompts will feel easy. Others will surface material that catches you off guard. That's the practice working. If something comes up that feels larger than the app — grief, trauma, persistent distress — please close the app and speak with a therapist or a crisis line. Ember is a tool for reflection; it is not equipped to hold a crisis for you. <strong>If you are in the United States and need immediate support, call or text 988.</strong></p>
+
+    <!-- ═══ Footer ═══ -->
+    <footer>
+        <div class="nav">
+            <a href="index.html">Support</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+        <p>Shadow Work Journal: Ember · A tool for looking inward</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
