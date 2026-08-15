@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Shadow Work Journal: Ember</title>
+    <meta name="description" content="Ember stores everything on your device. No accounts. No cloud. No analytics. No tracking.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0b08;
+            --bg-elevated: #1a1410;
+            --border: #2a2520;
+            --text: #F5F0E8;
+            --text-dim: #8A8078;
+            --text-dimmer: #5a5248;
+            --amber: #D4873F;
+            --amber-glow: rgba(212, 135, 63, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-weight: 300;
+            min-height: 100vh;
+
+            /* Subtle radial warmth */
+            background:
+                radial-gradient(ellipse 1400px 900px at 50% -200px, rgba(42, 26, 14, 0.5) 0%, rgba(15, 11, 8, 0) 60%),
+                var(--bg);
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 32px 120px;
+        }
+
+        /* ─── Header ─── */
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ember-mark {
+            width: 20px;
+            height: 20px;
+            margin: 0 auto 32px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 40%, #F5C98B 0%, var(--amber) 45%, #7a3d12 85%);
+            box-shadow:
+                0 0 32px rgba(212, 135, 63, 0.6),
+                0 0 60px rgba(212, 135, 63, 0.25);
+        }
+
+        .app-name {
+            font-size: 14px;
+            color: var(--amber);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 64px;
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        h1 .italic { font-style: italic; color: var(--amber); }
+
+        .effective-date {
+            font-size: 14px;
+            color: var(--text-dim);
+            letter-spacing: 0.5px;
+        }
+
+        /* ─── Top summary card ─── */
+        .summary-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--amber);
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin-bottom: 64px;
+        }
+
+        .summary-card .label {
+            font-size: 12px;
+            color: var(--amber);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .summary-card p {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 24px;
+            line-height: 1.4;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        /* ─── Body ─── */
+        h2 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 36px;
+            font-weight: 400;
+            color: var(--text);
+            margin-top: 72px;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+
+        h2:first-of-type { margin-top: 0; }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--amber);
+            margin-top: 40px;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            font-size: 17px;
+            color: var(--text);
+            margin-bottom: 20px;
+            font-weight: 300;
+            opacity: 0.88;
+        }
+
+        p.lede {
+            font-size: 19px;
+            color: var(--text);
+            opacity: 1;
+            font-weight: 400;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        em {
+            color: var(--amber);
+            font-style: italic;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 135, 63, 0.3);
+            transition: border-color 0.15s;
+        }
+        a:hover { border-bottom-color: var(--amber); }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 28px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 14px;
+            font-size: 17px;
+            color: var(--text);
+            opacity: 0.88;
+            font-weight: 300;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+            opacity: 0.6;
+        }
+
+        /* ─── "What we don't do" callout ─── */
+        .wedont-card {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 32px 0 28px;
+        }
+
+        .wedont-card .heading {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-style: italic;
+            font-size: 22px;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .wedont-card ul { margin: 0; }
+        .wedont-card ul li::before {
+            background: transparent;
+            border: 2px solid var(--text-dim);
+            width: 10px;
+            height: 10px;
+            top: 7px;
+            left: 4px;
+        }
+        .wedont-card ul li { padding-left: 28px; margin-bottom: 10px; }
+
+        /* ─── Footer ─── */
+        footer {
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+
+        footer a { color: var(--amber); }
+
+        footer .nav {
+            display: flex;
+            gap: 28px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        footer .nav a {
+            color: var(--text-dim);
+            border-bottom: none;
+            letter-spacing: 0.5px;
+        }
+        footer .nav a:hover { color: var(--amber); }
+
+        /* ─── Small screens ─── */
+        @media (max-width: 640px) {
+            .container { padding: 60px 24px 80px; }
+            h1 { font-size: 48px; }
+            h2 { font-size: 30px; }
+            .summary-card p { font-size: 20px; }
+            p, ul li { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="ember-mark"></div>
+        <div class="app-name">Shadow Work Journal · Ember</div>
+        <h1>Privacy <span class="italic">Policy</span></h1>
+        <p class="effective-date">Effective April 13, 2026</p>
+    </header>
+
+    <!-- ─── Plain-English summary ─── -->
+    <div class="summary-card">
+        <div class="label">The short version</div>
+        <p>Ember does not collect, store, transmit, or share any of your personal information or journal entries. Everything you write stays on your device. There is no server to hack, no account to breach, and no cloud for us to lose.</p>
+    </div>
+
+    <!-- ─── Main body ─── -->
+
+    <h2>What this policy covers</h2>
+    <p class="lede">This policy explains how Shadow Work Journal: Ember (the "app," "Ember," "we," or "our") handles your information when you install and use the app on your iPhone. We wrote this in plain language because we think a privacy policy should be something you can actually read.</p>
+    <p>If anything here is unclear, please write to us at <a href="mailto:support@emberjournal.app">support@emberjournal.app</a> and we'll do our best to explain.</p>
+
+    <h2>Information we collect</h2>
+    <p class="lede"><strong>We don't.</strong></p>
+    <p>Ember is designed as an entirely offline, on-device application. It does not have user accounts, does not require an email address, does not ask for a sign-in, and does not connect to any backend server operated by us or anyone else.</p>
+    <p>Specifically:</p>
+    <ul>
+        <li>Your <strong>journal entries</strong> — everything you type into the app — are stored locally on your iPhone in the app's private storage sandbox. They never leave your device.</li>
+        <li>Your <strong>app settings</strong> (reminder time, notification preferences, theme) are stored locally on your iPhone.</li>
+        <li>Your <strong>history of kept entries</strong> and your <strong>record of released (burned) entries</strong> are stored locally on your iPhone.</li>
+        <li>The <strong>370 shadow work prompts</strong> are bundled inside the app itself and are read from the app's local resources. No network request is made to fetch them.</li>
+    </ul>
+
+    <h2>Information we do not collect</h2>
+    <p>To make this concrete, here is a non-exhaustive list of things Ember specifically does not do:</p>
+
+    <div class="wedont-card">
+        <div class="heading">Ember does not…</div>
+        <ul>
+            <li>Create or require user accounts</li>
+            <li>Ask for your email address, phone number, name, or any identifier</li>
+            <li>Use analytics software (no Firebase, no Mixpanel, no Amplitude, no Apple App Analytics opt-in prompts from us)</li>
+            <li>Use crash reporting services (no Sentry, no Crashlytics, no Bugsnag)</li>
+            <li>Show advertisements or use any advertising SDK</li>
+            <li>Track your location</li>
+            <li>Access your contacts, photos, microphone, or camera</li>
+            <li>Use any third-party software development kit (SDK) that transmits data off-device</li>
+            <li>Send your writing to any AI service, language model, or external API — ever</li>
+            <li>Sync your data to iCloud, Google Drive, Dropbox, or any other cloud provider</li>
+            <li>Make any network request at any time, for any reason</li>
+        </ul>
+    </div>
+
+    <p>If you use a network monitoring tool (such as Little Snitch, Proxyman, or Charles Proxy) to observe the app's behavior, you will see that Ember generates no outbound traffic.</p>
+
+    <h2>How your data is stored</h2>
+    <p>Journal entries and app state are persisted on your device using Apple's standard on-device storage mechanisms (SwiftData, which is built on top of Core Data and the iOS file system). This storage is:</p>
+    <ul>
+        <li>Sandboxed to the Ember app — no other app on your device can read it</li>
+        <li>Protected by the iOS file protection that applies to your device as a whole (your device passcode, Face ID, or Touch ID)</li>
+        <li>Included in iCloud Backups and encrypted backups to your Mac <em>only if you have those backups enabled in your iOS Settings</em>. This is a system-level feature of iOS that applies to all your apps, not a feature of Ember</li>
+    </ul>
+    <p>If you restore your iPhone from an iCloud or Mac backup, your Ember entries will be restored along with it — because they're part of the device backup, not because Ember uploaded anything to us.</p>
+
+    <h2>The "burn" feature and permanent deletion</h2>
+    <p>When you choose to burn an entry in Ember, the entry's text is permanently and irreversibly deleted from your device. There is no undo, no trash folder, no archive, and no recovery mechanism. This is a deliberate product decision, not a side effect.</p>
+    <p>Ember does keep a small metadata record of the event — the date a burn occurred, but not the content — so that your history screen can show how many entries you've released over time. If you want even this record removed, deleting the app removes everything associated with it.</p>
+
+    <h2>Notifications</h2>
+    <p>If you enable the optional daily reminder, Ember uses Apple's local notification system (<code style="background: rgba(212, 135, 63, 0.08); padding: 1px 6px; border-radius: 3px; color: var(--amber); font-size: 14px;">UNUserNotificationCenter</code>) to schedule a notification at your chosen time. These notifications are scheduled entirely on your device. No notification service run by us or by Apple's push notification network is used. No data about whether you opened the notification is sent anywhere.</p>
+
+    <h2>Children's privacy</h2>
+    <p>Ember is rated 9+ on the App Store and is not directed at children under 13. We do not knowingly collect information from anyone, including children — because, as described above, we do not collect information from anyone at all. If you are a parent or guardian and have questions, please write to <a href="mailto:support@emberjournal.app">support@emberjournal.app</a>.</p>
+
+    <h2>Your rights</h2>
+    <p>Because we do not have any of your data, there is nothing for us to show you, correct, export, or delete on your behalf. Your data lives on your device and is under your control:</p>
+    <ul>
+        <li>To <strong>view</strong> your data: open the app</li>
+        <li>To <strong>delete</strong> an entry: use the burn feature, or delete it from the history screen</li>
+        <li>To <strong>delete everything</strong>: delete the Ember app from your iPhone. All associated data is removed from your device</li>
+    </ul>
+
+    <h2>Changes to this policy</h2>
+    <p>If Ember ever adds a feature that changes how data is handled — for example, optional iCloud sync between your own devices — this policy will be updated before that feature ships, and the change will be called out in the app's release notes. Because Ember does not collect contact information, we cannot email you about changes; checking this page is the way to see the current version.</p>
+
+    <h2>Contact</h2>
+    <p>Questions, concerns, or comments about privacy can be sent to <a href="mailto:support@emberjournal.app">support@emberjournal.app</a>. A real human reads every message.</p>
+
+    <footer>
+        <div class="nav">
+            <a href="index.html">Support</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+        <p>Shadow Work Journal: Ember · A tool for looking inward</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
