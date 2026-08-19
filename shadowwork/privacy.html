@@ -275,13 +275,13 @@
         <div class="ember-mark"></div>
         <div class="app-name">Shadow Work Journal · Ember</div>
         <h1>Privacy <span class="italic">Policy</span></h1>
-        <p class="effective-date">Effective April 13, 2026</p>
+        <p class="effective-date">Effective August 18, 2026 · Previous version: April 13, 2026</p>
     </header>
 
     <!-- ─── Plain-English summary ─── -->
     <div class="summary-card">
         <div class="label">The short version</div>
-        <p>Ember does not collect, store, transmit, or share any of your personal information or journal entries. Everything you write stays on your device. There is no server to hack, no account to breach, and no cloud for us to lose.</p>
+        <p>Ember does not collect, store, transmit, or share any of your personal information or journal entries. Everything you write stays on your device. There is no server to hack, no account to breach, and no cloud for us to lose. Purchases are handled entirely by Apple — we never see your name, your payment details, or your Apple Account.</p>
     </div>
 
     <!-- ─── Main body ─── -->
@@ -292,7 +292,7 @@
 
     <h2>Information we collect</h2>
     <p class="lede"><strong>We don't.</strong></p>
-    <p>Ember is designed as an entirely offline, on-device application. It does not have user accounts, does not require an email address, does not ask for a sign-in, and does not connect to any backend server operated by us or anyone else.</p>
+    <p>Ember is designed as an on-device application. It does not have user accounts, does not require an email address, does not ask for a sign-in, and does not connect to any backend server operated by us. The single exception to its offline behaviour is Apple’s in-app purchase system, described under <a href="#purchases" style="color: var(--amber);">Purchases</a> below — that connection is between your device and Apple, and it carries no journal content of any kind.</p>
     <p>Specifically:</p>
     <ul>
         <li>Your <strong>journal entries</strong> — everything you type into the app — are stored locally on your iPhone in the app's private storage sandbox. They never leave your device.</li>
@@ -317,11 +317,26 @@
             <li>Use any third-party software development kit (SDK) that transmits data off-device</li>
             <li>Send your writing to any AI service, language model, or external API — ever</li>
             <li>Sync your data to iCloud, Google Drive, Dropbox, or any other cloud provider</li>
-            <li>Make any network request at any time, for any reason</li>
+            <li>Send your journal entries, prompts, history, or settings over the network — ever, for any reason</li>
+            <li>Operate a server, endpoint, or API of its own that your device talks to</li>
+            <li>Receive your name, email, or payment details from Apple when you buy something</li>
         </ul>
     </div>
 
-    <p>If you use a network monitoring tool (such as Little Snitch, Proxyman, or Charles Proxy) to observe the app's behavior, you will see that Ember generates no outbound traffic.</p>
+    <p>If you use a network monitoring tool (such as Little Snitch, Proxyman, or Charles Proxy) to observe the app’s behavior, the only outbound traffic you will see is to Apple’s own App Store and StoreKit endpoints, and only when the unlock screen is shown, a purchase is made, or a purchase is restored. Write an entry, read your history, or burn something with the network monitor running and you will see nothing leave the device.</p>
+
+    <h2 id="purchases">Purchases</h2>
+    <p class="lede">Ember is free to download. Your first three kept entries are free; unlocking the rest is either a one-time <strong>Lifetime</strong> purchase or a <strong>weekly</strong> auto-renewing subscription.</p>
+    <p>Both are sold through Apple’s in-app purchase system (StoreKit). This is the only part of Ember that touches the network, and it works like this:</p>
+    <ul>
+        <li>When the unlock screen is shown, your device asks <strong>Apple</strong> for the current products and prices. We are not part of that request and do not see it.</li>
+        <li>When you buy, <strong>Apple</strong> takes the payment. Your card, your Apple Account, your name, your billing address, and your email are handled by Apple and are never transmitted to us or exposed to the app.</li>
+        <li>Your entitlement — the simple fact of whether the app is unlocked — is verified on your device against Apple’s receipt and stored locally. It contains no personal information.</li>
+        <li>“Restore Purchases” asks Apple to re-confirm what you already own. Again, this is a conversation between your device and Apple.</li>
+    </ul>
+    <p>We receive no per-customer information from these transactions. Apple provides us only aggregate, anonymised sales and subscription reports — units sold, revenue, country, and the like — with no way to identify any individual buyer, and no link whatsoever to anything written in the app.</p>
+    <p>Apple’s handling of your purchase is governed by the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>, not by this one. Subscription management, cancellation, and refunds are handled entirely by Apple — see the <a href="https://www.leanorbit.app/shadowwork/support.html" style="color: var(--amber);">Support page</a> for the steps.</p>
+    <p><strong>The important part:</strong> the paywall is a lock on a door, not a window. Buying, not buying, subscribing, or cancelling changes nothing about how your writing is stored or who can read it. The answer is the same either way: it stays on your device, and only you can read it.</p>
 
     <h2>How your data is stored</h2>
     <p>Journal entries and app state are persisted on your device using Apple's standard on-device storage mechanisms (SwiftData, which is built on top of Core Data and the iOS file system). This storage is:</p>
@@ -349,6 +364,7 @@
         <li>To <strong>delete</strong> an entry: use the burn feature, or delete it from the history screen</li>
         <li>To <strong>delete everything</strong>: delete the Ember app from your iPhone. All associated data is removed from your device</li>
     </ul>
+    <p>Your purchase history is the one record that does not live on your device alone — Apple keeps it, because Apple processed the payment. You can review it in the App Store app under your account, and requests about that data go to Apple.</p>
 
     <h2>Changes to this policy</h2>
     <p>If Ember ever adds a feature that changes how data is handled — for example, optional iCloud sync between your own devices — this policy will be updated before that feature ships, and the change will be called out in the app's release notes. Because Ember does not collect contact information, we cannot email you about changes; checking this page is the way to see the current version.</p>

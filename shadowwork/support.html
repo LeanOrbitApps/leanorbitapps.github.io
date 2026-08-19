@@ -380,6 +380,20 @@
         <p class="tagline">One prompt a day. Write what you've been avoiding. Keep it, or watch it burn.</p>
     </header>
 
+    <!-- ─── Contact card ─── -->
+    <div class="contact-card">
+        <div class="prompt">Can't find your answer below?</div>
+        <div class="sub">Write to us. A real human reads every message.</div>
+        <a href="mailto:support@leanorbit.app?subject=Ember%20support%20question" class="contact-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            support@leanorbit.app
+        </a>
+        <div class="response-time">Typical response time: within 48 hours</div>
+    </div>
+
     <!-- ═══ FAQ — About the App ═══ -->
     <h2>Getting <span class="italic">started</span></h2>
 
@@ -415,17 +429,33 @@
         <details>
             <summary>Where are my entries stored?</summary>
             <div class="faq-body">
-                <p>Everything you write stays on your iPhone. Ember has no user accounts, no server, no cloud sync, and makes no network requests of any kind. If your iPhone is in airplane mode, the app works identically.</p>
+                <p>Everything you write stays on your iPhone. Ember has no user accounts, no server of ours, and no cloud sync. The only network traffic the app produces is Apple's own purchase check — when you open the unlock screen, complete a purchase, or tap Restore Purchases. That goes to Apple, never to us, and it never includes a single word of your writing. Everything else works identically in airplane mode.</p>
                 <p>Your entries are included in standard iOS backups (iCloud Backup or encrypted Mac backups) only if you have those backups enabled at the device level — that's a system feature, not something Ember does.</p>
                 <p>See the <a href="https://www.leanorbit.app/shadowwork/privacy.html" style="color: var(--amber);">Privacy Policy</a> for the complete picture.</p>
             </div>
         </details>
 
         <details>
-            <summary>Is there a subscription?</summary>
+            <summary>What does Ember cost?</summary>
             <div class="faq-body">
-                <p>No. Ember is a one-time purchase. You pay once, and every feature — all 370 prompts, burn mode, Live Activity support, notifications — is unlocked from the first launch.</p>
-                <p>There is no premium tier, no upgrade path, and no future "Ember Pro." If you bought the app, you have the full app.</p>
+                <p>Ember is <strong>free to download and free to try</strong>. You can keep your first three entries at no cost — enough to find out whether this kind of writing is for you before any money changes hands.</p>
+                <p>After that, there are two ways to unlock the app:</p>
+                <ul>
+                    <li><strong>Lifetime</strong> — a single one-time purchase. You pay once, it never renews, and it never expires. This is the one we'd point you to.</li>
+                    <li><strong>Weekly</strong> — an auto-renewing subscription, for people who'd rather not pay up front.</li>
+                </ul>
+                <p>Both unlock exactly the same thing: all 370 prompts, unlimited kept entries, burn mode, Live Activity support, and notifications. There is no third tier, no feature held back from either option, and no ads in any of it.</p>
+                <p>Current prices are always shown on the App Store listing and on the unlock screen inside the app, in your local currency.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do I manage or cancel the weekly subscription?</summary>
+            <div class="faq-body">
+                <p>The weekly subscription renews automatically until you cancel it. Payment is charged to your Apple Account, and renewal happens within 24 hours of the end of the current period unless you turn it off beforehand.</p>
+                <p>To cancel: open <strong>Settings</strong> on your iPhone → tap <strong>your name</strong> at the top → <strong>Subscriptions</strong> → <strong>Ember</strong> → <strong>Cancel Subscription</strong>. You can also manage it from the App Store app under your account picture.</p>
+                <p>Cancelling stops future charges. Your access continues to the end of the period you've already paid for. We can't cancel or refund a subscription on your behalf — Apple handles all billing, and we never see your payment details. Refund requests go to Apple at <a href="https://reportaproblem.apple.com" style="color: var(--amber);">reportaproblem.apple.com</a>.</p>
+                <p>If you buy the Lifetime unlock while a weekly subscription is active, cancel the subscription yourself using the steps above — it will not stop on its own.</p>
             </div>
         </details>
 
@@ -454,6 +484,11 @@
         <div class="trouble-item">
             <div class="issue">The app crashed or is behaving strangely.</div>
             <div class="fix">Try fully closing the app (swipe up from the bottom, then swipe the Ember card up and away) and reopening it. If the issue persists, restart your iPhone. If it still happens, write to <a href="mailto:support@leanorbit.app?subject=Ember%20bug%20report">support@leanorbit.app</a> with a description of what you were doing when it happened and your iOS version (Settings → General → About → Software Version).</div>
+        </div>
+
+        <div class="trouble-item">
+            <div class="issue">I paid, but Ember is still asking me to unlock.</div>
+            <div class="fix">Open Ember's unlock screen and tap <strong>Restore Purchases</strong>. This asks Apple to re-check what you own and is the fix in almost every case — especially on a new device or after reinstalling. Make sure you're signed in to the <em>same Apple Account</em> you bought with (Settings → your name at the top); a purchase made on one Apple Account cannot be restored to another. If it still doesn't unlock, write to <a href="mailto:support@leanorbit.app?subject=Ember%20purchase%20issue">support@leanorbit.app</a> and include the date of purchase.</div>
         </div>
 
         <div class="trouble-item">
