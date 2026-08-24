@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault: Trading Journal — Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for Vault: Trading Journal. No data collection, no tracking, fully offline.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111111;
+            --surface2: #181818;
+            --surface3: #1e1e1e;
+            --border: #252525;
+            --border-lit: #333;
+            --text: #e0e0e0;
+            --text-secondary: #999;
+            --text-muted: #666;
+            --green: #39FF14;
+            --green-dim: rgba(57, 255, 20, 0.08);
+            --green-border: rgba(57, 255, 20, 0.18);
+            --profit: #00E676;
+            --loss: #FF5252;
+            --blue: #60A5FA;
+            --amber: #FBBF24;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Layout ─── */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ─── Header ─── */
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--bg);
+            font-family: 'Sora', sans-serif;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .logo-text {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text);
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 14px;
+            margin-left: 4px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--green);
+        }
+
+        .header-nav a.active {
+            color: var(--green);
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            padding: 80px 0 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 .accent {
+            color: var(--green);
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .effective-date {
+            display: inline-block;
+            margin-top: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 100px;
+        }
+
+        /* ─── TLDR Banner ─── */
+        .tldr-banner {
+            background: var(--green-dim);
+            border: 1px solid var(--green-border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+
+        .tldr-banner h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .tldr-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 520px) {
+            .tldr-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tldr-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .tldr-check {
+            font-size: 14px;
+            color: var(--green);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .tldr-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ─── Policy Sections ─── */
+        .policy-section {
+            padding: 40px 0;
+        }
+
+        .policy-section + .policy-section {
+            border-top: 1px solid var(--border);
+        }
+
+        .policy-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .policy-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 16px;
+        }
+
+        .policy-section p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            line-height: 1.75;
+        }
+
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ─── Detail boxes ─── */
+        .detail-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .detail-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .detail-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .detail-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ─── Permissions table ─── */
+        .perm-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        .perm-table th {
+            text-align: left;
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .perm-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .perm-table td:first-child {
+            color: var(--text);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .perm-table td:last-child {
+            color: var(--text-secondary);
+        }
+
+        .perm-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ─── Contact ─── */
+        .contact-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .contact-box h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--green-dim);
+            border: 1px solid var(--green-border);
+            padding: 14px 28px;
+            border-radius: 10px;
+            color: var(--green);
+            font-family: 'Space Mono', monospace;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            background: rgba(57, 255, 20, 0.14);
+            box-shadow: 0 0 24px rgba(57, 255, 20, 0.1);
+        }
+
+        /* ─── Footer ─── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">Vault <span>Trading Journal</span></div>
+            </a>
+            <nav class="header-nav">
+                <a href="./support.html">Support</a>
+                <a href="#" class="active">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <h1>Privacy <span class="accent">Policy</span></h1>
+            <p>Vault was built with a simple privacy principle: your trading data belongs to you and stays on your device.</p>
+            <div class="effective-date">Effective: April 4, 2026</div>
+        </div>
+    </div>
+
+    <!-- TLDR -->
+    <div class="container">
+        <div class="tldr-banner">
+            <h2>The short version</h2>
+            <div class="tldr-grid">
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>No data collection whatsoever</p>
+                </div>
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>No analytics or tracking</p>
+                </div>
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>No network calls, ever</p>
+                </div>
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>No accounts or sign-ups</p>
+                </div>
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>No third-party SDKs</p>
+                </div>
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>All processing on-device</p>
+                </div>
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>No ads or ad networks</p>
+                </div>
+                <div class="tldr-item">
+                    <span class="tldr-check">✓</span>
+                    <p>Delete the app = data gone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policy Sections -->
+    <div class="container">
+
+        <!-- 1. Data Collection -->
+        <div class="policy-section">
+            <div class="policy-num">Section 1</div>
+            <h2>Data Collection</h2>
+            <p><strong>Vault does not collect, transmit, or share any personal data.</strong> The app operates entirely offline. There are no servers, no APIs, no cloud storage, and no analytics services.</p>
+            <p>Specifically, Vault does not collect your name, email address, location, device identifiers, IP address, usage analytics, crash reports, or any other personal or behavioral data.</p>
+            <p>The app contains no third-party SDKs, advertising frameworks, or analytics tools of any kind.</p>
+        </div>
+
+        <!-- 2. On-Device Data Storage -->
+        <div class="policy-section">
+            <div class="policy-num">Section 2</div>
+            <h2>On-Device Data Storage</h2>
+            <p>All trade data you enter into Vault — including ticker symbols, prices, quantities, dates, notes, and tags — is stored locally on your device using Apple's SwiftData framework. This data is never transmitted off your device.</p>
+
+            <div class="detail-box">
+                <h3>What is stored on your device</h3>
+                <p>Trade records (ticker, direction, entry/exit prices, quantity, date, notes, tags), your tag selections, and the date each trade was created. This data persists between app sessions and is included in your standard iOS device backup.</p>
+            </div>
+
+            <div class="detail-box">
+                <h3>How to delete your data</h3>
+                <p>You can delete individual trades from within the app by opening a trade's detail view and tapping "Delete Trade." To delete all data, uninstall the app from your device. When the app is removed, all locally stored trade data is permanently deleted by iOS.</p>
+            </div>
+        </div>
+
+        <!-- 3. Camera and Photo Library -->
+        <div class="policy-section">
+            <div class="policy-num">Section 3</div>
+            <h2>Camera &amp; Photo Library Access</h2>
+            <p>Vault requests access to your camera and photo library solely for the screenshot scanning feature. These permissions are optional — the app functions fully without them if you prefer to enter trades manually.</p>
+
+            <table class="perm-table">
+                <thead>
+                    <tr>
+                        <th>Permission</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Camera</td>
+                        <td>Take a photo of a brokerage order confirmation to scan with OCR. The photo is processed in memory and is not saved to your photo library or transmitted anywhere.</td>
+                    </tr>
+                    <tr>
+                        <td>Photo Library</td>
+                        <td>Select an existing screenshot from your library to scan. Vault uses the system photo picker, which provides access only to the specific image you select — not your entire library.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Images used for scanning are processed entirely on-device using Apple's Vision framework. They are held in memory only during the scan operation and are not stored, cached, or uploaded.</p>
+        </div>
+
+        <!-- 4. OCR Processing -->
+        <div class="policy-section">
+            <div class="policy-num">Section 4</div>
+            <h2>OCR &amp; Image Processing</h2>
+            <p>The screenshot scanning feature uses Apple's on-device Vision framework (<strong>VNRecognizeTextRequest</strong>) to extract text from images. This processing runs entirely on your device's neural engine and CPU. No images or extracted text are sent to any server, API, or cloud service — including Apple's servers.</p>
+            <p>The extracted text is parsed locally to identify trade details (ticker, direction, price, quantity), presented to you for review, and discarded from memory once you save or dismiss the scan.</p>
+        </div>
+
+        <!-- 5. CSV Export -->
+        <div class="policy-section">
+            <div class="policy-num">Section 5</div>
+            <h2>CSV Export</h2>
+            <p>When you export your trades, Vault generates a CSV file stored temporarily on your device. This file is shared through the standard iOS share sheet, which you control. Vault does not automatically send this file anywhere — you choose the destination (AirDrop, email, Files, etc.).</p>
+            <p>The temporary CSV file is created in your device's temporary directory and is cleaned up by iOS automatically.</p>
+        </div>
+
+        <!-- 6. Third-Party Services -->
+        <div class="policy-section">
+            <div class="policy-num">Section 6</div>
+            <h2>Third-Party Services</h2>
+            <p><strong>Vault uses no third-party services.</strong> There are no analytics SDKs (no Firebase, no Mixpanel, no Amplitude), no crash reporting tools (no Crashlytics, no Sentry), no advertising networks, and no social login frameworks.</p>
+            <p>The only frameworks used are Apple's first-party frameworks: SwiftUI, SwiftData, Vision, PhotosUI, and UIKit. These are built into iOS and operate under Apple's own privacy policies.</p>
+        </div>
+
+        <!-- 7. Children's Privacy -->
+        <div class="policy-section">
+            <div class="policy-num">Section 7</div>
+            <h2>Children's Privacy</h2>
+            <p>Vault is not directed at children under the age of 13. The app is a trading journal intended for use by adults who actively trade stocks and ETFs. Since Vault does not collect any data from any user, it does not knowingly collect data from children.</p>
+        </div>
+
+        <!-- 8. Changes to This Policy -->
+        <div class="policy-section">
+            <div class="policy-num">Section 8</div>
+            <h2>Changes to This Policy</h2>
+            <p>If we make changes to this Privacy Policy, the updated version will be posted on this page with a revised effective date. Since Vault does not collect email addresses or any contact information, we cannot notify you directly — we encourage you to review this page periodically.</p>
+            <p>Our core commitment will not change: Vault is and will remain an offline-first app that does not collect, transmit, or monetize your data.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Vault: Trading Journal. All rights reserved. · <a href="./support.html">Support</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

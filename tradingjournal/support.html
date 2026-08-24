@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault: Trading Journal — Support</title>
+    <meta name="description" content="Get help with Vault: Trading Journal. FAQ, troubleshooting, and contact support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111111;
+            --surface2: #181818;
+            --surface3: #1e1e1e;
+            --border: #252525;
+            --border-lit: #333;
+            --text: #e0e0e0;
+            --text-secondary: #999;
+            --text-muted: #666;
+            --green: #39FF14;
+            --green-dim: rgba(57, 255, 20, 0.08);
+            --green-border: rgba(57, 255, 20, 0.18);
+            --profit: #00E676;
+            --loss: #FF5252;
+            --blue: #60A5FA;
+            --amber: #FBBF24;
+            --cyan: #22D3EE;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Layout ─── */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ─── Header ─── */
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--bg);
+            font-family: 'Sora', sans-serif;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .logo-text {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text);
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 14px;
+            margin-left: 4px;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--green);
+        }
+
+        .header-nav a.active {
+            color: var(--green);
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 .accent {
+            color: var(--green);
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* ─── Sections ─── */
+        section {
+            padding: 48px 0;
+        }
+
+        section + section {
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+        }
+
+        /* ─── FAQ ─── */
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: 'Sora', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover {
+            color: var(--green);
+        }
+
+        .faq-chevron {
+            font-size: 12px;
+            color: var(--text-muted);
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 20px 18px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .faq-answer-inner code {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            background: var(--surface3);
+            padding: 2px 7px;
+            border-radius: 4px;
+            color: var(--green);
+        }
+
+        /* ─── Feature cards ─── */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 560px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .feature-card .icon {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ─── Troubleshooting ─── */
+        .troubleshoot-item {
+            display: flex;
+            gap: 16px;
+            padding: 20px 0;
+        }
+
+        .troubleshoot-item + .troubleshoot-item {
+            border-top: 1px solid var(--border);
+        }
+
+        .troubleshoot-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--green);
+            background: var(--green-dim);
+            border: 1px solid var(--green-border);
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .troubleshoot-item h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .troubleshoot-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ─── Contact ─── */
+        .contact-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--green-dim);
+            border: 1px solid var(--green-border);
+            padding: 14px 28px;
+            border-radius: 10px;
+            color: var(--green);
+            font-family: 'Space Mono', monospace;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .contact-email:hover {
+            background: rgba(57, 255, 20, 0.14);
+            box-shadow: 0 0 24px rgba(57, 255, 20, 0.1);
+        }
+
+        .contact-note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ─── Requirements ─── */
+        .req-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .req-chip {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 100px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* ─── Footer ─── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">V</div>
+                <div class="logo-text">Vault <span>Trading Journal</span></div>
+            </a>
+            <nav class="header-nav">
+                <a href="#" class="active">Support</a>
+                <a href="./privacy.html">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <h1>How can we <span class="accent">help?</span></h1>
+            <p>Find answers to common questions, troubleshoot issues, or reach out directly.</p>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="container">
+        <section>
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What is Vault: Trading Journal?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Vault is a native iOS trading journal for active traders. Log trades manually or scan brokerage screenshots with on-device OCR, track your P&L on a color-coded calendar, tag trades with behavioral patterns, and export your history to CSV. Everything runs offline on your device — no accounts, no cloud, no subscriptions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is my data stored in the cloud?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. All trade data is stored locally on your device using Apple's SwiftData framework. Vault makes zero network calls. Your screenshots are processed entirely on-device using Apple Vision and are never uploaded anywhere. If you delete the app, your data is permanently removed.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Which brokerages does the screenshot scanner support?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Vault includes optimized parsers for Robinhood, Webull, Charles Schwab, Fidelity, and E*TRADE / Morgan Stanley. There is also a generic fallback parser that works with most other brokerages that display a standard fill confirmation. You can select your brokerage manually or let the app auto-detect it from the screenshot text.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How does the OCR scanner work?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        The scanner uses Apple's Vision framework (<code>VNRecognizeTextRequest</code>) to extract text from your screenshot, then runs it through brokerage-specific parsing rules to identify the ticker, direction, price, and quantity. All processing happens on-device — the image never leaves your phone. After scanning, you review the extracted values in the trade entry form before saving.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Can I track options, futures, or crypto?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Vault is designed for equities and ETFs. You can manually enter any trade with a ticker symbol, entry/exit prices, and quantity — so it can work for other instruments in practice. However, the OCR scanner is optimized for US stock brokerage confirmations, and there is currently no options chain or contract-specific tracking.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How do I export my trades?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        In the Trade History tab, tap the share icon in the top-right corner. Vault generates a CSV file containing all your filtered trades (or all trades if no filter is active) and opens the iOS share sheet. You can send it via AirDrop, email, save to Files, or open directly in Excel or Google Sheets. The CSV includes date, ticker, direction, entry/exit prices, quantity, P&L, tags, and notes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is there a subscription or in-app purchase?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. Vault is a one-time purchase with no subscriptions, no in-app purchases, and no ads. All features are included.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Can I back up my data?
+                    <span class="faq-chevron">▼</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Your trade data is included in your standard iPhone backup (iCloud backup or local Mac/PC backup via Finder or iTunes). If you restore your phone from a backup, your Vault data will be restored with it. You can also export your trades to CSV at any time as a manual backup of your records.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Features Overview -->
+    <div class="container">
+        <section>
+            <div class="section-label">Features</div>
+            <h2 class="section-title">What Vault Includes</h2>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">📷</div>
+                    <h3>Screenshot Scanner</h3>
+                    <p>Scan brokerage fill confirmations with on-device OCR. Supports 5 major brokerages plus a generic fallback.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📅</div>
+                    <h3>P&L Calendar</h3>
+                    <p>Color-coded heatmap calendar. Green for profitable days, red for losing days. Tap any day to drill in.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Dashboard</h3>
+                    <p>Total P&L, win rate, average win/loss, and a visual win/loss bar. Filter by week, month, or all time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🏷️</div>
+                    <h3>Behavioral Tags</h3>
+                    <p>12 built-in tags like FOMO, Revenge Trade, and Followed Plan. Surface the patterns that cost you money.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔍</div>
+                    <h3>Search &amp; Filter</h3>
+                    <p>Search by ticker, notes, or tags. Sort by date, P&L, or ticker. Filter longs from shorts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📤</div>
+                    <h3>CSV Export</h3>
+                    <p>Export your full trade history to CSV. Compatible with Excel, Google Sheets, and any spreadsheet tool.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Troubleshooting -->
+    <div class="container">
+        <section>
+            <div class="section-label">Troubleshooting</div>
+            <h2 class="section-title">Common Issues</h2>
+
+            <div class="troubleshoot-item">
+                <div class="troubleshoot-num">1</div>
+                <div>
+                    <h3>Scanner says "No data found"</h3>
+                    <p>Make sure the screenshot shows a fill confirmation or order summary — not a watchlist or portfolio screen. The scanner looks for specific patterns like ticker symbols, prices, and quantity fields. Try selecting your brokerage manually instead of Auto-Detect. Ensure the image is clear and not cropped too tightly.</p>
+                </div>
+            </div>
+
+            <div class="troubleshoot-item">
+                <div class="troubleshoot-num">2</div>
+                <div>
+                    <h3>Scanner extracted the wrong price or quantity</h3>
+                    <p>OCR can occasionally misread numbers, especially on low-resolution screenshots or screens with complex layouts. After scanning, you always have the chance to review and correct values in the trade entry form before saving. Try rescanning with a clearer screenshot if the results are consistently off.</p>
+                </div>
+            </div>
+
+            <div class="troubleshoot-item">
+                <div class="troubleshoot-num">3</div>
+                <div>
+                    <h3>Camera permission denied</h3>
+                    <p>Vault needs camera access only for the screenshot scanner. Go to Settings → Vault → Camera and toggle it on. Photo Library access is managed separately through the system photo picker and does not require a persistent permission grant.</p>
+                </div>
+            </div>
+
+            <div class="troubleshoot-item">
+                <div class="troubleshoot-num">4</div>
+                <div>
+                    <h3>Trades not showing on the calendar</h3>
+                    <p>The calendar shows trades based on their trade date, not the date they were logged. If you log a trade today but set the date to last week, it will appear on last week's calendar cell. Navigate to the correct month using the arrow buttons to find your trade.</p>
+                </div>
+            </div>
+
+            <div class="troubleshoot-item">
+                <div class="troubleshoot-num">5</div>
+                <div>
+                    <h3>CSV export is empty or missing trades</h3>
+                    <p>The export respects your current filters. If you have a search term or direction filter active in the Trade History tab, only matching trades will be exported. Clear all filters before exporting to include your complete trade history.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- System Requirements -->
+    <div class="container">
+        <section>
+            <div class="section-label">Requirements</div>
+            <h2 class="section-title">System Requirements</h2>
+            <div class="req-list">
+                <span class="req-chip">iOS 17+</span>
+                <span class="req-chip">iPhone or iPad</span>
+                <span class="req-chip">No internet required</span>
+                <span class="req-chip">No account needed</span>
+                <span class="req-chip">Camera for scanner (optional)</span>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Vault: Trading Journal. All rights reserved. · <a href="./privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isOpen = item.classList.contains('open');
+
+            // Close all others
+            document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                if (openItem !== item) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-answer').style.maxHeight = '0';
+                }
+            });
+
+            if (isOpen) {
+                item.classList.remove('open');
+                answer.style.maxHeight = '0';
+            } else {
+                item.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        }
+    </script>
+
+</body>
+</html>
