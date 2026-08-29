@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — General Knowledge Quiz: Spark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Palette mirrors MindsparkAcademy/Views/Theme.swift. Keep it in step
+           with privacy.html — both are linked from the app's own footer. */
+        :root {
+            --bg:         #F4F2EC;
+            --surface:    #FFFFFF;
+            --surface2:   #FBF9F3;
+            --primary:    #0F7C8A;
+            --primary-dk: #0A5B66;
+            --accent:     #E8754A;
+            --ink:        #27313A;
+            --ink-soft:   #5E6B73;
+            --ink-faint:  #637078;
+            --hairline:   #E6E1D5;
+            --success:    #2E9E6B;
 
+            /* GameType colours, straight from Models.swift */
+            --trivia:  #E0613F;  --trivia-tint:  #FBEBE3;
+            --history: #C58A3D;  --history-tint: #F7EEDF;
+            --science: #2F9E78;  --science-tint: #E4F3EC;
+            --word:    #6B5DC8;  --word-tint:    #ECEAF8;
+            --math:    #2E7DA8;  --math-tint:    #E5F0F7;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--ink);
+            min-height: 100vh; line-height: 1.7;
+        }
+
+        /* ── nav ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 40px; height: 64px;
+            background: rgba(244,242,236,0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--hairline);
+        }
+        .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #0F7C8A, #12A0A6);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; font-size: 17px;
+        }
+        .nav-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 18px; color: var(--ink); }
+        .nav-link { font-size: 14px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: var(--primary); }
+
+        /* ── hero ── */
+        .hero {
+            text-align: center; padding: 80px 24px 60px;
+            border-bottom: 1px solid var(--hairline);
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(232,117,74,0.10);
+            border: 1px solid rgba(232,117,74,0.28);
+            border-radius: 100px; padding: 6px 16px;
+            font-size: 13px; font-weight: 600; color: #C95730;
+            margin-bottom: 24px; letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 400; line-height: 1.1; margin-bottom: 16px;
+        }
+        .hero h1 span { color: var(--primary); }
+        .hero > p { font-size: 16px; color: var(--ink-faint); max-width: 520px; margin: 0 auto; }
+
+        /* ── layout ── */
+        .container { max-width: 820px; margin: 0 auto; padding: 56px 24px 80px; }
+
+        .section-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 26px; font-weight: 400; color: var(--ink);
+            margin: 48px 0 20px;
+        }
+        .section-title:first-child { margin-top: 0; }
+        .section-lead { font-size: 16px; color: var(--ink-soft); margin-bottom: 24px; }
+
+        /* ── category grid ── */
+        .category-grid {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 12px; margin-bottom: 12px;
+        }
+        .cat-card {
+            background: var(--surface); border: 1px solid var(--hairline);
+            border-radius: 14px; padding: 20px 12px; text-align: center;
+            box-shadow: 0 4px 14px rgba(39,49,58,0.04);
+        }
+        .cat-card.trivia  { border-top: 3px solid var(--trivia);  background: linear-gradient(180deg, var(--trivia-tint) 0%, #fff 60%); }
+        .cat-card.history { border-top: 3px solid var(--history); background: linear-gradient(180deg, var(--history-tint) 0%, #fff 60%); }
+        .cat-card.science { border-top: 3px solid var(--science); background: linear-gradient(180deg, var(--science-tint) 0%, #fff 60%); }
+        .cat-card.word    { border-top: 3px solid var(--word);    background: linear-gradient(180deg, var(--word-tint) 0%, #fff 60%); }
+        .cat-card.math    { border-top: 3px solid var(--math);    background: linear-gradient(180deg, var(--math-tint) 0%, #fff 60%); }
+        .cat-icon { font-size: 24px; margin-bottom: 8px; }
+        .cat-name { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+        .cat-count { font-size: 12px; color: var(--ink-faint); margin-top: 4px; }
+        .cat-free {
+            display: inline-block; margin-top: 8px;
+            font-size: 10px; font-weight: 700; letter-spacing: 0.4px;
+            color: var(--success); background: rgba(46,158,107,0.10);
+            border: 1px solid rgba(46,158,107,0.28);
+            border-radius: 100px; padding: 2px 8px;
+        }
+        .grid-note { font-size: 13px; color: var(--ink-faint); text-align: right; }
+
+        /* ── steps ── */
+        .steps { display: flex; flex-direction: column; gap: 14px; }
+        .step {
+            display: flex; gap: 16px; align-items: flex-start;
+            background: var(--surface); border: 1px solid var(--hairline);
+            border-radius: 14px; padding: 20px 22px;
+        }
+        .step-num {
+            flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px;
+            background: var(--primary); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 15px; font-weight: 700;
+        }
+        .step-content h4 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+        .step-content p { font-size: 15px; color: var(--ink-soft); margin: 0; }
+
+        /* ── FAQ ── */
+        .faq-list { display: flex; flex-direction: column; gap: 10px; }
+        details {
+            background: var(--surface); border: 1px solid var(--hairline);
+            border-radius: 14px; overflow: hidden;
+        }
+        summary {
+            cursor: pointer; list-style: none;
+            padding: 18px 22px; font-size: 16px; font-weight: 600; color: var(--ink);
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: '+'; flex-shrink: 0;
+            font-size: 22px; font-weight: 400; color: var(--accent); line-height: 1;
+        }
+        details[open] summary::after { content: '−'; }
+        details[open] summary { border-bottom: 1px solid var(--hairline); }
+        .faq-body { padding: 18px 22px 22px; }
+        .faq-body p { font-size: 15px; color: var(--ink-soft); margin-bottom: 12px; }
+        .faq-body p:last-child { margin-bottom: 0; }
+        .faq-body strong { color: var(--ink); }
+
+        /* ── contact ── */
+        .contact-card {
+            background: var(--surface); border: 1px solid var(--hairline);
+            border-radius: 16px; padding: 36px; text-align: center;
+            margin-top: 48px; box-shadow: 0 8px 26px rgba(39,49,58,0.05);
+        }
+        .contact-card .icon { font-size: 30px; margin-bottom: 12px; }
+        .contact-card h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 25px; font-weight: 400; margin-bottom: 10px; color: var(--ink);
+        }
+        .contact-card p { font-size: 16px; color: var(--ink-soft); max-width: 440px; margin: 0 auto 24px; }
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent); color: #fff; font-weight: 700; font-size: 15px;
+            padding: 14px 32px; border-radius: 12px;
+            text-decoration: none; transition: all 0.2s;
+        }
+        .contact-btn:hover { background: #F0935F; transform: translateY(-2px); }
+        .contact-email { display: block; margin-top: 18px; font-size: 16px; color: var(--ink-faint); }
+        .contact-email a { color: var(--primary-dk); font-weight: 700; text-decoration: none; }
+        .contact-email a:hover { text-decoration: underline; }
+        .response-note { margin-top: 14px; font-size: 13px; color: var(--ink-faint); }
+
+        footer {
+            text-align: center; padding: 32px 24px;
+            border-top: 1px solid var(--hairline);
+            font-size: 13px; color: var(--ink-faint);
+            background: var(--surface2);
+        }
+        footer a { color: var(--primary-dk); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            nav { padding: 0 20px; }
+            .hero { padding: 60px 20px 40px; }
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-note { text-align: left; }
+            .contact-card { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="support.html" class="nav-brand">
+        <div class="nav-logo">✦</div>
+        <span class="nav-name">Spark</span>
+    </a>
+    <a href="privacy.html" class="nav-link">Privacy Policy →</a>
+</nav>
+
+<div class="hero">
+    <div class="hero-badge">Support</div>
+    <h1>We're Here<br><span>to Help.</span></h1>
+    <p>General Knowledge Quiz: Spark — answers to the common questions, or email us directly at the bottom of this page.</p>
+</div>
+
+<div class="container">
+
+    <!-- About the App -->
+    <div class="section-title">The five categories</div>
+    <p class="section-lead">484 questions in total. Every single one comes with an explanation of <em>why</em> the answer is right — that is the point of the app, not the question count.</p>
+
+    <div class="category-grid">
+        <div class="cat-card trivia">
+            <div class="cat-icon">🌎</div>
+            <div class="cat-name">World Trivia</div>
+            <div class="cat-count">98 questions</div>
+            <span class="cat-free">FREE DAILY</span>
+        </div>
+        <div class="cat-card history">
+            <div class="cat-icon">🏛️</div>
+            <div class="cat-name">History Quiz</div>
+            <div class="cat-count">100 questions</div>
+        </div>
+        <div class="cat-card science">
+            <div class="cat-icon">🔬</div>
+            <div class="cat-name">Science Quiz</div>
+            <div class="cat-count">100 questions</div>
+        </div>
+        <div class="cat-card word">
+            <div class="cat-icon">📖</div>
+            <div class="cat-name">Word Power</div>
+            <div class="cat-count">90 questions</div>
+        </div>
+        <div class="cat-card math">
+            <div class="cat-icon">➗</div>
+            <div class="cat-name">Quick Math</div>
+            <div class="cat-count">96 questions</div>
+        </div>
+    </div>
+    <p class="grid-note">World Trivia is free to play every day. The other four are included in the one-time unlock.</p>
+
+    <!-- How to Play -->
+    <div class="section-title">How to play</div>
+
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+                <h4>Pick a category</h4>
+                <p>World Trivia, History Quiz, Science Quiz, Word Power, or Quick Math from the home screen.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+                <h4>Answer five questions</h4>
+                <p>Each round is five multiple-choice questions, drawn at random from that category. There is no timer — take as long as you like.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+                <h4>Select an answer and submit</h4>
+                <p>Tap an option to select it, then press Submit. You can change your mind freely up until you submit.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+                <h4>Read the explanation</h4>
+                <p>Right or wrong, you get the correct answer and a short explanation of why it's correct. This is the part worth slowing down for.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+                <h4>See your score and keep the streak</h4>
+                <p>After question five you get your score out of five. Play at least one round a day to keep your streak going.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-title">Frequently asked questions</div>
+
+    <div class="faq-list">
+
+        <details>
+            <summary>I bought this app back when it cost money. Do I have to pay again?</summary>
+            <div class="faq-body">
+                <p><strong>No.</strong> If you bought the app when it was a paid download, or bought the unlock inside an earlier version, you keep full access permanently and will never be asked to pay again.</p>
+                <p>In most cases this is automatic — install the app while signed in to the same Apple Account you originally purchased with, and everything is already unlocked. If you do see a paywall, tap <em>Restore Purchases</em> on the home screen or on the unlock screen, and make sure you are signed in to that original Apple Account.</p>
+                <p>Still locked after that? Email us and we will sort it out.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Is Spark free?</summary>
+            <div class="faq-body">
+                <p>Spark is free to download, and <strong>World Trivia is free to play every day</strong> — three rounds a day, no account, no ads, no time limit. When you pick a category during setup you also get two free rounds in that category even if it's a paid one.</p>
+                <p>A single one-time purchase unlocks all five categories and removes the daily round limit. It is <strong>not a subscription</strong>: you pay once, and there is nothing to renew or cancel. If you reinstall the app or move to a new device, tap <em>Restore Purchases</em> to get your unlock back.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Does the app need an internet connection?</summary>
+            <div class="faq-body">
+                <p>No. Spark works completely offline. All 484 questions are bundled with the app, so you can play on a plane, on the subway, or anywhere without Wi-Fi.</p>
+                <p>The only moment the app needs a connection is when you make or restore the in-app purchase, which is handled by Apple.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>What makes this different from the other free quiz apps?</summary>
+            <div class="faq-body">
+                <p>Three things: <strong>every answer is explained</strong>, so a round leaves you knowing something rather than just scored; there are <strong>no ads, no account, and no subscription</strong>; and it <strong>works offline</strong>.</p>
+                <p>Spark is not trying to have the largest question bank. It's a five-question round you can finish in about a minute, built so the minute is worth something.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How many questions are there?</summary>
+            <div class="faq-body">
+                <p>484 across the five categories: 100 History, 100 Science, 98 World Trivia, 96 Quick Math, and 90 Word Power. Questions are shuffled every round, and the app avoids repeating a question you've recently seen.</p>
+                <p>We add to the bank in app updates. If there's a topic you'd like to see, tell us.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Can I change my answer after I pick it?</summary>
+            <div class="faq-body">
+                <p>Yes, any time before you press Submit. Once you submit, the answer locks in and the explanation appears.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Does the app track my progress?</summary>
+            <div class="faq-body">
+                <p>Yes. Spark keeps your daily streak, your best score, and how many rounds you've played, all stored locally on your device. There are no leaderboards and nothing is uploaded anywhere.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>I think one of the answers is wrong. What should I do?</summary>
+            <div class="faq-body">
+                <p>Please tell us. Email the question text and the answer you believe is correct, and we'll check it. We read every report and correct genuine errors in the next update.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>I paid for the unlock but the app still shows a paywall.</summary>
+            <div class="faq-body">
+                <p>Tap <em>Restore Purchases</em>, on the home screen or at the bottom of the unlock screen. That asks Apple to re-confirm your purchase and normally fixes it immediately.</p>
+                <p>If it doesn't: check that you're signed in to the same Apple Account you bought with (<em>Settings ▸ your name ▸ Media &amp; Purchases</em>), and that you have a connection. Purchases are tied to the Apple Account, not to the device — so a different account will not find them.</p>
+                <p>If it's still not working, email us with your Apple Account region and roughly when you purchased, and we'll help.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>The app crashed or isn't behaving. What should I do?</summary>
+            <div class="faq-body">
+                <p>Close and reopen the app first, then restart your device if it persists. If you're still stuck, email us with your device model and iOS version and we'll investigate.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Is Spark suitable for kids?</summary>
+            <div class="faq-body">
+                <p>Yes. There's no adult content, no advertising, and no social or messaging features, and we collect no personal data from anyone.</p>
+                <p>The app does offer one optional in-app purchase, which unlocks the four paid categories. If you'd rather it weren't available, you can turn off in-app purchases in <em>Settings ▸ Screen Time ▸ Content &amp; Privacy Restrictions</em>.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Will you add more categories or questions?</summary>
+            <div class="faq-body">
+                <p>Yes — we're expanding the question bank and considering new categories. Anything you buy today stays unlocked as the app grows; the one-time purchase covers future categories too.</p>
+            </div>
+        </details>
+
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-card">
+        <div class="icon">✉️</div>
+        <h3>Still need help?</h3>
+        <p>Couldn't find your answer above? Send us a message — a real person reads every one.</p>
+        <a href="mailto:support@leanorbit.app" class="contact-btn">Get in Touch</a>
+        <span class="contact-email">or email us directly at <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></span>
+        <p class="response-note">We typically respond within 1–2 business days.</p>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Lean Orbit &nbsp;·&nbsp; General Knowledge Quiz: Spark &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="support.html">Support</a> &nbsp;·&nbsp; <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
+</footer>
+
+</body>
+</html>

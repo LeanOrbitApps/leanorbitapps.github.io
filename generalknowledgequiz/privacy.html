@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — General Knowledge Quiz: Spark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Palette mirrors MindsparkAcademy/Views/Theme.swift — App Review
+           opens this page straight from the app, and the jump from a warm
+           light app to a dark marketing page reads as a different product. */
+        :root {
+            --bg:         #F4F2EC;  /* warm linen */
+            --surface:    #FFFFFF;
+            --surface2:   #FBF9F3;
+            --primary:    #0F7C8A;  /* teal brand */
+            --primary-dk: #0A5B66;
+            --accent:     #E8754A;  /* sunset coral */
+            --ink:        #27313A;
+            --ink-soft:   #5E6B73;
+            --ink-faint:  #637078;
+            --hairline:   #E6E1D5;
+            --success:    #2E9E6B;
+        }
 
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* ── nav ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 40px; height: 64px;
+            background: rgba(244,242,236,0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--hairline);
+        }
+        .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-logo {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, #0F7C8A, #12A0A6);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 17px;
+        }
+        .nav-name { font-family: 'DM Serif Display', Georgia, serif; font-size: 18px; color: var(--ink); }
+        .nav-link { font-size: 14px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: var(--primary); }
+
+        /* ── hero ── */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 60px;
+            border-bottom: 1px solid var(--hairline);
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%);
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(15,124,138,0.10);
+            border: 1px solid rgba(15,124,138,0.25);
+            border-radius: 100px; padding: 6px 16px;
+            font-size: 13px; font-weight: 600; color: var(--primary-dk);
+            margin-bottom: 24px; letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 400; line-height: 1.1; margin-bottom: 16px;
+        }
+        .hero h1 span { color: var(--primary); }
+        .hero-meta { font-size: 14px; color: var(--ink-faint); }
+
+        /* ── layout ── */
+        .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
+
+        .section { margin-bottom: 48px; }
+        .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+        .section-icon {
+            width: 40px; height: 40px; flex-shrink: 0;
+            background: rgba(15,124,138,0.09);
+            border: 1px solid rgba(15,124,138,0.22);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+        }
+        .section h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 23px; font-weight: 400; color: var(--ink);
+        }
+
+        p { font-size: 16px; color: var(--ink-soft); margin-bottom: 14px; }
+        p strong { color: var(--ink); }
+        a { color: var(--primary-dk); }
+
+        /* ── highlight card ── */
+        .highlight {
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-left: 3px solid var(--accent);
+            border-radius: 12px;
+            padding: 24px 28px; margin-bottom: 48px;
+            box-shadow: 0 6px 20px rgba(39,49,58,0.05);
+        }
+        .highlight p { font-size: 17px; font-weight: 500; color: var(--ink); margin: 0; }
+        .highlight p strong { color: var(--accent); }
+
+        /* ── callout pills ── */
+        .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-radius: 100px; padding: 8px 16px;
+            font-size: 14px; font-weight: 500; color: var(--ink);
+        }
+        .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); }
+
+        hr { border: none; border-top: 1px solid var(--hairline); margin: 48px 0; }
+
+        /* ── contact card ── */
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--hairline);
+            border-radius: 16px; padding: 32px; text-align: center;
+            box-shadow: 0 8px 26px rgba(39,49,58,0.05);
+        }
+        .contact-card h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 23px; font-weight: 400; margin-bottom: 10px; color: var(--ink);
+        }
+        .contact-card p { margin-bottom: 20px; }
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent); color: #fff; font-weight: 700; font-size: 15px;
+            padding: 12px 28px; border-radius: 10px;
+            text-decoration: none; transition: all 0.2s;
+        }
+        .contact-btn:hover { background: #F0935F; transform: translateY(-1px); }
+        .contact-email {
+            display: block; margin-top: 16px;
+            font-size: 15px; color: var(--ink-faint);
+        }
+        .contact-email a { color: var(--primary-dk); font-weight: 600; text-decoration: none; }
+        .contact-email a:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center; padding: 32px 24px;
+            border-top: 1px solid var(--hairline);
+            font-size: 13px; color: var(--ink-faint);
+            background: var(--surface2);
+        }
+        footer a { color: var(--primary-dk); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            nav { padding: 0 20px; }
+            .hero { padding: 60px 20px 40px; }
+            .highlight { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="support.html" class="nav-brand">
+        <div class="nav-logo">✦</div>
+        <span class="nav-name">Spark</span>
+    </a>
+    <a href="support.html" class="nav-link">Support →</a>
+</nav>
+
+<div class="hero">
+    <div class="hero-badge">Privacy Policy</div>
+    <h1>Your Data Stays<br><span>On Your Device.</span></h1>
+    <p class="hero-meta">General Knowledge Quiz: Spark &nbsp;·&nbsp; Last updated: August 2026</p>
+</div>
+
+<div class="container">
+
+    <div class="highlight">
+        <p><strong>The short version:</strong> Spark does not collect, store, transmit, or share any personal data. Everything stays on your device. There are no servers, no accounts, no ads, and no analytics tied to you.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">📱</div>
+            <h2>What We Collect</h2>
+        </div>
+        <p>Spark collects <strong>no personal information whatsoever.</strong> There are no accounts to create, no sign-ins, and no forms asking for your name, email, or any identifying details.</p>
+        <p>The app does not track your location, and does not access your contacts, photos, camera, or microphone.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">🌐</div>
+            <h2>Network &amp; Internet Access</h2>
+        </div>
+        <p>Spark runs entirely offline. All questions, game logic, scoring, and streak tracking happen locally on your device, and we operate no servers of our own.</p>
+        <p>The one exception is the in-app purchase. When you tap to unlock all five categories, or tap <em>Restore Purchases</em>, iOS contacts Apple's App Store to process and verify that purchase. That exchange is handled entirely by Apple, is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>, and sends us nothing about you — we never see your name, your Apple Account, or your payment details.</p>
+        <div class="pill-row">
+            <div class="pill"><span class="dot"></span> Playable fully offline</div>
+            <div class="pill"><span class="dot"></span> No servers of our own</div>
+            <div class="pill"><span class="dot"></span> Purchases handled by Apple</div>
+            <div class="pill"><span class="dot"></span> No payment data shared with us</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">💾</div>
+            <h2>Data Storage</h2>
+        </div>
+        <p>Spark saves a small amount of game state locally on your device using standard iOS storage: your daily round count, your current streak, your best score, which category you picked during setup, and whether you have purchased the unlock.</p>
+        <p>None of it leaves your device, none of it identifies you, and all of it is deleted when you uninstall the app. We do not use iCloud sync or any third-party storage provider.</p>
+        <p>Your purchase is the one thing that is <em>not</em> stored only on your device — it is held by Apple against your Apple Account, which is what lets <em>Restore Purchases</em> bring it back after a reinstall or on a new device.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">📊</div>
+            <h2>Analytics &amp; Tracking</h2>
+        </div>
+        <p>Spark contains no analytics SDKs, no crash reporting tools, no advertising networks, and no tracking frameworks. Specifically, none of the following are present in the app:</p>
+        <div class="pill-row">
+            <div class="pill"><span class="dot"></span> Google Analytics</div>
+            <div class="pill"><span class="dot"></span> Firebase</div>
+            <div class="pill"><span class="dot"></span> Mixpanel</div>
+            <div class="pill"><span class="dot"></span> Facebook SDK</div>
+            <div class="pill"><span class="dot"></span> Ad networks</div>
+            <div class="pill"><span class="dot"></span> Crash reporters</div>
+        </div>
+        <p style="margin-top:16px;">Apple may collect anonymized, aggregated App Store metrics — download counts, and crash logs if you have opted into sharing diagnostics with developers — through their standard developer program. That data is governed by <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a> and reaches us only in aggregate, never in an individually identifiable form.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">🧒</div>
+            <h2>Children's Privacy</h2>
+        </div>
+        <p>Spark is suitable for all ages and contains no adult content, no ads, and no social or messaging features. Because we collect no personal data from any user, there is no special risk to children.</p>
+        <p>The app does offer a single optional in-app purchase, which is handled by Apple and subject to whatever purchase restrictions are configured on the device. Parents can disable in-app purchases entirely in <em>Settings ▸ Screen Time ▸ Content &amp; Privacy Restrictions</em>.</p>
+        <p>We do not knowingly collect any information from anyone under the age of 13, and the app is built so that no such collection is technically possible.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-icon">🔄</div>
+            <h2>Changes to This Policy</h2>
+        </div>
+        <p>If we ever update this privacy policy — for example, if a future version of the app adds new features — we will update the date at the top of this page and, where appropriate, note it in the App Store release notes.</p>
+        <p>We are committed to never adding data collection without being transparent about it first.</p>
+    </div>
+
+    <hr>
+
+    <div class="contact-card">
+        <h3>Questions About Privacy?</h3>
+        <p>If you have any questions about this policy or how Spark handles your data, we're happy to help.</p>
+        <a href="mailto:support@leanorbit.app" class="contact-btn">Contact Us</a>
+        <span class="contact-email">or email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></span>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Lean Orbit &nbsp;·&nbsp; General Knowledge Quiz: Spark &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="support.html">Support</a> &nbsp;·&nbsp; <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
+</footer>
+
+</body>
+</html>
