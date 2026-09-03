@@ -1,1 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Wattdo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0e1117;
+            --bg-card: #161b22;
+            --bg-subtle: #1c2333;
+            --text: #e6edf3;
+            --text-muted: #8b949e;
+            --accent-gold: #F0A500;
+            --accent-green: #2ECC71;
+            --accent-red: #E74C3C;
+            --border: #21262d;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .page-wrapper {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 120px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 48px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-bolt {
+            font-size: 24px;
+            filter: drop-shadow(0 0 8px rgba(240, 165, 0, 0.4));
+        }
+
+        .nav-name {
+            font-family: var(--font-display);
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        /* Header */
+        .page-header {
+            margin-bottom: 56px;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent-gold), #FFD93D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header .subtitle {
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* Contact card */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 56px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-method .label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+        }
+
+        .contact-method a,
+        .contact-method span {
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .contact-method a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s;
+        }
+
+        .contact-method a:hover { opacity: 0.8; }
+
+        /* Section styles */
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 24px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #c9d1d9;
+        }
+
+        a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s;
+        }
+
+        a:hover { opacity: 0.8; }
+
+        /* FAQ Accordion */
+        .faq-section {
+            margin-bottom: 56px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 500;
+            text-align: left;
+            padding: 20px 40px 20px 0;
+            cursor: pointer;
+            position: relative;
+            line-height: 1.5;
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-gold);
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.2s;
+        }
+
+        .faq-item.open .faq-question::after {
+            transform: translateY(-50%) rotate(45deg);
+            color: var(--accent-gold);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 400px;
+            padding-bottom: 20px;
+        }
+
+        .faq-answer p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Troubleshooting */
+        .troubleshoot-section {
+            margin-bottom: 56px;
+        }
+
+        .troubleshoot-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+        }
+
+        .troubleshoot-card h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .troubleshoot-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .troubleshoot-card .bolt-badge {
+            display: inline-block;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .bolt-badge.widget { background: rgba(240, 165, 0, 0.15); color: var(--accent-gold); }
+        .bolt-badge.general { background: rgba(139, 148, 158, 0.15); color: var(--text-muted); }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .energy-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .energy-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: var(--accent-red); }
+        .dot-gold { background: var(--accent-gold); }
+        .dot-green { background: var(--accent-green); }
+
+        /* Fade-in */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header { animation: fadeUp 0.6s ease both; }
+        .contact-card { animation: fadeUp 0.6s ease 0.1s both; }
+        .faq-section { animation: fadeUp 0.6s ease 0.2s both; }
+        .troubleshoot-section { animation: fadeUp 0.6s ease 0.3s both; }
+
+        @media (max-width: 600px) {
+            .page-wrapper { padding: 32px 18px 80px; }
+            nav { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .contact-card { grid-template-columns: 1fr; gap: 20px; }
+            footer { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav>
+            <a href="index.html" class="nav-brand">
+                <span class="nav-bolt">⚡</span>
+                <span class="nav-name">Wattdo</span>
+            </a>
+            <div class="nav-links">
+                <a href="privacy.html">Privacy</a>
+                <a href="support.html" class="active">Support</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <h1>Support</h1>
+            <p class="subtitle">Having trouble? Low energy days happen for apps too. Let's sort it out.</p>
+        </header>
+
+        <!-- Contact -->
+        <div class="contact-card">
+            <div class="contact-method">
+                <div class="label">Email</div>
+                <a href="mailto:andygoinc@gmail.com">andygoinc@gmail.com</a>
+            </div>
+            <div class="contact-method">
+                <div class="label">Response Time</div>
+                <span>Within 48 hours</span>
+            </div>
+            <div class="contact-method">
+                <div class="label">App Version</div>
+                <span>1.0.0</span>
+            </div>
+            <div class="contact-method">
+                <div class="label">Requires</div>
+                <span>iOS 17.0 or later</span>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <div class="section-label">Frequently Asked Questions</div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I set my energy level?</button>
+                <div class="faq-answer">
+                    <p>On the main screen, you'll see a battery icon and three energy buttons (Low, Medium, High). Tap one to set your energy for the day. You can also tap the battery icon itself to cycle through levels. Your task list will immediately update to show only tasks that match your current energy.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What do the lightning bolts mean?</button>
+                <div class="faq-answer">
+                    <p>Each task gets an energy cost: ⚡ (light — quick and easy), ⚡⚡ (moderate — requires some focus), or ⚡⚡⚡ (heavy — deep work). When your energy is set to Low, only one-bolt tasks appear. Medium shows one- and two-bolt tasks. High shows everything. You decide what's heavy for you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Where did my tasks go?</button>
+                <div class="faq-answer">
+                    <p>They're not gone — just hidden. If your energy level is set to Low or Medium, tasks that require more energy are temporarily hidden. Raise your energy level and they'll reappear. You'll also see a count of hidden tasks on the main screen.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Does Wattdo sync across devices?</button>
+                <div class="faq-answer">
+                    <p>Currently, Wattdo stores data locally on your device. Cross-device sync is not available in this version but is something we're considering for a future update.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What is the "Push to Monday" feature?</button>
+                <div class="faq-answer">
+                    <p>If you've been in Low Energy mode for two or more consecutive days, Wattdo will gently ask if you'd like to push all heavy tasks (two- and three-bolt) to the following Monday. It's not automatic — you always choose. Sometimes rest is the most productive thing you can do.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Is Wattdo free?</button>
+                <div class="faq-answer">
+                    <p>Yes. Wattdo is free to download and use with no ads, no subscriptions, and no in-app purchases.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I delete my data?</button>
+                <div class="faq-answer">
+                    <p>Go to Settings within the app to clear completed tasks. To remove all data, simply delete the app from your device — all data is stored locally and will be removed completely.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="troubleshoot-section">
+            <div class="section-label">Troubleshooting</div>
+
+            <div class="troubleshoot-card">
+                <span class="bolt-badge widget">WIDGET</span>
+                <h3>Widget not updating</h3>
+                <p>If the home screen widget shows stale data, try removing and re-adding it. Also ensure Wattdo has been opened at least once after installation. iOS limits how often widgets refresh — changes should appear within 15 minutes.</p>
+            </div>
+
+            <div class="troubleshoot-card">
+                <span class="bolt-badge widget">WIDGET</span>
+                <h3>Widget energy level doesn't match the app</h3>
+                <p>Open the Wattdo app briefly — this triggers a sync between the app and widget. The widget reads from a shared data container that updates when either the app or widget changes the energy level.</p>
+            </div>
+
+            <div class="troubleshoot-card">
+                <span class="bolt-badge general">GENERAL</span>
+                <h3>App crashes on launch</h3>
+                <p>Try force-quitting the app and reopening it. If the issue persists, delete and reinstall. Note that reinstalling will remove your task data since it's stored locally. If you continue to experience issues, email us with your device model and iOS version.</p>
+            </div>
+        </div>
+
+        <!-- Still need help -->
+        <section>
+            <div class="section-label">Still stuck?</div>
+            <p>Send us an email at <a href="mailto:andygoinc@gmail.com">andygoinc@gmail.com</a> with a description of the issue, your device model, and iOS version. Screenshots help too. We'll get back to you within 48 hours.</p>
+            <p>If you're enjoying Wattdo, a review on the App Store means the world to us. It helps other people who need a gentler to-do list find their way here.</p>
+        </section>
+
+        <footer>
+            <p>© 2026 Wattdo. Rest is productive too.</p>
+            <div class="energy-dots">
+                <span class="dot-red"></span>
+                <span class="dot-gold"></span>
+                <span class="dot-green"></span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isOpen = item.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+                // Toggle clicked
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+</html>

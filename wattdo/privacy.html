@@ -1,1 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Wattdo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0e1117;
+            --bg-card: #161b22;
+            --bg-subtle: #1c2333;
+            --text: #e6edf3;
+            --text-muted: #8b949e;
+            --accent-gold: #F0A500;
+            --accent-green: #2ECC71;
+            --accent-red: #E74C3C;
+            --border: #21262d;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Subtle grain texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .page-wrapper {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px 120px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 48px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-bolt {
+            font-size: 24px;
+            filter: drop-shadow(0 0 8px rgba(240, 165, 0, 0.4));
+        }
+
+        .nav-name {
+            font-family: var(--font-display);
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-gold);
+        }
+
+        /* Header */
+        .page-header {
+            margin-bottom: 56px;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent-gold), #FFD93D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header .effective-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .page-header .effective-date time {
+            color: var(--text);
+        }
+
+        /* Summary card */
+        .summary-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 48px;
+        }
+
+        .summary-card .label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+
+        .summary-card p {
+            color: var(--text);
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        h2 .section-number {
+            color: var(--accent-gold);
+            margin-right: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 14px;
+            vertical-align: 2px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #c9d1d9;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 16px;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+            color: #c9d1d9;
+        }
+
+        ul li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            font-size: 12px;
+        }
+
+        a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: opacity 0.2s;
+        }
+
+        a:hover { opacity: 0.8; }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .energy-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .energy-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: var(--accent-red); }
+        .dot-gold { background: var(--accent-gold); }
+        .dot-green { background: var(--accent-green); }
+
+        /* Fade-in animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header { animation: fadeUp 0.6s ease both; }
+        .summary-card { animation: fadeUp 0.6s ease 0.1s both; }
+        section:nth-of-type(1) { animation: fadeUp 0.6s ease 0.15s both; }
+        section:nth-of-type(2) { animation: fadeUp 0.6s ease 0.2s both; }
+        section:nth-of-type(3) { animation: fadeUp 0.6s ease 0.25s both; }
+        section:nth-of-type(4) { animation: fadeUp 0.6s ease 0.3s both; }
+        section:nth-of-type(5) { animation: fadeUp 0.6s ease 0.35s both; }
+        section:nth-of-type(6) { animation: fadeUp 0.6s ease 0.4s both; }
+        section:nth-of-type(7) { animation: fadeUp 0.6s ease 0.45s both; }
+        section:nth-of-type(8) { animation: fadeUp 0.6s ease 0.5s both; }
+
+        @media (max-width: 600px) {
+            .page-wrapper { padding: 32px 18px 80px; }
+            nav { flex-direction: column; align-items: flex-start; gap: 16px; }
+            footer { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav>
+            <a href="index.html" class="nav-brand">
+                <span class="nav-bolt">⚡</span>
+                <span class="nav-name">Wattdo</span>
+            </a>
+            <div class="nav-links">
+                <a href="privacy.html" class="active">Privacy</a>
+                <a href="support.html">Support</a>
+            </div>
+        </nav>
+
+        <header class="page-header">
+            <h1>Privacy Policy</h1>
+            <p class="effective-date">Effective <time datetime="2026-02-06">February 6, 2026</time></p>
+        </header>
+
+        <div class="summary-card">
+            <div class="label">The short version</div>
+            <p>Wattdo doesn't collect your data. Your tasks, energy levels, and preferences stay on your device. We don't have servers, accounts, or analytics. Your business is yours.</p>
+        </div>
+
+        <section>
+            <h2><span class="section-number">01</span>Information We Collect</h2>
+            <p>Wattdo collects <strong>no personal information</strong>. We do not require account creation, email addresses, names, or any identifying information to use the app.</p>
+            <p>All data you enter into Wattdo — including tasks, energy levels, notes, and preferences — is stored locally on your device using Core Data and UserDefaults. This data never leaves your device.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-number">02</span>Widget & App Group Data</h2>
+            <p>Wattdo uses an App Group container to share your energy level and task data between the main app and the home screen widget. This shared data remains on your device and is not accessible to other apps or transmitted externally.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-number">03</span>Third-Party Services</h2>
+            <p>Wattdo uses <strong>no third-party analytics, advertising, tracking, or crash reporting services</strong>. There are no SDKs collecting data in the background. We do not use Firebase, Amplitude, Mixpanel, or any similar services.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-number">04</span>Data Sharing</h2>
+            <p>We do not sell, trade, rent, or otherwise share any user data with third parties. Since we collect no data, there is nothing to share.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-number">05</span>Data Retention & Deletion</h2>
+            <p>All data is stored on your device. Deleting the app removes all associated data. You can also clear completed tasks from within the app's Settings screen at any time.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-number">06</span>Children's Privacy</h2>
+            <p>Wattdo does not knowingly collect information from children under 13. The app does not require any personal information from users of any age.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-number">07</span>Changes to This Policy</h2>
+            <p>If we update this privacy policy, changes will be posted on this page with a revised effective date. Since we don't collect email addresses, we encourage you to review this page periodically.</p>
+        </section>
+
+        <section>
+            <h2><span class="section-number">08</span>Contact</h2>
+            <p>Questions about this policy? Reach out at <a href="mailto:andygoinc@gmail.com">andygoinc@gmail.com</a> and we'll get back to you.</p>
+        </section>
+
+        <footer>
+            <p>© 2026 Wattdo. Rest is productive too.</p>
+            <div class="energy-dots">
+                <span class="dot-red"></span>
+                <span class="dot-gold"></span>
+                <span class="dot-green"></span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

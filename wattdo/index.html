@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wattdo — The energy-based to-do list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0e1117;
+            --bg-card: #161b22;
+            --text: #e6edf3;
+            --text-muted: #8b949e;
+            --accent-gold: #F0A500;
+            --accent-green: #2ECC71;
+            --accent-red: #E74C3C;
+            --border: #21262d;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .landing {
+            text-align: center;
+            padding: 48px 24px;
+            max-width: 520px;
+        }
+
+        .bolt {
+            font-size: 64px;
+            display: block;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 0 24px rgba(240, 165, 0, 0.35));
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { filter: drop-shadow(0 0 24px rgba(240, 165, 0, 0.35)); }
+            50% { filter: drop-shadow(0 0 40px rgba(240, 165, 0, 0.55)); }
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(40px, 8vw, 56px);
+            font-weight: 400;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--accent-gold), #FFD93D);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .energy-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 48px;
+        }
+
+        .energy-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: var(--accent-red); }
+        .dot-gold { background: var(--accent-gold); }
+        .dot-green { background: var(--accent-green); }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .links a:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            background: rgba(240, 165, 0, 0.06);
+        }
+
+        .footer-note {
+            margin-top: 64px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bolt { animation: fadeUp 0.6s ease both, pulse 3s ease-in-out 0.6s infinite; }
+        h1 { animation: fadeUp 0.6s ease 0.1s both; }
+        .tagline { animation: fadeUp 0.6s ease 0.2s both; }
+        .energy-dots { animation: fadeUp 0.6s ease 0.3s both; }
+        .links { animation: fadeUp 0.6s ease 0.4s both; }
+        .footer-note { animation: fadeUp 0.6s ease 0.5s both; }
+    </style>
+</head>
+<body>
+    <div class="landing">
+        <span class="bolt">⚡</span>
+        <h1>Wattdo</h1>
+        <p class="tagline">The to-do list that adapts to your energy.<br>Do what you can. That's enough.</p>
+
+        <div class="energy-dots">
+            <span class="dot-red"></span>
+            <span class="dot-gold"></span>
+            <span class="dot-green"></span>
+        </div>
+
+        <div class="links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="support.html">Support</a>
+        </div>
+
+        <p class="footer-note">© 2026 Wattdo. Rest is productive too.</p>
+    </div>
+</body>
+</html>
