@@ -99,6 +99,27 @@
         .dot-gold { background: var(--accent-gold); }
         .dot-green { background: var(--accent-green); }
 
+        .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-gold), #FFD93D);
+            color: #0e1117;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            padding: 14px 32px;
+            border-radius: 10px;
+            margin-bottom: 36px;
+            box-shadow: 0 4px 20px rgba(240, 165, 0, 0.22);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(240, 165, 0, 0.38);
+        }
+
         .links {
             display: flex;
             justify-content: center;
@@ -139,7 +160,8 @@
         h1 { animation: fadeUp 0.6s ease 0.1s both; }
         .tagline { animation: fadeUp 0.6s ease 0.2s both; }
         .energy-dots { animation: fadeUp 0.6s ease 0.3s both; }
-        .links { animation: fadeUp 0.6s ease 0.4s both; }
+        .cta { animation: fadeUp 0.6s ease 0.35s both; }
+        .links { animation: fadeUp 0.6s ease 0.45s both; }
         .footer-note { animation: fadeUp 0.6s ease 0.5s both; }
     </style>
 </head>
@@ -154,6 +176,8 @@
             <span class="dot-gold"></span>
             <span class="dot-green"></span>
         </div>
+
+        <a class="cta" href="https://apps.apple.com/app/id6758806733">Download on the App Store</a>
 
         <div class="links">
             <a href="privacy.html">Privacy Policy</a>
