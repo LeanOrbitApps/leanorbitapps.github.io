@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="app-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Signature Scanner &amp; Creator</title>
-<meta name="description" content="Signature Scanner &amp; Creator collects no personal data. Everything you sign stays on your iPhone.">
+<meta name="description" content="How Signature Scanner &amp; Creator handles local files, purchases, credit records, and support information.">
 <style>
   :root {
     --bg: #ffffff;
@@ -61,146 +62,97 @@
     padding: .1em .35em;
     overflow-wrap: anywhere;
   }
+
+  a { text-underline-offset: .2em; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 3px; }
+  nav { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-bottom: 2.5rem; font-size: .95rem; }
+  nav a[aria-current="page"] { color: var(--fg); font-weight: 650; }
+  .skip { position: absolute; top: -5rem; left: 1rem; background: var(--bg); padding: .6rem 1rem; }
+  .skip:focus { top: .5rem; }
+  .contact { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 1.1rem 1.25rem; }
+  .contact p:first-child { margin-top: 0; }
+  .contact p:last-child { margin-bottom: 0; }
+  .home { max-width: 64rem; }
+  .hero { display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: center; padding: 2rem 0 3.5rem; }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.75rem); line-height: 1.08; letter-spacing: -.045em; }
+  .hero .intro { font-size: 1.2rem; max-width: 36rem; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; color: var(--muted); font-size: .8rem; font-weight: 650; }
+  .app-icon { width: 220px; height: 220px; max-width: 100%; border-radius: 22%; }
+  .download { display: inline-block; padding: .85rem 1.3rem; background: var(--accent); color: var(--bg); border-radius: 10px; text-decoration: none; font-weight: 650; }
+  .download:hover { filter: brightness(.9); }
+  .small { font-size: .9rem; color: var(--muted); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0; list-style: none; }
+  .steps li { border-top: 2px solid var(--rule); padding-top: 1rem; }
+  .steps h3 { margin: .4rem 0; font-size: 1.15rem; }
+  .steps p { margin-top: .5rem; }
+  .plan { margin-top: 3rem; background: var(--card); border: 1px solid var(--rule); border-radius: 16px; padding: 1.7rem; }
+  .plan h2 { margin-top: 0; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .choices h3 { margin-top: 1rem; }
+  @media (max-width: 600px) {
+    body { padding-top: 1.5rem; }
+    .hero { grid-template-columns: 1fr; gap: 1.3rem; padding-top: .5rem; }
+    .app-icon { grid-row: 1; width: 96px; height: 96px; }
+    .steps, .choices { grid-template-columns: 1fr; gap: .8rem; }
+    .plan { padding: 1.2rem; }
+  }
 </style>
 </head>
 <body>
-<main>
-
-  <h1>Privacy Policy</h1>
-  <p class="meta">Signature Scanner &amp; Creator &middot; Last updated 12 August 2026</p>
-
-  <div class="lede">
-    <p><strong>Signature Scanner &amp; Creator does not collect your personal data.</strong> There is no account, no
-    server, no analytics, no advertising and no tracking. Your signatures and the documents
-    you sign are created on your iPhone, stored on your iPhone, and never sent to us or to
-    anyone else.</p>
-  </div>
-
-  <p>This policy explains what that means in detail, and what the few pieces of data the app
-  does store on your device actually are. It applies to the Signature Scanner &amp; Creator iOS app published by
-  Lean Orbit.</p>
-
-  <h2>What we collect</h2>
-
-  <p>Nothing. Signature Scanner &amp; Creator has no server component. We do not receive, and cannot access, your
-  signatures, your documents, your photos, your name, your email address, your location or
-  any identifier for you or your device.</p>
-
-  <p>Because of this, the app's App Store privacy label is <strong>Data Not
-  Collected</strong>.</p>
-
-  <h2>What stays on your device</h2>
-
-  <h3>Signatures and documents</h3>
-  <p>Photographs of your signature, the cleaned-up signature images extracted from them,
-  typed signatures, PDFs you import, and the signed documents you produce are all written to
-  Signature Scanner &amp; Creator's own private storage area on your iPhone. Other apps cannot read them. They are
-  not synced to iCloud by the app.</p>
-
-  <h3>Camera</h3>
-  <p>If you allow camera access, Signature Scanner &amp; Creator uses the camera only to photograph your signature
-  from paper. The photo is processed on-device to separate the ink from the page. It is
-  never uploaded.</p>
-
-  <h3>Photo library</h3>
-  <p>If you choose to import a signature image from your photo library, iOS gives Signature Scanner &amp; Creator
-  only the specific image you picked. The app does not browse, index or read the rest of
-  your library, and the image is never uploaded.</p>
-
-  <h3>Passwords for locked PDFs</h3>
-  <p>If you import a password-protected PDF, the password you type is used once to open the
-  file and is never stored, logged or transmitted.</p>
-
-  <h3>Free-allowance counters</h3>
-  <p>Signature Scanner &amp; Creator's free tier allows a fixed number of signatures and document exports per
-  device. To count them, the app stores a small record in the iOS Keychain under
-  <code>com.leanorbit.SignatureESign.allowance</code>. It contains two numbers and a short
-  list of randomly generated identifiers for documents you have already exported. It
-  contains no name, email address, device identifier or advertising identifier, it is not
-  synchronised to iCloud Keychain, and it is never transmitted.</p>
-
-  <p>Please note that <strong>this record is not removed when you delete the app</strong> —
-  that is how the allowance stays per-device rather than resetting on reinstall. It is
-  removed if you erase the device.</p>
-
-  <h3>App preferences</h3>
-  <p>Signature Scanner &amp; Creator stores small local settings on your device, such as whether you have completed
-  the introduction and how many documents you have exported, so it knows whether to offer
-  the App Store rating prompt. These are ordinary local app preferences and are deleted with
-  the app.</p>
-
-  <h2>Purchases</h2>
-
-  <p>Signature Scanner &amp; Creator offers a single optional one-time unlock. All purchases
-  are handled by <strong>Apple's In-App Purchase system</strong>. Apple processes the
-  payment; we never see or receive your payment card, billing address or Apple Account
-  details. The app checks with Apple's StoreKit framework on your device to confirm whether
-  a purchase is active.</p>
-
-  <p>Apple provides us with aggregate sales and download reports through App Store Connect.
-  These do not identify individual customers. Apple's own handling of your data is governed
-  by the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
-
-  <h2>When you share a document</h2>
-
-  <p>When you export or share a signed document, iOS hands the file to whichever destination
-  you choose — Mail, Messages, Files, a cloud storage app, a printer. From that point the
-  file is governed by the privacy policy of the service you chose. Signature Scanner &amp; Creator has no visibility
-  into where you sent it.</p>
-
-  <h2>What Signature Scanner &amp; Creator does not contain</h2>
-
-  <ul>
-    <li>No third-party analytics or crash-reporting SDKs</li>
-    <li>No advertising or ad network SDKs</li>
-    <li>No attribution, marketing or A/B testing SDKs</li>
-    <li>No social media SDKs or login providers</li>
-    <li>No third-party purchase platform</li>
-    <li>No tracking across apps or websites, and no App Tracking Transparency prompt,
-        because there is nothing to track</li>
-  </ul>
-
-  <h2>Children</h2>
-
-  <p>Signature Scanner &amp; Creator is a general-purpose utility and is not directed to children. It collects no
-  personal information from anyone, including children under 13.</p>
-
-  <h2>Your rights</h2>
-
-  <p>Privacy laws such as the GDPR and the CCPA give you rights to access, correct, export
-  or delete the personal data a company holds about you. We hold no personal data about you,
-  so there is nothing for us to look up, hand over, correct or erase. We do not sell or
-  share personal information, because we do not have any.</p>
-
-  <p>To delete the content held on your device, delete the app; your signatures and
-  documents are removed with it. Within the app, Settings also offers "Delete stored source
-  photos", which discards the original photographs while keeping the signatures made from
-  them.</p>
-
-  <h2>Data security</h2>
-
-  <p>Your signatures and documents are protected by your iPhone's own storage encryption and
-  by iOS app sandboxing, which prevents other apps from reading Signature Scanner &amp; Creator's files. Because
-  nothing is transmitted, there is no network transfer to intercept and no database of ours
-  to breach.</p>
-
-  <h2>Changes to this policy</h2>
-
-  <p>If this policy changes, the updated version will be posted at this address with a new
-  date at the top. Material changes will also be noted in the app's release notes.</p>
-
-  <h2>Contact</h2>
-
-  <p>Questions about this policy, or about privacy in Signature Scanner &amp; Creator:
-  <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
-
-  <hr>
-  <footer>
-    <p>Lean Orbit &middot;
-    <a href="/signify/support.html">Support</a> &middot;
-    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></p>
-  </footer>
-
+<a class="skip" href="#content">Skip to content</a>
+<main class="document">
+<nav aria-label="Main navigation"><a href="index.html">Home</a>
+<a href="support.html">Support</a>
+<a href="privacy.html" aria-current="page">Privacy</a></nav>
+<div id="content">
+<h1>Privacy Policy</h1>
+<p class="meta">Signature Scanner &amp; Creator &middot; Last updated 6 September 2026</p>
+<div class="lede"><p><strong>Your signatures and documents are processed on your device.</strong> The app does not send them to Lean Orbit. There is no app account, advertising, tracking, or third-party analytics. Apple handles purchases, and you choose when and where to share your files.</p></div>
+<p>This policy covers the Signature Scanner &amp; Creator iOS app published by Lean Orbit and information you choose to send us for support.</p>
+<h2>Information collected by the app</h2>
+<p>We do not operate an app server that receives your signatures, documents, photos, or usage history. The app does not collect personal information for analytics or advertising and does not track you across apps or websites. Support email and Apple's purchase services are explained below.</p>
+<h2>What is stored on your device</h2>
+<h3>Signatures, photos, and documents</h3>
+<p>Signature photographs, extracted signature images, typed signatures and initials, imported PDFs, drafts, and exported PDFs are stored in the app's private storage. The camera is used to photograph a signature with your permission. When you select an image from your photo library, the app receives the selected image, not access to browse your entire library.</p>
+<p>The app does not provide its own cloud sync or backup service. Depending on your device settings, Apple's device backup services may include app data. See <a href="https://support.apple.com/108770">what iCloud backs up</a>. Backups are separate from sharing a file or syncing files through the app.</p>
+<h3>Passwords for locked PDFs</h3>
+<p>A PDF password you enter is used to open the selected document. The app does not save the password or send it to us.</p>
+<h3>Free allowance and purchased credits</h3>
+<p>The app stores its allowance and credit record in the iOS Keychain. This record contains:</p>
+<ul>
+<li>Your free signature and document-export limits and the number of free uses spent.</li>
+<li>Randomly generated document identifiers, so the same stored document is not charged again when re-exported.</li>
+<li>Your remaining purchased one-use credits.</li>
+<li>Apple transaction identifiers for delivered credits, so a repeated purchase notification cannot add the same credit twice.</li>
+</ul>
+<p>This local record is not uploaded to Lean Orbit or synced by the app through iCloud Keychain. It contains no payment-card details, signature images, or document contents. Transaction identifiers originate from Apple's purchase system.</p>
+<p>The Keychain record is retained across app deletion and reinstallation on the same device. This prevents free uses from resetting and preserves the local credit record. It is not an app-managed cloud backup and does not guarantee recovery after a device erase or replacement. Transaction identifiers are retained to prevent duplicate credit delivery.</p>
+<h3>Preferences</h3>
+<p>The app also stores local preferences, such as whether you completed onboarding and counts used to decide when to offer an App Store rating prompt.</p>
+<h2>Apple's purchase services</h2>
+<p>The app offers optional one-use credits and a lifetime unlock. Both are one-time in-app purchases, with no automatically renewing subscription. Apple processes payments; we do not receive your payment-card information, billing address, or Apple Account login details.</p>
+<p>The app communicates with Apple through StoreKit to load products, process and verify purchases, restore lifetime ownership, and recover unfinished transactions. It also checks the original app-purchase version to preserve an existing customer's free allowance. These requests do not send your signatures or document contents to Apple through the app.</p>
+<p>Apple provides sales and download reports through App Store Connect. Apple's handling of purchase and account information is governed by the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+<h2>Sharing files</h2>
+<p>When you use the system share sheet, the file goes to the app or destination you select, such as Mail, Messages, Files, a cloud-storage provider, or a printer. That destination's privacy practices apply. Copies you share are separate from the app's local files.</p>
+<h2>Contacting support</h2>
+<p>If you email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>, we receive your email address, message, and any attachments you choose to include. We use that information to respond to your request and troubleshoot the issue. Please avoid sending signatures, confidential documents, passwords, or payment details; describe the issue or use a redacted screenshot instead.</p>
+<h2>Your choices</h2>
+<p>You can manage camera access in iOS Settings. Within the app, you can delete signatures and documents, or use <strong>Settings → Delete stored source photos</strong> to remove source photographs while keeping the saved signatures.</p>
+<p>Deleting the app removes its local document and signature storage. The Keychain allowance and credit record can remain. Copies you exported to other apps and device backups are managed separately. Export files you want to keep before deleting the app.</p>
+<p>Contact us with questions or requests about personal information you voluntarily provided through support. The app does not sell personal information or use it for advertising.</p>
+<h2>Security</h2>
+<p>The app uses iOS private app storage for documents and signatures and the Keychain for allowance and credit records. Protect access to your device and consider the privacy of any destination you choose when sharing a document.</p>
+<h2>Children</h2>
+<p>This is a general-purpose document utility. It is not directed to children, and the app does not collect personal information from children through analytics, accounts, or advertising.</p>
+<h2>Changes and contact</h2>
+<p>We will update this page and its date when the policy changes. Questions about privacy can be sent to <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
+</div>
+<hr>
+<footer><p>Lean Orbit &middot; Signature Scanner &amp; Creator</p>
+<p><a href="index.html">Home</a> &middot; <a href="support.html">Support</a> &middot;
+<a href="privacy.html">Privacy Policy</a> &middot;
+<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></p></footer>
 </main>
 </body>
 </html>

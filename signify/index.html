@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="app-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signature Scanner &amp; Creator for iPhone</title>
+<meta name="description" content="Capture a signature, sign PDFs, and export without a watermark. Two free signatures and one free document export for new users.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --rule: #e3e3e7;
+    --accent: #0a5fd6;
+    --card: #f6f6f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131316;
+      --fg: #ececef;
+      --muted: #9a9aa2;
+      --rule: #2c2c31;
+      --accent: #6aa9ff;
+      --card: #1c1c20;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 5rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 44rem; margin: 0 auto; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .35rem; letter-spacing: -0.02em; }
+  h2 { font-size: 1.2rem; margin: 2.75rem 0 .6rem; letter-spacing: -0.01em; }
+  h3 { font-size: 1rem; margin: 1.75rem 0 .4rem; }
+  p, li { color: var(--fg); }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
+  .lede {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    margin: 0 0 1rem;
+  }
+  .lede p { margin: 0; }
+  ul { padding-left: 1.25rem; }
+  li { margin: .4rem 0; }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0 1.5rem; }
+  footer { color: var(--muted); font-size: .9rem; }
+  footer a { color: var(--accent); }
+  code {
+    font: .875em ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: .1em .35em;
+    overflow-wrap: anywhere;
+  }
+
+  a { text-underline-offset: .2em; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 3px; }
+  nav { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-bottom: 2.5rem; font-size: .95rem; }
+  nav a[aria-current="page"] { color: var(--fg); font-weight: 650; }
+  .skip { position: absolute; top: -5rem; left: 1rem; background: var(--bg); padding: .6rem 1rem; }
+  .skip:focus { top: .5rem; }
+  .contact { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 1.1rem 1.25rem; }
+  .contact p:first-child { margin-top: 0; }
+  .contact p:last-child { margin-bottom: 0; }
+  .home { max-width: 64rem; }
+  .hero { display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: center; padding: 2rem 0 3.5rem; }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.75rem); line-height: 1.08; letter-spacing: -.045em; }
+  .hero .intro { font-size: 1.2rem; max-width: 36rem; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; color: var(--muted); font-size: .8rem; font-weight: 650; }
+  .app-icon { width: 220px; height: 220px; max-width: 100%; border-radius: 22%; }
+  .download { display: inline-block; padding: .85rem 1.3rem; background: var(--accent); color: var(--bg); border-radius: 10px; text-decoration: none; font-weight: 650; }
+  .download:hover { filter: brightness(.9); }
+  .small { font-size: .9rem; color: var(--muted); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0; list-style: none; }
+  .steps li { border-top: 2px solid var(--rule); padding-top: 1rem; }
+  .steps h3 { margin: .4rem 0; font-size: 1.15rem; }
+  .steps p { margin-top: .5rem; }
+  .plan { margin-top: 3rem; background: var(--card); border: 1px solid var(--rule); border-radius: 16px; padding: 1.7rem; }
+  .plan h2 { margin-top: 0; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .choices h3 { margin-top: 1rem; }
+  @media (max-width: 600px) {
+    body { padding-top: 1.5rem; }
+    .hero { grid-template-columns: 1fr; gap: 1.3rem; padding-top: .5rem; }
+    .app-icon { grid-row: 1; width: 96px; height: 96px; }
+    .steps, .choices { grid-template-columns: 1fr; gap: .8rem; }
+    .plan { padding: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<main class="home">
+<nav aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a>
+<a href="support.html">Support</a>
+<a href="privacy.html">Privacy</a></nav>
+<div id="content">
+<section class="hero" aria-labelledby="app-title">
+<div><p class="eyebrow">For iPhone · iOS 18 or later</p>
+<h1 id="app-title">Signature Scanner<br>&amp; Creator</h1>
+<p class="intro">Turn your handwritten signature into a clean, reusable signature. Add it to a PDF and export a signed copy, right from your iPhone.</p>
+<a class="download" href="https://apps.apple.com/us/app/signature-scanner-creator/id6800861469">Download on the App Store</a>
+<p class="small">Free to download · Optional one-time purchases</p></div>
+<img class="app-icon" src="app-icon.png" width="220" height="220" alt="Signature Scanner &amp; Creator app icon: a gold fountain pen on blue">
+</section>
+<section aria-labelledby="workflow"><h2 id="workflow">From paper to signed PDF.</h2>
+<ol class="steps">
+<li><span class="eyebrow">01 · Create</span><h3>Capture your signature.</h3><p>Photograph your signature, import a photo, or type one. Save separate initials when your paperwork needs them.</p></li>
+<li><span class="eyebrow">02 · Place</span><h3>Make it fit.</h3><p>Open your PDF, add a saved signature, and adjust its size and position on the page.</p></li>
+<li><span class="eyebrow">03 · Export</span><h3>Send a signed copy.</h3><p>Export a new PDF and share it through your iPhone. Your original document stays intact.</p></li>
+</ol></section>
+<section class="plan" aria-labelledby="free-plan"><h2 id="free-plan">Try a complete signing workflow.</h2>
+<p>New users get <strong>2 free saved signatures and 1 free document export</strong> per device. Enough space for your signature and initials, with no watermark on your export.</p>
+<p class="small">Existing users keep their original 3-signature, 3-export allowance. Free uses do not renew, and re-exporting the same saved document stays free.</p>
+<div class="choices"><div><h3>One Use Credit</h3><p>One additional document export <strong>or</strong> one saved signature after the relevant free allowance is used. Credits never expire and stay on the purchasing device.</p></div>
+<div><h3>Unlock Forever</h3><p>Unlimited signatures and document exports for one payment. Restore lifetime ownership on your devices using the same Apple Account.</p></div></div>
+<p class="small">Prices are shown in the app before purchase. No automatically renewing subscriptions. <a href="support.html">Read about allowances and purchases</a>.</p>
+</section>
+<section aria-labelledby="privacy"><h2 id="privacy">Your documents stay yours.</h2>
+<p>Your signatures and PDFs are processed on your device and are not uploaded to Lean Orbit. No app account, ads, or tracking. You choose where to share your files; Apple handles purchases and any device backups you enable.</p>
+<p><a href="privacy.html">Read our Privacy Policy</a> &middot; <a href="support.html">Get help with the app</a></p></section>
+</div>
+<hr>
+<footer><p>Lean Orbit &middot; Signature Scanner &amp; Creator</p>
+<p><a href="index.html">Home</a> &middot; <a href="support.html">Support</a> &middot;
+<a href="privacy.html">Privacy Policy</a> &middot;
+<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></p></footer>
+</main>
+</body>
+</html>

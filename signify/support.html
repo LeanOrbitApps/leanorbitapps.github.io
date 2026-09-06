@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="app-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support — Signature Scanner &amp; Creator</title>
-<meta name="description" content="Help and contact for Signature Scanner &amp; Creator, the signature creator for iPhone.">
+<meta name="description" content="Help with signatures, PDF exports, free allowances, one-use credits, lifetime purchases, and privacy.">
 <style>
   :root {
     --bg: #ffffff;
@@ -36,136 +37,131 @@
   main { max-width: 44rem; margin: 0 auto; }
   h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .35rem; letter-spacing: -0.02em; }
   h2 { font-size: 1.2rem; margin: 2.75rem 0 .6rem; letter-spacing: -0.01em; }
-  h3 { font-size: 1rem; margin: 1.9rem 0 .35rem; }
+  h3 { font-size: 1rem; margin: 1.75rem 0 .4rem; }
+  p, li { color: var(--fg); }
   a { color: var(--accent); }
   .meta { color: var(--muted); font-size: .9rem; margin: 0 0 2rem; }
-  .contact {
+  .lede {
     background: var(--card);
     border: 1px solid var(--rule);
     border-radius: 12px;
     padding: 1.1rem 1.25rem;
     margin: 0 0 1rem;
   }
-  .contact p { margin: 0 0 .5rem; }
-  .contact p:last-child { margin: 0; }
-  .email { font-size: 1.15rem; font-weight: 600; }
-  ul, ol { padding-left: 1.25rem; }
+  .lede p { margin: 0; }
+  ul { padding-left: 1.25rem; }
   li { margin: .4rem 0; }
   hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0 1.5rem; }
   footer { color: var(--muted); font-size: .9rem; }
-  .note { color: var(--muted); font-size: .95rem; }
+  footer a { color: var(--accent); }
+  code {
+    font: .875em ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: .1em .35em;
+    overflow-wrap: anywhere;
+  }
+
+  a { text-underline-offset: .2em; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 3px; }
+  nav { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin-bottom: 2.5rem; font-size: .95rem; }
+  nav a[aria-current="page"] { color: var(--fg); font-weight: 650; }
+  .skip { position: absolute; top: -5rem; left: 1rem; background: var(--bg); padding: .6rem 1rem; }
+  .skip:focus { top: .5rem; }
+  .contact { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 1.1rem 1.25rem; }
+  .contact p:first-child { margin-top: 0; }
+  .contact p:last-child { margin-bottom: 0; }
+  .home { max-width: 64rem; }
+  .hero { display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: center; padding: 2rem 0 3.5rem; }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.75rem); line-height: 1.08; letter-spacing: -.045em; }
+  .hero .intro { font-size: 1.2rem; max-width: 36rem; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .14em; color: var(--muted); font-size: .8rem; font-weight: 650; }
+  .app-icon { width: 220px; height: 220px; max-width: 100%; border-radius: 22%; }
+  .download { display: inline-block; padding: .85rem 1.3rem; background: var(--accent); color: var(--bg); border-radius: 10px; text-decoration: none; font-weight: 650; }
+  .download:hover { filter: brightness(.9); }
+  .small { font-size: .9rem; color: var(--muted); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0; list-style: none; }
+  .steps li { border-top: 2px solid var(--rule); padding-top: 1rem; }
+  .steps h3 { margin: .4rem 0; font-size: 1.15rem; }
+  .steps p { margin-top: .5rem; }
+  .plan { margin-top: 3rem; background: var(--card); border: 1px solid var(--rule); border-radius: 16px; padding: 1.7rem; }
+  .plan h2 { margin-top: 0; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .choices h3 { margin-top: 1rem; }
+  @media (max-width: 600px) {
+    body { padding-top: 1.5rem; }
+    .hero { grid-template-columns: 1fr; gap: 1.3rem; padding-top: .5rem; }
+    .app-icon { grid-row: 1; width: 96px; height: 96px; }
+    .steps, .choices { grid-template-columns: 1fr; gap: .8rem; }
+    .plan { padding: 1.2rem; }
+  }
 </style>
 </head>
 <body>
-<main>
-
-  <h1>Signature Scanner &amp; Creator Support</h1>
-  <p class="meta">Signature Scanner &amp; Creator for iPhone &middot; Lean Orbit</p>
-
-  <h2>Getting started</h2>
-
-  <h3>How do I make a signature?</h3>
-  <p>Sign your name on a blank sheet of paper, then photograph it with Signature Scanner &amp; Creator. The app
-  separates the ink from the paper and gives you a clean, transparent signature. You can also
-  import a photo you already have, or type a signature and pick a handwriting style.</p>
-
-  <h3>How do I sign a document?</h3>
-  <p>Import a PDF — from Files, from another app's share sheet, or from an email attachment
-  — then place your signature where it belongs and export. The signed file is a new PDF;
-  your original is never altered.</p>
-
-  <h3>Can I sign something that isn't a PDF?</h3>
-  <p>Not in this version. Document import accepts PDFs only. Support for signing images is
-  planned.</p>
-
-  <h3>My PDF is password-protected.</h3>
-  <p>Signature Scanner &amp; Creator will ask for the password when you import it. The password is used once to open
-  the file and is never saved.</p>
-
-  <h2>Free use and purchases</h2>
-
-  <h3>How does the free version work?</h3>
-  <p>You get a fixed number of signature creations and a fixed number of document exports,
-  free, on each device. Exports are full quality and are never watermarked. The counts are
-  shown in the app under Settings.</p>
-
-  <h3>Do the free uses reset?</h3>
-  <p>No. There is no monthly reset, and deleting and reinstalling the app does not
-  restore them. It is a one-time evaluation of the whole app, not a recurring meter.
-  Re-exporting a document you have already exported never uses another one.</p>
-
-  <h3>What happens when I run out?</h3>
-  <p>You'll be shown the one purchase Signature Scanner &amp; Creator offers — a one-time permanent unlock — with
-  its price. There is no subscription. Everything you made before that point stays yours:
-  your signatures, your saved documents and every file you already exported remain fully
-  available whether or not you buy.</p>
-
-  <h3>I bought Signature Scanner &amp; Creator but it isn't unlocked.</h3>
-  <p>Open Settings inside the app and tap <strong>Restore Purchases</strong>. Make sure
-  you're signed in to the same Apple Account you bought with. Purchases work on every device
-  signed in to that account.</p>
-
-  <h3>Is there a subscription to cancel?</h3>
-  <p>No. Signature Scanner &amp; Creator does not sell a subscription. The unlock is a single payment that does not
-  renew, so there is nothing to cancel and nothing that will charge you again.</p>
-
-  <h3>How do I get a refund?</h3>
-  <p>Refunds for App Store purchases are handled by Apple, not by us. Request one at
-  <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. If something went
-  wrong with the app itself, email us too — we'd like to know.</p>
-
-  <h2>Privacy and your files</h2>
-
-  <h3>Where are my signatures and documents stored?</h3>
-  <p>On your iPhone, inside the app's own private storage. Nothing is uploaded, there is no
-  account and there is no server. See the
-  <a href="/signify/privacy.html">Privacy Policy</a> for the full detail.</p>
-
-  <h3>Deleting the app will delete my documents. How do I keep them?</h3>
-  <p>Export or share anything you want to keep before deleting the app — send it to Files,
-  iCloud Drive, or your email. Signature Scanner &amp; Creator has no backup of its own to restore from.</p>
-
-  <h3>Can I delete the original photos of my signature?</h3>
-  <p>Yes. Settings → <strong>Delete stored source photos</strong> discards the original
-  photographs while keeping the signatures made from them. The originals are kept only to
-  drive the before/after comparison view.</p>
-
-  <h2>Troubleshooting</h2>
-
-  <h3>The camera screen says access is off.</h3>
-  <p>Open the iPhone Settings app → Signature Scanner &amp; Creator → turn on Camera. You can also import a photo of
-  your signature from your photo library instead, or type a signature — neither needs the
-  camera.</p>
-
-  <h3>The extracted signature looks faint or patchy.</h3>
-  <p>The app works best with dark ink on plain white or light paper, photographed in even
-  light with no shadow across the page. Avoid glossy paper and direct glare. You can adjust
-  the result after extraction if it needs a nudge.</p>
-
-  <h3>Signature Scanner &amp; Creator warned me about the exported file.</h3>
-  <p>Some PDFs contain elements — fillable form fields, annotations — that cannot be
-  preserved exactly when the file is flattened with a signature on it. The warning tells you
-  what would change before you export, so you can decide.</p>
-
-  <h3>Does Signature Scanner &amp; Creator run on iPad?</h3>
-  <p>It runs on iPad in iPhone compatibility mode. A layout designed for the iPad screen is
-  planned for a future update.</p>
-
-  <h3>What does Signature Scanner &amp; Creator require?</h3>
-  <p>iPhone running iOS 18 or later.</p>
-
-  <h2>Something else</h2>
-
-  <p>Feature requests, bug reports and complaints are all welcome at
-  <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
-
-  <hr>
-  <footer>
-    <p>Lean Orbit &middot;
-    <a href="/signify/privacy.html">Privacy Policy</a> &middot;
-    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></p>
-  </footer>
-
+<a class="skip" href="#content">Skip to content</a>
+<main class="document">
+<nav aria-label="Main navigation"><a href="index.html">Home</a>
+<a href="support.html" aria-current="page">Support</a>
+<a href="privacy.html">Privacy</a></nav>
+<div id="content">
+<h1>Support</h1>
+<p class="meta">Signature Scanner &amp; Creator for iPhone &middot; Lean Orbit</p>
+<div class="contact"><p><strong>Need a hand?</strong> Email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p><p>Include the app version from Settings, your iPhone model, iOS version, and what happened. Please remove signatures and confidential information from screenshots.</p></div>
+<h2>Getting started</h2>
+<h3>How do I create a signature or initials?</h3>
+<p>Write on plain paper and photograph it with the app, import an existing photo, or type a signature and choose a handwriting style. Adjust the result and save it. You can save initials separately for documents that require both.</p>
+<h3>How do I sign a document?</h3>
+<p>Import a PDF from Files or open a PDF attachment with the app. Place your signature or initials, adjust the position and size, then tap <strong>Export</strong>. The app creates a signed PDF; it does not overwrite the original file.</p>
+<h3>What files and devices are supported?</h3>
+<p>Document signing supports PDFs, including password-protected PDFs when you supply the password. The app requires iOS 18 or later and is designed for iPhone. It can run on iPad in iPhone compatibility mode.</p>
+<h2>Free use and purchases</h2>
+<h3>What is included for free?</h3>
+<p><strong>New users receive 2 saved signatures and 1 document export per device.</strong> The signature allowance can cover a signature and separate initials. These are separate, lifetime allowances; they do not renew monthly. Free exports have no watermark.</p>
+<h3>Why does Settings show 3 signatures and 3 exports?</h3>
+<p>Existing users keep the original <strong>3-signature, 3-export allowance</strong>. Settings identifies this as the grandfathered free plan. Upgrading to version 2 does not take away that allowance or reset uses already spent.</p>
+<h3>Does deleting a signature or reinstalling the app restore free uses?</h3>
+<p>No. Saving a signature spends a creation, even if you later delete it. The allowance is stored in the device's Keychain and persists across reinstallation. Deleting a signature does not refund a purchased credit either.</p>
+<h3>What happens when I run out?</h3>
+<p>After you use your free document exports, attempting to export a new document opens the purchase options. If you use all your signature creations, you can buy a credit or unlock unlimited signing to save another. Existing signatures, saved documents, and previously exported files remain available.</p>
+<h3>What does One Use Credit buy?</h3>
+<p><strong>One credit covers either one new document export or one additional saved signature—not both.</strong> It is used only after the free allowance for that action is exhausted. For example, saving an extra signature after you have used your free signature creations spends a credit, even if you intended to use that credit for an export later.</p>
+<p>Credits never expire. You can buy another whenever needed. The app shows the price before purchase and indicates when a save or export will use a credit. There is no automatic renewal.</p>
+<h3>What does Unlock Forever buy?</h3>
+<p>The lifetime unlock provides unlimited signature creations and document exports for one payment. Restore it on devices signed in to the Apple Account used for the purchase. There is no subscription to cancel.</p>
+<h3>When is an export counted?</h3>
+<p>The first successful export of a new document spends a free export or, if those are exhausted, one purchased credit. Cancelling the share sheet after the PDF has been generated does not refund the export. Re-exporting the same saved document is free. Importing the same source PDF again creates a new document and may use another export.</p>
+<h3>Can I restore or transfer purchased credits?</h3>
+<p>Delivered credits are stored on the device where they were purchased. They do not sync between devices. <strong>Restore Purchases restores the lifetime unlock; it does not replenish used credits or restore finished consumable purchases from Apple.</strong> The local credit record persists across reinstallation on the same device, but do not rely on it surviving a device erase or replacement.</p>
+<p>See Apple's <a href="https://support.apple.com/108096">help with in-app purchases</a> for more about restorable purchases.</p>
+<h3>I completed a purchase, but the paywall is still visible.</h3>
+<p>Complete Apple's purchase confirmation first. A successful purchase shows an <strong>Unlocked</strong> confirmation; tap <strong>Done</strong> to return to the app. Closing or cancelling Apple's payment sheet does not complete the purchase.</p>
+<p>For a one-use purchase, check <strong>Settings → Purchased credits</strong>. A remaining credit can be used when the corresponding free allowance is exhausted. If the balance did not increase, check for an error on the paywall and reopen the app so it can recover an unfinished purchase. A purchase pending approval will become available after it is approved and delivered. If Apple confirms completion but the credit is still missing, contact support before purchasing again.</p>
+<p>For a lifetime purchase, use <strong>Settings → Restore Purchases</strong> while signed in to the same Apple Account used to buy it.</p>
+<h3>How do I request a refund?</h3>
+<p>Apple handles refund requests. Visit <a href="https://reportaproblem.apple.com/">Report a Problem</a> or read <a href="https://support.apple.com/118223">Apple's refund instructions</a>. Eligibility is determined by Apple.</p>
+<h2>Your files and privacy</h2>
+<h3>Are signatures or documents uploaded?</h3>
+<p>The app processes and stores them on your device. It does not send them to Lean Orbit. Files leave the app when you choose to share them; device backups may also include app data according to your Apple settings. Apple handles purchase-related requests. Read the <a href="privacy.html">Privacy Policy</a> for details.</p>
+<h3>How do I keep files before deleting the app?</h3>
+<p>Export or share anything you want to keep to Files or another destination. Deleting the app removes its local signatures and documents. Lean Orbit has no server copy to restore.</p>
+<h3>Can I delete the original signature photos?</h3>
+<p>Yes. <strong>Settings → Delete stored source photos</strong> removes the app's stored source photographs while keeping the saved signatures. It does not delete the original image from your photo library.</p>
+<h2>Troubleshooting</h2>
+<h3>Camera access is off.</h3>
+<p>Enable Camera for the app in iOS Settings. You can also import a selected photo or type a signature without camera access.</p>
+<h3>The signature looks faint or patchy.</h3>
+<p>Use dark ink on plain white or light paper with even lighting. Avoid shadows and glare. Adjust the extracted signature before saving.</p>
+<h3>Why does the app warn me before exporting a PDF?</h3>
+<p>Some PDFs contain form fields, annotations, links, or other features that the export may change. Review the warning before proceeding and check the exported document.</p>
+<h2>Contact</h2>
+<p>Send questions, bug reports, and feature requests to <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
+</div>
+<hr>
+<footer><p>Lean Orbit &middot; Signature Scanner &amp; Creator</p>
+<p><a href="index.html">Home</a> &middot; <a href="support.html">Support</a> &middot;
+<a href="privacy.html">Privacy Policy</a> &middot;
+<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></p></footer>
 </main>
 </body>
 </html>
