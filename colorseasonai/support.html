@@ -72,7 +72,7 @@
   </nav>
 
   <h1>Support</h1>
-  <p class="meta">Color Season Analysis AI (iOS)</p>
+  <p class="meta">Color Season Analysis AI (iOS) · Updated September 5, 2026</p>
 
   <h2>Frequently asked questions</h2>
 
@@ -98,7 +98,30 @@
 
   <details>
     <summary>Is my photo private?</summary>
-    <p>Yes. Your photo is used only to run your analysis and is never stored on our servers or used to train AI models. The Draping Reveal never leaves your phone unless you share it. Full details are in our <a href="privacy.html">Privacy Policy</a>.</p>
+    <p>With your AI-sharing consent, your selfie and selected answers are sent securely through Cloudflare to OpenAI for color analysis. Our relay does not save the photo. OpenAI does not use API content for training by default and may retain submitted content for abuse monitoring, generally for up to 30 days, subject to its published exceptions. Our Firebase analytics events do not include the selfie.</p>
+    <p>Draping Reveal images are created on your phone and leave it only when you share or export them. We separately record reveal usage and the season label in analytics. See the <a href="privacy.html#face-data">photo and face-data details</a>.</p>
+  </details>
+
+  <details>
+    <summary>What information does Firebase collect?</summary>
+    <p>We use Google Analytics for Firebase for product analytics, with advertising features disabled, to understand app usage and improve the app. It records sessions, onboarding progress, selected style preferences, trial and purchase events, analysis and reveal activity, and the resulting season label. Google also processes installation/device identifiers, technical information, and approximate location derived from IP addresses. Firebase components collect limited SDK diagnostics.</p>
+    <p>These events can be associated with an installation identifier; no account is required, but that does not make the data completely anonymous. Our analytics events do not contain your selfie or full analysis response. See <a href="privacy.html#analytics">Firebase analytics details</a>.</p>
+  </details>
+
+  <details>
+    <summary>How long is analytics data retained?</summary>
+    <p>Our Google Analytics retention settings are <strong>2 months for event data</strong> and <strong>14 months for user data</strong>. User-identifier retention can reset with new activity if that setting is enabled. Standard aggregated reports are not covered by these same retention windows. See <a href="privacy.html#retention">retention and privacy requests</a> for details.</p>
+  </details>
+
+  <details>
+    <summary>Does withdrawing AI consent turn off analytics?</summary>
+    <p>No. <em>Settings → Privacy &amp; AI → Withdraw Consent</em> stops future photo analyses until you agree again. Firebase analytics starts at app launch and is separate from that permission. This version does not have an in-app analytics opt-out, and redoing onboarding does not turn analytics off.</p>
+    <p>Contact <a href="mailto:support@leanorbit.app">support@leanorbit.app</a> with privacy requests. Uninstalling stops collection from that installation but does not delete information already sent. See <a href="privacy.html#choices">your available choices</a>.</p>
+  </details>
+
+  <details>
+    <summary>Why does the app use a device or installation identifier?</summary>
+    <p>Firebase uses identifiers to measure sessions and feature use. Separately, Apple's App Attest helps our service verify app integrity and limit abuse. Our Cloudflare service retains verification records, not your selfie. See <a href="privacy.html#security-data">security data details</a>.</p>
   </details>
 
   <details>
@@ -124,7 +147,8 @@
 
   <details>
     <summary>How do I delete my data?</summary>
-    <p>Your results, answers, and saved selfie live only on your device. Use <em>Settings → Redo Onboarding</em> in the app to clear your answers and last analysis, or delete the app to remove everything. We keep no copy — there's no account and no server-side data to delete.</p>
+    <p>Use <em>Settings → Color Profile → Redo Onboarding</em> to clear your saved profile, last analysis, and in-app selfie. Deleting the app removes its local storage. These actions do not delete information already held by Google Analytics, OpenAI, or our security service, and do not cancel subscriptions or remove images exported to Photos or another service.</p>
+    <p>For remote-data or privacy requests, email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>. We may need information to locate records associated with an installation because the app has no account system. See <a href="privacy.html#retention">retention and privacy requests</a>; do not send payment-card details or a selfie.</p>
   </details>
 
   <details>
@@ -136,6 +160,12 @@
       <li>Still stuck? Email us with your iOS version and roughly when it happened.</li>
     </ul>
   </details>
+
+  <h2>Contact support</h2>
+  <div class="contact">
+    <p>Email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a> with your app version, iOS version, and a brief description of the issue. Please do not include a selfie or payment-card details.</p>
+    <p>We use your email address and the information you choose to send to respond to your request. See our <a href="privacy.html#retention">privacy and retention information</a>.</p>
+  </div>
 
   <h2>Requirements</h2>
   <p>Color Season Analysis AI requires an iPhone running iOS 17.6 or later and an internet connection for the analysis itself. The Draping Reveal works offline once you have a result.</p>

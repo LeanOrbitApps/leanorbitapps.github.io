@@ -67,99 +67,104 @@
   </nav>
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Color Season Analysis AI (iOS) · Effective July 22, 2026</p>
+  <p class="meta">Color Season Analysis AI (iOS) · Effective September 5, 2026</p>
 
   <div class="summary">
     <strong>The short version</strong>
     <ul>
-      <li>No account, no sign-up — we don't know who you are.</li>
-      <li>Your selfie is sent securely to an AI service <em>only</em> to run your color analysis, then the result comes straight back to your phone.</li>
-      <li>We don't store your photo on our servers, and it is never used to train AI models.</li>
-      <li>Your results, answers, and saved selfie live on your device. Delete the app and they're gone.</li>
-      <li>No ads, no third-party analytics, no selling or sharing of personal data. Ever.</li>
+      <li>No account or sign-up is required. The app does use installation identifiers for analytics and security.</li>
+      <li>With your AI-sharing consent, your selfie and selected answers are sent through Cloudflare to OpenAI for color analysis. Our relay does not save your photo.</li>
+      <li>We use Google Analytics for Firebase to understand app usage, purchases, selected preferences, and color-season results. Our analytics events do not contain your selfie.</li>
+      <li>Your saved selfie and full result are kept on your device. Deleting the app does not delete information already held by service providers.</li>
+      <li>The app does not display advertisements. AI-sharing consent and Firebase analytics are separate, as explained below.</li>
     </ul>
   </div>
 
   <h2>Who we are</h2>
-  <p>Color Season Analysis AI ("the app") is a personal color analysis app for iPhone, made by Lean Orbit LLC ("we"). This policy explains what data the app handles, where it goes, and the choices you have. Questions? Email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
+  <p>Color Season Analysis AI ("the app") is a personal color analysis app for iPhone, made by Lean Orbit LLC ("we"). This policy explains what data the app handles, where it goes, and the choices you have. Contact us at <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
 
   <h2>Information the app handles</h2>
-  <p>The app works without an account, so we never collect your name, email address, contacts, or location. The only information involved is:</p>
   <ul>
-    <li><strong>Your photo.</strong> The selfie you take or choose is used for one purpose: analyzing your color season.</li>
-    <li><strong>Your onboarding answers.</strong> Optional style questions (experience with color analysis, your goal, style struggles, natural hair color). These stay on your device; your hair color, goal, and selected style struggles may be included as text alongside your photo to improve and personalize the analysis.</li>
-    <li><strong>Purchase status.</strong> Whether you have an active subscription or lifetime purchase, provided to the app by Apple. We never see your payment details.</li>
+    <li><strong>Photos and analysis.</strong> The selfie you take or choose is submitted for color analysis. The result includes a season, palette, and related recommendations.</li>
+    <li><strong>Onboarding answers.</strong> Your answers are saved locally. Natural hair color, style goal, and selected style struggles may accompany your photo to personalize the analysis. Selected preferences are also included in analytics, as described below.</li>
+    <li><strong>Purchases.</strong> Apple provides subscription and lifetime-purchase status. Analytics includes trial, subscription, and purchase events and product information. We do not receive your payment-card details.</li>
+    <li><strong>Identifiers and technical data.</strong> Analytics and security services process installation/device identifiers, app and device information, and limited SDK diagnostic information.</li>
+    <li><strong>Approximate location.</strong> Google Analytics derives general geographic information from IP addresses. The app does not request GPS or precise-location access.</li>
+    <li><strong>Support correspondence.</strong> If you email us, we receive your email address, message, and any attachments you choose to send, to respond to your request.</li>
   </ul>
+  <p>The app does not require your name, email address, phone number, or postal address to use its features. It does not access your contacts, record audio, or collect your browsing or search history.</p>
 
-  <h2>How your photo is processed</h2>
-  <p>When you run an analysis:</p>
+  <h2 id="face-data">Photos, face data, and AI analysis</h2>
+  <p>Before your first analysis, the app explains the AI sharing and asks for your consent. A photo is sent when you actively start an analysis:</p>
   <ol>
     <li>The photo is reduced in size on your device.</li>
-    <li>It is sent over an encrypted connection (HTTPS) through our secure relay (hosted on Cloudflare) to OpenAI, the AI provider that performs the analysis. The relay exists only to keep our API credentials off your device — it does not save your photo.</li>
-    <li>The analysis result (your season and palette) is returned to your device. That's the end of the trip.</li>
+    <li>The photo and selected answers are sent over HTTPS through our Cloudflare relay to OpenAI, L.L.C. (United States), which performs the analysis.</li>
+    <li>Your result is returned to your device. Separately, an analytics event records completion and the season label; the photo and full result are not included in that event.</li>
   </ol>
-  <p>Per <a href="https://openai.com/policies/api-data-usage-policies" rel="noopener">OpenAI's API data usage policy</a>, content sent through the API is <strong>not used to train their models</strong> and may be retained for up to 30 days solely for abuse monitoring before deletion.</p>
-  <p>The "Draping Reveal" feature (your selfie shown against different colors) is processed <strong>entirely on your device</strong> — those images never leave your phone unless you choose to share them.</p>
+  <p>The face data is the image of your face in the submitted photo. The app does not create faceprints, facial-geometry records, or biometric identifiers, and does not use the photo to identify you. The photo is used to estimate a color palette from visible facial skin, eyes, and hair, not for advertising. Selected style preferences help personalize the recommendations.</p>
+  <p>Our Cloudflare relay forwards the photo without saving it to a database or logging its contents. The app does not send selfies to Firebase Analytics. OpenAI may retain submitted content in abuse-monitoring logs for up to 30 days, unless a longer period is legally required, and does not use API content for model training by default. See <a href="https://developers.openai.com/api/docs/guides/your-data" rel="noopener">OpenAI's API data controls</a> and <a href="https://openai.com/policies/privacy-policy/" rel="noopener">privacy policy</a> for its retention rules and exceptions.</p>
+  <p>The saved selfie used for Draping Reveal is stored in the app's private storage and excluded from iCloud backup. The reveal images are created on your device and leave it only if you choose to share or otherwise export them. Copies you save to Photos or share with another service are managed separately from the app.</p>
 
-  <h2 id="face-data">Face data</h2>
-  <p>The selfie you submit contains an image of your face, so we want to be exact about how it is handled:</p>
+  <h2 id="analytics">Google Analytics for Firebase</h2>
+  <p>We use Google Analytics for Firebase, provided by Google, to understand feature use, onboarding completion, and purchases and to improve the app. The information includes:</p>
   <ul>
-    <li><strong>What is collected:</strong> the photo itself — nothing more. The app does not extract, generate, or store facial geometry, faceprints, facial measurements, or any biometric identifier, and the photo is never used to identify you or anyone else.</li>
-    <li><strong>How it is used:</strong> for one purpose only — estimating your seasonal color palette from visible characteristics (skin undertone, hair color, eye color, and overall contrast). It is not used for advertising, profiling, identification, or any other purpose.</li>
-    <li><strong>Consent:</strong> the app explains what will be sent and asks for your explicit consent before your first analysis. A photo is only ever transmitted when you actively start an analysis.</li>
-    <li><strong>Sharing:</strong> to run the analysis, the photo is transmitted over an encrypted connection (HTTPS) through our Cloudflare relay to OpenAI, which performs the analysis. It is shared with no other party, and never sold.</li>
-    <li><strong>Storage:</strong> we operate no server that stores photos. Our relay forwards the request without saving it, writing it to a database, or logging its contents. The only stored copy is the one kept on your own device for the Draping Reveal feature, in the app's private storage.</li>
-    <li><strong>Retention and deletion:</strong> we retain no copy of your photo. OpenAI may retain API content for up to 30 days solely for abuse monitoring, after which it is deleted, and API content is not used to train OpenAI's models (see <a href="https://openai.com/policies/api-data-usage-policies" rel="noopener">OpenAI's API data usage policy</a>). The on-device copy remains until you replace it with a new analysis, clear it, or delete the app.</li>
+    <li>App launches, sessions, screen interactions, and other automatically measured app activity.</li>
+    <li>Onboarding progress and completion, selected style goal, whether makeup shades are a concern, and an event parameter recording AI consent as granted when onboarding completes.</li>
+    <li>Analysis requests and completions, reveal creation and sharing events, and the resulting color-season label.</li>
+    <li>Trial starts and conversions, purchases, and product information. Automatically measured purchase events can include product identifiers and prices.</li>
+    <li>App-instance and device identifiers, app/device information, and general location derived from IP addresses. Firebase components also process limited SDK diagnostic information.</li>
   </ul>
+  <p>Analytics events can be associated with a persistent installation or device identifier even though you do not have an account. This data should not be understood as completely anonymous. Our custom analytics events do not include your selfie, the full analysis response, payment-card information, or the contents of a shared reveal image.</p>
+  <p>Read <a href="https://support.google.com/analytics/answer/10285841" rel="noopener">Google's Analytics data collection information</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a> for more information.</p>
 
-  <h2>What stays on your device</h2>
+  <h2>Advertising and tracking</h2>
+  <p>We use Firebase for product analytics, not targeted advertising or advertising measurement across other companies' apps and websites. Google Ads links, Google signals, and advertising personalization are disabled for this use. The app does not display ads, and we do not sell personal information or share it for cross-context behavioral advertising.</p>
+
+  <h2 id="choices">AI-sharing consent and analytics choices</h2>
+  <p>You can withdraw AI-sharing consent in <em>Settings → Privacy &amp; AI → Withdraw Consent</em>. This stops future photo analyses until you agree again. It does not erase earlier submissions, your saved palette, or previously collected analytics.</p>
+  <p><strong>Firebase analytics starts when the app launches and is separate from AI-sharing consent.</strong> This version does not include an in-app analytics opt-out. Withdrawing AI-sharing consent or redoing onboarding does not disable Firebase collection. Contact <a href="mailto:support@leanorbit.app">support@leanorbit.app</a> with privacy requests. Uninstalling the app stops collection from that installation, but does not itself delete data already sent.</p>
+
+  <h2 id="security-data">App integrity and security</h2>
+  <p>We use Apple's App Attest service on supported devices to help verify app integrity and protect the analysis service from abuse. Apple processes attestation requests. Our service, hosted on Cloudflare, receives verification data and stores a key identifier, public key, verification counter, enrollment information, and a registration-verification hash. It also temporarily stores verification challenges. These records do not contain your selfie, but their identifier can associate analysis requests with an app installation.</p>
+  <p>Cloudflare also processes network information such as IP addresses to deliver requests and limit abuse. Verification outcome logs record status categories rather than photos, answer text, or complete analysis requests.</p>
+
+  <h2 id="local-data">Local storage and deletion</h2>
+  <p>Your saved profile, latest full analysis, and saved selfie are stored on your device. Selected answers and the season label are also transmitted as described above, so local storage does not mean that no related data leaves the device.</p>
+  <p>Use <em>Settings → Color Profile → Redo Onboarding</em> to clear the saved profile, last analysis, and in-app selfie. Deleting the app removes its local storage. Neither action deletes analytics or security records held remotely, cancels an Apple subscription, or deletes images you exported to Photos or another service.</p>
+
+  <h2>Purchases and notifications</h2>
+  <p>Apple processes subscriptions and lifetime purchases through your Apple Account. We use the resulting purchase status to provide access and record related events for analytics. See <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's Privacy Policy</a>. Manage or cancel a subscription in your iPhone's subscription settings.</p>
+  <p>If you allow notifications, the app may schedule an on-device reminder before a free trial ends. These reminders do not use a remote push-notification service.</p>
+
+  <h2>Service providers and international processing</h2>
   <ul>
-    <li>Your latest analysis result (season, palette, tips).</li>
-    <li>A copy of your analyzed selfie, stored in the app's private storage (excluded from iCloud backup) so the Draping Reveal can use it.</li>
-    <li>Your onboarding answers.</li>
+    <li><strong>OpenAI</strong> processes the photo and selected answers to provide analysis, under the data controls described above.</li>
+    <li><strong>Google/Firebase</strong> processes analytics and associated technical information, under <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a> and the applicable Analytics terms.</li>
+    <li><strong>Cloudflare</strong> hosts the analysis relay and integrity records and processes network/security information. See <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's Privacy Policy</a>.</li>
+    <li><strong>Apple</strong> provides distribution, purchase processing, and App Attest. See <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's Privacy Policy</a>.</li>
   </ul>
-  <p>None of this is uploaded to us. You can clear your answers and results anytime via <em>Settings → Redo Onboarding</em> in the app, and deleting the app removes everything.</p>
+  <p>Providers may process information in the United States and other countries where they operate, which may have different data-protection laws from your country. Their applicable terms and privacy policies describe protections for that processing.</p>
 
-  <h2>What we don't do</h2>
+  <h2 id="retention">Retention and privacy requests</h2>
   <ul>
-    <li>No advertising, and no ad networks or trackers in the app.</li>
-    <li>No third-party analytics SDKs.</li>
-    <li>No selling of personal data, and no sharing of personal data for cross-context behavioral advertising.</li>
-    <li>No "tracking" as defined by Apple's App Tracking Transparency framework.</li>
+    <li><strong>Photos and analysis submissions:</strong> our relay does not retain them. OpenAI's retention rules are described in the photo section above. Your in-app saved photo remains until replaced, cleared, or removed with the app.</li>
+    <li><strong>Analytics:</strong> Our Google Analytics retention settings are <strong>2 months for event data</strong> and <strong>14 months for user data</strong>. Google applies these settings according to its retention and deletion rules. User-identifier retention can reset with new activity if that setting is enabled. Standard aggregated reports are not covered by the same retention window. See <a href="https://support.google.com/analytics/answer/7667196" rel="noopener">Google's retention explanation</a>.</li>
+    <li><strong>App integrity records:</strong> verification challenges expire after two minutes and are cleaned up during later challenge requests. Enrollment and verification records persist across analyses and are not automatically erased by uninstalling or redoing onboarding.</li>
+    <li><strong>Support:</strong> correspondence is retained as needed to address the request, resolve related issues, and meet applicable legal obligations.</li>
   </ul>
-
-  <h2>Purchases</h2>
-  <p>Subscriptions and the lifetime purchase are processed entirely by Apple through your App Store account. Apple's handling of your payment information is covered by <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's Privacy Policy</a>. You can manage or cancel your subscription anytime in your device's Settings, or from inside the app.</p>
-
-  <h2>Notifications</h2>
-  <p>If you allow notifications, the app may schedule a local reminder (for example, before a free trial ends). These are created and delivered entirely on your device — no push servers involved.</p>
-
-  <h2>Service providers</h2>
-  <p>The app relies on three service providers, each receiving only what's needed to do its job:</p>
-  <ul>
-    <li><strong>OpenAI</strong> — performs the color analysis on your photo (see above).</li>
-    <li><strong>Cloudflare</strong> — hosts the secure relay between the app and OpenAI, and may process standard technical data (such as IP address) transiently to deliver the service, as any internet host does.</li>
-    <li><strong>Apple</strong> — App Store distribution and purchase processing.</li>
-  </ul>
-  <p>We confirm that each of these providers protects your data with safeguards equal to or greater than those described in this policy: OpenAI does not use API content to train its models and deletes it within 30 days (<a href="https://openai.com/policies/api-data-usage-policies" rel="noopener">OpenAI API data usage policy</a>); Cloudflare processes requests transiently as a network relay under the <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare Privacy Policy</a>; and Apple's handling is described in <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's Privacy Policy</a>. We share only the minimum data needed to perform the service you request, and none of these providers may use your data for their own advertising or sell it.</p>
-
-  <h2>Data retention and deletion</h2>
-  <p>We run no user database, so there is nothing for us to retain or delete on our side. Photos pass through the analysis service transiently (subject to OpenAI's up-to-30-day abuse-monitoring window described above). Everything else lives on your device and is removed when you delete the app.</p>
+  <p>Depending on your location, you may have rights to access, correct, delete, restrict, or object to processing of personal information, or withdraw consent. Email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a> to make a request. Because the app has no account system, an email address alone may not identify analytics or integrity records. We may need additional information to locate relevant records and verify a request; we will explain any limitations and available options. Please do not send a selfie or payment-card details for this purpose.</p>
 
   <h2>Security</h2>
-  <p>All network communication uses HTTPS/TLS encryption. Our relay accepts only the exact type of request the app makes, and our AI provider credentials are stored server-side so they never ship inside the app.</p>
+  <p>App communications with these services use HTTPS/TLS. Our relay validates request structure, limits requests, and keeps AI-provider credentials off your device. No method of transmission or storage is completely secure.</p>
 
   <h2>Children</h2>
-  <p>The app is not directed at children under 13 (or the equivalent minimum age in your region), and we do not knowingly process personal information from children. If you believe a child has used the app in a way that concerns you, contact us and we will help.</p>
-
-  <h2>Your rights</h2>
-  <p>Depending on where you live (for example, the EU/EEA under GDPR or California under the CCPA/CPRA), you may have rights to access, correct, or delete personal information. Because we don't hold personal information about you, most of these rights are satisfied by design.</p>
+  <p>The app is not directed at children under 13 (or the applicable minimum age in your region). If you believe a child has provided information through the app, contact us so we can investigate and address the request.</p>
 
   <h2>Changes to this policy</h2>
-  <p>If we change how the app handles data, we will update this page and revise the effective date above. Material changes will be highlighted in the app's release notes.</p>
+  <p>We update this page and its effective date when our data practices change. This update adds Firebase analytics and App Attest disclosures and clarifies retention, local deletion, and the scope of AI-sharing consent.</p>
 
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
+  <p>For support and privacy questions, email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
 
   <footer>
     © 2026 Lean Orbit LLC · <a href="support.html">Support</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener">Terms of Use (Apple standard EULA)</a>
