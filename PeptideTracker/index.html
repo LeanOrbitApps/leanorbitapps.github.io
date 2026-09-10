@@ -1,1 +1,135 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PepLedger — Private Peptide Tracker for iPhone</title>
+  <meta name="description" content="Track peptide schedules, dose history, vial inventory, and progress with PepLedger for iPhone. Private local storage, optional reminders, and easy data exports.">
+  <meta name="robots" content="index, follow">
+  <meta name="apple-itunes-app" content="app-id=6809966755">
+  <link rel="canonical" href="https://www.leanorbit.app/PeptideTracker/">
+  <meta name="theme-color" content="#f7faf9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PepLedger">
+  <meta property="og:title" content="PepLedger — Private Peptide Tracker for iPhone">
+  <meta property="og:description" content="Keep your schedules, dose history, vial inventory, and progress together. Your records stay on your device.">
+  <meta property="og:url" content="https://www.leanorbit.app/PeptideTracker/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PepLedger — Private Peptide Tracker for iPhone">
+  <meta name="twitter:description" content="Peptide schedules, dose history, inventory, and progress. No accounts, ads, or analytics.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PepLedger",
+    "alternateName": "Peptide Tracker",
+    "url": "https://www.leanorbit.app/PeptideTracker/",
+    "description": "A private iPhone app for tracking user-entered peptide protocols, schedules, dose history, vial inventory, and progress.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "iOS",
+    "installUrl": "https://apps.apple.com/app/id6809966755",
+    "publisher": {"@type": "Organization", "name": "Lean Orbit LLC", "url": "https://www.leanorbit.app/"},
+    "featureList": ["Peptide protocol and schedule tracking", "Dose and injection-site history", "Vial inventory tracking", "Optional local reminders", "CSV history export", "JSON backup and restore", "Local data storage"]
+  }
+  </script>
+  <style>
+    :root { color-scheme: light dark; --bg:#f7faf9; --surface:#fff; --soft:#edf7f4; --text:#14201e; --muted:#526660; --line:#d9e4e1; --accent:#0a655b; }
+    @media(prefers-color-scheme:dark) { :root { --bg:#0b1211; --surface:#101a18; --soft:#132b24; --text:#edf7f4; --muted:#a3b8b3; --line:#273b36; --accent:#99f6e4; } }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:1.0625rem/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:var(--accent); text-underline-offset:.22em; }
+    a:focus-visible, summary:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .wrap { width:min(100% - 2.5rem,68rem); margin:auto; }
+    header { border-bottom:1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; padding:1.25rem 0; }
+    .brand { color:var(--text); font-size:1.25rem; font-weight:800; letter-spacing:-.035em; text-decoration:none; }
+    nav, .links { display:flex; flex-wrap:wrap; gap:1.3rem; }
+    nav a { font-size:.9375rem; text-decoration:none; }
+    .skip { position:absolute; left:1rem; top:-5rem; padding:.75rem; background:var(--surface); }
+    .skip:focus { top:.5rem; }
+    .hero { display:grid; grid-template-columns:1.5fr 1fr; gap:4rem; align-items:center; padding:clamp(3rem,8vw,7rem) 0; }
+    .eyebrow { color:var(--accent); font-size:.875rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    h1 { font-size:clamp(2.6rem,6vw,4.9rem); line-height:1.06; letter-spacing:-.055em; margin:1rem 0 1.5rem; }
+    h1 span { color:var(--accent); }
+    .intro { font-size:1.2rem; color:var(--muted); max-width:40rem; }
+    .button { display:inline-block; margin:1rem 0; padding:.8rem 1.2rem; border-radius:.65rem; background:var(--accent); color:var(--bg); font-weight:700; text-decoration:none; }
+    .ledger { padding:2rem; background:var(--surface); border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:1rem; }
+    .ledger h2 { margin:0 0 1.25rem; font-size:1.3rem; }
+    .ledger div { padding:1rem 0; border-top:1px solid var(--line); }
+    .ledger strong { display:block; }
+    .ledger p { margin:.2rem 0 0; color:var(--muted); font-size:1rem; }
+    section { padding:3.5rem 0; border-top:1px solid var(--line); }
+    h2 { font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.2; letter-spacing:-.035em; margin:0 0 1rem; }
+    h3 { font-size:1.15rem; line-height:1.3; margin:0 0 .65rem; }
+    p { margin:.75rem 0; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:2rem; }
+    .grid p { color:var(--muted); }
+    .privacy { background:var(--soft); padding:2rem; border-radius:1rem; }
+    .privacy p { max-width:48rem; }
+    .plans { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem; }
+    .plan { padding:1.75rem; border:1px solid var(--line); border-radius:1rem; background:var(--surface); }
+    ul { padding-left:1.2rem; }
+    li { margin:.55rem 0; }
+    details { padding:1.25rem 0; border-bottom:1px solid var(--line); }
+    summary { cursor:pointer; font-weight:700; }
+    details p { max-width:50rem; color:var(--muted); }
+    .medical { font-size:.9375rem; color:var(--muted); max-width:55rem; }
+    footer { padding:2rem 0; border-top:1px solid var(--line); font-size:.9375rem; color:var(--muted); }
+    footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; }
+    @media(max-width:48rem) { .hero { grid-template-columns:1fr; gap:2rem; } .grid,.plans { grid-template-columns:1fr; } .grid { gap:1.5rem; } section { padding:2.5rem 0; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="wrap nav"><a class="brand" href="./" aria-current="page">PepLedger</a><nav aria-label="Main navigation"><a href="#features">Features</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav></div></header>
+  <main id="main" class="wrap">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Private peptide tracking for iPhone</p>
+        <h1>Your routine.<br><span>Your records.</span></h1>
+        <p class="intro">PepLedger brings peptide schedules, dose history, vial inventory, and progress into one place. Keep a clear record of the routine you enter, with your data saved on your iPhone.</p>
+        <a class="button" href="https://apps.apple.com/app/id6809966755">Download on the App Store</a>
+        <p>No account. No ads. No analytics.</p>
+      </div>
+      <aside class="ledger" aria-label="What you can track">
+        <h2>A clearer record, every day.</h2>
+        <div><strong>Plan your schedule</strong><p>Review upcoming events in Today and Calendar.</p></div>
+        <div><strong>Record what happened</strong><p>Keep taken, skipped, and missed events together.</p></div>
+        <div><strong>Keep your history</strong><p>Review, correct, export, and back up your records.</p></div>
+      </aside>
+    </div>
+    <section id="features" aria-labelledby="features-title">
+      <h2 id="features-title">A peptide tracker built around your records.</h2>
+      <div class="grid">
+        <article><h3>Protocols and schedules</h3><p>Organize user-entered protocols and amounts. Track daily routines, selected weekdays, intervals, and advanced schedules with Pro.</p></article>
+        <article><h3>Dose and injection-site history</h3><p>Record scheduled and actual times, mark events taken or skipped, and review injection sites. Correct past entries when needed.</p></article>
+        <article><h3>Vial inventory</h3><p>Keep vial details, concentrations, remaining stock, and expiry dates together. Pro adds blends and runout forecasts.</p></article>
+        <article><h3>Optional reminders</h3><p>Enable local notifications for eligible schedules. Keep alerts discreet, or choose to display compound names and amounts.</p></article>
+        <article><h3>Progress tracking</h3><p>Record weight and review changes over time. Pro adds symptoms, notes, and protocol comparisons to help organize your observations.</p></article>
+        <article><h3>Exports and backups</h3><p>Export dose history as CSV or save a complete JSON backup. Restore your backup when you need to recover your records.</p></article>
+      </div>
+    </section>
+    <section aria-labelledby="privacy-title">
+      <div class="privacy"><p class="eyebrow">Private by design</p><h2 id="privacy-title">Your tracking data stays with you.</h2><p>PepLedger stores records in protected local files on your device. Lean Orbit does not receive your protocols, dose history, notes, or progress entries. You choose where exported files go, and Apple handles purchases.</p><p>There is no app-managed cloud sync. Save a backup somewhere private before replacing your device or deleting the app.</p><a href="privacy.html">Read the PepLedger privacy policy</a></div>
+    </section>
+    <section aria-labelledby="plans-title">
+      <h2 id="plans-title">Start with the essentials.</h2>
+      <div class="plans">
+        <article class="plan"><h3>Free tracking</h3><p>For one basic routine.</p><ul><li>One eligible basic protocol and one vial</li><li>History, corrections, and deletion</li><li>CSV export and complete JSON backup and restore</li></ul></article>
+        <article class="plan"><h3>PepLedger Pro</h3><p>For more detailed tracking.</p><ul><li>Unlimited protocols and vials</li><li>Advanced schedules, blends, and runout forecasts</li><li>Progress comparisons, symptoms, and notes</li></ul><p>Weekly subscription and lifetime purchase options are shown in the app with current pricing.</p></article>
+      </div>
+      <p>Your history, corrections, exports, backups, and deletion remain available when Pro ends.</p>
+    </section>
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title">Questions about PepLedger</h2>
+      <details><summary>What does a peptide tracker do?</summary><p>PepLedger helps you organize the peptide protocols and schedules you enter, record events, manage vial inventory, and review your history. It does not select a protocol or recommend an amount.</p></details>
+      <details><summary>Can I use PepLedger without an account?</summary><p>Yes. PepLedger has no account system. Your tracking records are stored on your device. Apple handles optional Pro purchases through your Apple Account.</p></details>
+      <details><summary>Can I export my peptide tracking history?</summary><p>Yes. In More, choose Export dose history (CSV) to save your history, or Save complete backup (JSON) for a restorable backup. Both are available without Pro.</p></details>
+      <details><summary>Does PepLedger recommend doses or treatment?</summary><p>No. Amounts, concentrations, schedules, and product details are entered by you. Calculations depend on your inputs and do not determine whether a product or amount is appropriate. Discuss medical decisions with a qualified healthcare professional.</p></details>
+      <p>Need help with reminders, purchases, or recovery? <a href="support.html">Visit PepLedger support</a>.</p>
+    </section>
+    <section aria-labelledby="contact-title"><h2 id="contact-title">Made by Lean Orbit.</h2><p>A focused tracker from <a href="https://www.leanorbit.app/">Lean Orbit LLC</a>. For app questions, email <a href="mailto:support@leanorbit.app?subject=PepLedger">support@leanorbit.app</a>.</p><p class="medical">PepLedger is a personal record-keeping tool. It does not provide medical advice, diagnosis, treatment, prescribing, or product verification. Follow the guidance of a qualified healthcare professional.</p></section>
+  </main>
+  <footer><div class="wrap"><span>&copy; 2026 Lean Orbit LLC</span><div class="links"><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></div></div></footer>
+</body>
+</html>
