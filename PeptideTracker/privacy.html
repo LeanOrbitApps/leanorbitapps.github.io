@@ -1,1 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PepLedger privacy policy: your tracking records stay on your device, with no accounts, ads, analytics, or tracking.">
+  <meta name="theme-color" content="#f7faf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1211" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.leanorbit.app/PeptideTracker/privacy.html">
+  <title>Privacy Policy — PepLedger</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7faf9;
+      --surface: #ffffff;
+      --surface-soft: #edf7f4;
+      --text: #14201e;
+      --muted: #5d6c69;
+      --line: #d9e4e1;
+      --accent: #0f766e;
+      --accent-strong: #0a5d57;
+      --accent-soft: #d9f2ec;
+      --shadow: 0 18px 48px rgba(24, 67, 59, 0.08);
+    }
 
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1211;
+        --surface: #101a18;
+        --surface-soft: #13241f;
+        --text: #edf7f4;
+        --muted: #a3b8b3;
+        --line: #273b36;
+        --accent: #5eead4;
+        --accent-strong: #99f6e4;
+        --accent-soft: #153b34;
+        --shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 90% -5%, var(--accent-soft), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font: 17px/1.68 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: var(--accent-strong); text-underline-offset: 0.2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+    .skip-link {
+      position: fixed;
+      top: -5rem;
+      left: 1rem;
+      z-index: 10;
+      padding: 0.65rem 1rem;
+      border-radius: 0.6rem;
+      background: var(--text);
+      color: var(--bg);
+    }
+    .skip-link:focus { top: 1rem; }
+    .shell { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+    header { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--text); text-decoration: none; font-weight: 750; letter-spacing: -0.02em; }
+    .brand-mark {
+      display: grid;
+      grid-template-columns: repeat(2, 0.3rem);
+      grid-template-rows: repeat(2, 0.3rem);
+      gap: 0.16rem;
+      padding: 0.48rem;
+      border-radius: 0.65rem;
+      background: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+    }
+    .brand-mark span { border-radius: 50%; background: var(--bg); }
+    nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.15rem; margin: 0; padding: 0; list-style: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.94rem; }
+    nav a[aria-current="page"] { color: var(--text); font-weight: 700; }
+    main { padding: clamp(3.5rem, 9vw, 6rem) 0 5rem; }
+    .eyebrow { margin: 0 0 0.7rem; color: var(--accent-strong); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.14em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(2.35rem, 8vw, 4.4rem); line-height: 1.02; letter-spacing: -0.055em; }
+    .meta { margin: 1rem 0 2.25rem; color: var(--muted); font-size: 0.92rem; }
+    .summary {
+      margin: 0 0 3.25rem;
+      padding: clamp(1.25rem, 4vw, 1.75rem);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 1rem;
+      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      box-shadow: var(--shadow);
+    }
+    .summary strong { display: block; margin-bottom: 0.35rem; font-size: 1.13rem; }
+    .summary p { margin: 0; }
+    .content { padding: clamp(1.35rem, 5vw, 2.5rem); border: 1px solid var(--line); border-radius: 1.25rem; background: var(--surface); box-shadow: var(--shadow); }
+    h2 { margin: 2.75rem 0 0.7rem; padding-top: 0.15rem; font-size: 1.28rem; line-height: 1.3; letter-spacing: -0.018em; }
+    h2:first-child { margin-top: 0; }
+    h3 { margin: 1.65rem 0 0.35rem; font-size: 1.03rem; }
+    p { margin: 0.75rem 0; }
+    ul { margin: 0.75rem 0; padding-left: 1.25rem; }
+    li { margin: 0.4rem 0; }
+    .note { margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: 0.8rem; background: var(--surface-soft); }
+    footer { padding: 1.6rem 0 2.75rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+    .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem 1.5rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+    @media (max-width: 38rem) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      main { padding-top: 3rem; }
+      .content { border-radius: 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      body { background: #fff; color: #000; }
+      header, footer, .skip-link { display: none; }
+      main { padding: 0; }
+      .shell { width: 100%; }
+      .summary, .content { box-shadow: none; border-color: #bbb; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="https://www.leanorbit.app/" aria-label="Lean Orbit home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>PepLedger</span>
+      </a>
+      <nav aria-label="PepLedger pages">
+        <ul>
+          <li><a href="https://www.leanorbit.app/">Lean Orbit</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html" aria-current="page">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="shell">
+      <p class="eyebrow">PepLedger for iPhone</p>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Published by Lean Orbit LLC &middot; Last updated September 9, 2026</p>
+
+      <div class="summary">
+        <strong>Your records stay on your device.</strong>
+        <p>PepLedger has no account system, advertising, tracking, or third-party analytics. Lean Orbit does not receive your protocols, dose records, notes, inventory, or progress data. Apple handles purchases, and files leave the app only when you choose to export or share them.</p>
+      </div>
+
+      <article class="content">
+        <h2>Scope</h2>
+        <p>This policy covers the PepLedger iOS app published by Lean Orbit LLC and information you choose to send us when requesting support.</p>
+
+        <h2>Information collected by the app</h2>
+        <p>Lean Orbit does not collect personal data from PepLedger. The app does not operate a server that receives your health-related tracking information, does not require an account, and does not use advertising, analytics, or cross-app tracking technologies.</p>
+
+        <h2>Information stored on your device</h2>
+        <p>PepLedger saves the information you enter in protected local app storage. Depending on the features you use, this can include:</p>
+        <ul>
+          <li>Protocol names, user-entered amounts, schedules, time zones, and reminders.</li>
+          <li>Vial and inventory details, concentrations, volumes, ingredients, and expiry dates.</li>
+          <li>Scheduled and actual dates, taken, skipped, or missed status, and injection-site history.</li>
+          <li>Weight or progress entries, symptoms, notes, and an unfinished protocol draft.</li>
+          <li>Local preferences, such as whether reminder details may appear in notifications.</li>
+        </ul>
+        <p>This information is not uploaded to Lean Orbit. PepLedger does not provide its own cloud sync or cloud backup service. Depending on your Apple device and backup settings, Apple services may include app data in a device backup. Apple controls those services under its own privacy terms.</p>
+
+        <h2>Notifications</h2>
+        <p>If you enable reminders, PepLedger asks iOS for notification permission and schedules notifications on your device. Notifications are optional and can be turned off in PepLedger or iOS Settings.</p>
+        <p>Reminder details such as a protocol name and amount are hidden by default. If you choose to show those details, they may be visible on your Lock Screen or to anyone who can view your notifications.</p>
+
+        <h2>Purchases and subscriptions</h2>
+        <p>PepLedger offers optional in-app purchases through Apple's StoreKit, including weekly and lifetime Pro access where available. Apple processes payments. Lean Orbit does not receive your payment-card number, Apple Account password, or full billing details.</p>
+        <p>The app receives purchase and entitlement information from Apple so it can display available products, verify access, show renewal or expiration status, complete purchases, and restore eligible purchases. This process does not send your PepLedger records to Lean Orbit.</p>
+        <p>Apple may also provide Lean Orbit with App Store sales and download reports. Apple's handling of purchase and account information is governed by the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+
+        <h2>Exports, backups, and sharing</h2>
+        <p>You can export dose history as a CSV file and create a complete JSON backup. Those files may contain sensitive information. PepLedger creates an export only when you request it and presents Apple's system file or sharing interface.</p>
+        <p>When you save or share a file, it goes to the location or service you select, such as Files, Mail, Messages, or a cloud-storage provider. The selected destination's privacy practices apply. Lean Orbit does not receive a copy.</p>
+
+        <h2>Retention and deletion</h2>
+        <p>Your records remain on your device until you edit or delete them, restore a backup that replaces them, or remove the app. You can use <strong>More → Delete all local data</strong> to delete protocols, vials, logs, progress entries, and drafts stored by PepLedger.</p>
+        <p>Deleting local data or the app does not delete copies you previously exported, backups held by Apple or another provider, or purchase records maintained by Apple. Manage those copies through the service where they are stored.</p>
+
+        <h2>Support email</h2>
+        <p>If you email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>, Lean Orbit receives your email address, message, and any attachments you choose to send. We use that information to respond and troubleshoot your request.</p>
+        <p>Please do not send protocol details, dose records, medical records, purchase credentials, or other sensitive information. A redacted screenshot is usually sufficient.</p>
+
+        <h2>Security</h2>
+        <p>PepLedger uses iOS private app storage and file-protection features for local records. No security method is perfect. Protect access to your device, review Lock Screen notification settings, and store exported files only in destinations you trust.</p>
+
+        <h2>Children</h2>
+        <p>PepLedger is not directed to children. The app does not knowingly collect personal information from children through accounts, analytics, advertising, or tracking.</p>
+
+        <h2>Your choices</h2>
+        <p>You control whether to enter information, enable notifications, reveal details in notifications, export files, purchase Pro access, or contact support. You can review, correct, export, and delete your local records from within the app.</p>
+
+        <h2>Changes and contact</h2>
+        <p>We may update this policy if PepLedger's features or privacy practices change. The date at the top of this page identifies the latest version.</p>
+        <div class="note">
+          <strong>Privacy questions</strong><br>
+          Email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a> or visit the <a href="support.html">PepLedger support page</a>.
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>&copy; 2026 Lean Orbit LLC</span>
+      <span class="footer-links">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

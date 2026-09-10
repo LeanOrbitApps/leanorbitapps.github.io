@@ -1,1 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Get help with PepLedger tracking, reminders, backups, purchases, and privacy.">
+  <meta name="theme-color" content="#f7faf9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1211" media="(prefers-color-scheme: dark)">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.leanorbit.app/PeptideTracker/support.html">
+  <title>Support — PepLedger</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7faf9;
+      --surface: #ffffff;
+      --surface-soft: #edf7f4;
+      --text: #14201e;
+      --muted: #5d6c69;
+      --line: #d9e4e1;
+      --accent: #0f766e;
+      --accent-strong: #0a5d57;
+      --accent-soft: #d9f2ec;
+      --warning: #9a3412;
+      --warning-bg: #fff7ed;
+      --warning-line: #fed7aa;
+      --shadow: 0 18px 48px rgba(24, 67, 59, 0.08);
+    }
 
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1211;
+        --surface: #101a18;
+        --surface-soft: #13241f;
+        --text: #edf7f4;
+        --muted: #a3b8b3;
+        --line: #273b36;
+        --accent: #5eead4;
+        --accent-strong: #99f6e4;
+        --accent-soft: #153b34;
+        --warning: #fdba74;
+        --warning-bg: #29170f;
+        --warning-line: #7c2d12;
+        --shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 90% -5%, var(--accent-soft), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font: 17px/1.68 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+    a { color: var(--accent-strong); text-underline-offset: 0.2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+    .skip-link {
+      position: fixed;
+      top: -5rem;
+      left: 1rem;
+      z-index: 10;
+      padding: 0.65rem 1rem;
+      border-radius: 0.6rem;
+      background: var(--text);
+      color: var(--bg);
+    }
+    .skip-link:focus { top: 1rem; }
+    .shell { width: min(100% - 2rem, 48rem); margin-inline: auto; }
+    header { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--text); text-decoration: none; font-weight: 750; letter-spacing: -0.02em; }
+    .brand-mark {
+      display: grid;
+      grid-template-columns: repeat(2, 0.3rem);
+      grid-template-rows: repeat(2, 0.3rem);
+      gap: 0.16rem;
+      padding: 0.48rem;
+      border-radius: 0.65rem;
+      background: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+    }
+    .brand-mark span { border-radius: 50%; background: var(--bg); }
+    nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.15rem; margin: 0; padding: 0; list-style: none; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.94rem; }
+    nav a[aria-current="page"] { color: var(--text); font-weight: 700; }
+    main { padding: clamp(3.5rem, 9vw, 6rem) 0 5rem; }
+    .eyebrow { margin: 0 0 0.7rem; color: var(--accent-strong); font-size: 0.78rem; font-weight: 750; letter-spacing: 0.14em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(2.35rem, 8vw, 4.4rem); line-height: 1.02; letter-spacing: -0.055em; }
+    .meta { margin: 1rem 0 2.25rem; color: var(--muted); font-size: 0.92rem; }
+    .contact {
+      margin: 0 0 3.25rem;
+      padding: clamp(1.25rem, 4vw, 1.75rem);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 1rem;
+      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      box-shadow: var(--shadow);
+    }
+    .contact strong { display: block; margin-bottom: 0.35rem; font-size: 1.13rem; }
+    .contact p { margin: 0.45rem 0 0; }
+    .email-button { display: inline-block; margin-top: 1rem; padding: 0.72rem 1rem; border-radius: 0.7rem; background: var(--accent); color: #061513; font-weight: 750; text-decoration: none; }
+    .email-button:hover { filter: brightness(1.06); }
+    .content { padding: clamp(1.35rem, 5vw, 2.5rem); border: 1px solid var(--line); border-radius: 1.25rem; background: var(--surface); box-shadow: var(--shadow); }
+    h2 { margin: 2.75rem 0 0.75rem; padding-top: 0.15rem; font-size: 1.28rem; line-height: 1.3; letter-spacing: -0.018em; }
+    h2:first-child { margin-top: 0; }
+    h3 { margin: 1.7rem 0 0.35rem; font-size: 1.03rem; line-height: 1.4; }
+    p { margin: 0.75rem 0; }
+    ul, ol { margin: 0.75rem 0; padding-left: 1.25rem; }
+    li { margin: 0.4rem 0; }
+    .notice { margin-top: 2rem; padding: 1.15rem; border: 1px solid var(--warning-line); border-radius: 0.85rem; background: var(--warning-bg); }
+    .notice h2 { margin: 0 0 0.55rem; padding: 0; color: var(--warning); }
+    .notice p:last-child { margin-bottom: 0; }
+    footer { padding: 1.6rem 0 2.75rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+    .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem 1.5rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+    @media (max-width: 38rem) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      main { padding-top: 3rem; }
+      .content { border-radius: 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      body { background: #fff; color: #000; }
+      header, footer, .skip-link { display: none; }
+      main { padding: 0; }
+      .shell { width: 100%; }
+      .contact, .content { box-shadow: none; border-color: #bbb; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="https://www.leanorbit.app/" aria-label="Lean Orbit home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>PepLedger</span>
+      </a>
+      <nav aria-label="PepLedger pages">
+        <ul>
+          <li><a href="https://www.leanorbit.app/">Lean Orbit</a></li>
+          <li><a href="support.html" aria-current="page">Support</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="shell">
+      <p class="eyebrow">PepLedger for iPhone</p>
+      <h1>Support</h1>
+      <p class="meta">Help with tracking, reminders, backups, and Pro access</p>
+
+      <div class="contact">
+        <strong>Need a hand?</strong>
+        <p>Email us with a brief description of what happened. Include the app version and build from <strong>More</strong>, your iPhone model, and your iOS version. Please remove personal or medical information from screenshots.</p>
+        <a class="email-button" href="mailto:support@leanorbit.app?subject=PepLedger%20Support">Email PepLedger support</a>
+      </div>
+
+      <article class="content">
+        <h2>Getting started</h2>
+
+        <h3>What is PepLedger?</h3>
+        <p>PepLedger is a private, local-first tracker for user-entered protocols, schedules, vials, inventory, reminders, and history. You can record scheduled events as taken, skipped, or missed and keep progress notes over time.</p>
+
+        <h3>Does PepLedger tell me what to take?</h3>
+        <p>No. You enter every protocol, amount, concentration, schedule, and product detail yourself. PepLedger organizes records and performs calculations from your inputs; it does not recommend a regimen, verify a product, or determine whether an amount is appropriate.</p>
+
+        <h2>Privacy and records</h2>
+
+        <h3>Is my data private?</h3>
+        <p>Your PepLedger records are stored locally on your device. There is no PepLedger account, app server, advertising, analytics, or tracking. Read the full <a href="privacy.html">Privacy Policy</a> for details.</p>
+
+        <h3>How do I export my history?</h3>
+        <p>Open <strong>More → Records &amp; recovery</strong>, then choose <strong>Export dose history (CSV)</strong>. Choose a private destination you control. The export can contain sensitive information.</p>
+
+        <h3>How do I back up or restore everything?</h3>
+        <p>In <strong>More → Records &amp; recovery</strong>, choose <strong>Save complete backup (JSON)</strong>. A complete backup includes protocols, vials, logs, progress, and your current draft.</p>
+        <p>To restore, choose <strong>Restore backup</strong> and select a PepLedger JSON backup. Restoring replaces the records currently on the device after you confirm. Review your free selections and turn reminders back on afterward.</p>
+
+        <h3>What happens if I delete the app?</h3>
+        <p>Local PepLedger records can be removed with the app. PepLedger does not keep a server copy for you. Export a complete backup to a private destination before deleting or replacing your device. Files you previously exported and Apple's purchase records are managed separately.</p>
+
+        <h3>How do I delete my records?</h3>
+        <p>Open <strong>More</strong> and choose <strong>Delete all local data</strong>. After confirmation, PepLedger removes its local protocols, vials, logs, progress entries, and draft. Exported files and Apple purchase history are unaffected.</p>
+
+        <h2>Schedules and reminders</h2>
+
+        <h3>How do I enable reminders?</h3>
+        <p>Open <strong>More → Reminders</strong> and tap <strong>Enable reminders</strong>. Allow notifications when iOS asks. If you previously denied permission, use <strong>Open notification settings</strong> and enable notifications for PepLedger in iOS Settings.</p>
+
+        <h3>Why did a reminder not arrive?</h3>
+        <p>Check that notifications are allowed in iOS Settings, reminders are enabled in PepLedger, and the protocol is active and eligible under your current access. Open PepLedger periodically so reminders for changing or additional schedules can be refreshed. Focus modes and notification summaries can also delay how iOS presents an alert.</p>
+
+        <h3>Can I hide details from the Lock Screen?</h3>
+        <p>Yes. Protocol names and amounts are hidden in alerts by default. In <strong>More → Reminders</strong>, keep <strong>Show compound and amount in alerts</strong> turned off for generic reminder text. You can also adjust notification previews in iOS Settings.</p>
+
+        <h2>Free and Pro access</h2>
+
+        <h3>What is included for free?</h3>
+        <p>The free version supports one eligible basic protocol and one vial. Your history, corrections, deletion, CSV export, JSON backup, and restore remain available without Pro.</p>
+
+        <h3>What does Pro add?</h3>
+        <p>Pro adds unlimited protocols and vials, advanced schedules, blends, runout forecasts, and progress comparisons. Product choices and current prices are displayed by Apple inside the app before purchase.</p>
+
+        <h3>How do weekly and lifetime access work?</h3>
+        <p>Weekly Pro is an automatically renewing subscription. If Apple shows you an introductory trial, the confirmation sheet states its duration and the price charged afterward. Lifetime Pro is a one-time purchase for ongoing access to the included Pro features.</p>
+        <p>Purchases are billed to your Apple Account. Buying Lifetime Pro does not automatically cancel an active weekly subscription.</p>
+
+        <h3>How do I restore a purchase?</h3>
+        <p>Open <strong>More</strong> and tap <strong>Restore Pro access after App reinstall</strong>. Make sure the device is signed in to the Apple Account used for the purchase. Restoring access does not restore your local PepLedger records; use a JSON backup for records.</p>
+
+        <h3>How do I manage or cancel Weekly Pro?</h3>
+        <p>Use <strong>Manage subscriptions</strong> in PepLedger or open <a href="https://apps.apple.com/account/subscriptions">Apple's subscription management page</a>. Subscription management, billing, refunds, and purchase history are handled by Apple.</p>
+
+        <h3>What happens when Pro ends?</h3>
+        <p>Your records are not deleted. Choose the protocol and vial you want to keep active under free access. Advanced schedules and their reminders pause until Pro is active again, while history, corrections, exports, backups, and deletion remain available.</p>
+
+        <h2>Troubleshooting</h2>
+
+        <h3>A calculation does not look right.</h3>
+        <p>Review every value and unit you entered, including amount, concentration, vial volume, syringe scale, and whether the vial is premixed or reconstituted. Calculator results depend entirely on those inputs. Do not use a result you do not understand; confirm it with a qualified healthcare professional.</p>
+
+        <h3>The app says purchase options are unavailable.</h3>
+        <p>Check your internet connection and Apple's System Status, then try <strong>Reload purchase options</strong>. Free tracking remains available while StoreKit is unavailable.</p>
+
+        <h3>How should I report a bug?</h3>
+        <p>Email <a href="mailto:support@leanorbit.app?subject=PepLedger%20Bug%20Report">support@leanorbit.app</a> and include:</p>
+        <ul>
+          <li>What you were trying to do and what happened.</li>
+          <li>What you expected to happen.</li>
+          <li>Your PepLedger version and build, iPhone model, and iOS version.</li>
+          <li>A redacted screenshot, if it helps explain the issue.</li>
+        </ul>
+        <p>Never send passwords, full purchase credentials, protocol details, dose history, or medical records.</p>
+
+        <aside class="notice" aria-labelledby="medical-disclaimer">
+          <h2 id="medical-disclaimer">Important medical disclaimer</h2>
+          <p>PepLedger is a personal record-keeping tool. It is not a medical device and does not provide medical advice, diagnosis, treatment, prescribing, dosing recommendations, or product verification.</p>
+          <p>Always follow the instructions of a qualified healthcare professional. If you think you may be experiencing a medical emergency, contact local emergency services immediately.</p>
+        </aside>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>&copy; 2026 Lean Orbit LLC</span>
+      <span class="footer-links">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
