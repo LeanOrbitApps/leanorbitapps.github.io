@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vault: Trading Journal — Support</title>
-    <meta name="description" content="Get help with Vault: Trading Journal. FAQ, troubleshooting, and contact support.">
+    <meta name="description" content="Get help with PnL Trading Journal: Vault or report an app issue at support@leanorbit.app. Find contact details, FAQs, and troubleshooting tips.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -64,6 +64,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .logo {
@@ -325,7 +327,7 @@
             text-align: center;
         }
 
-        .contact-box h3 {
+        .contact-box h2 {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 8px;
@@ -338,12 +340,14 @@
         }
 
         .contact-email {
-            display: inline-flex;
+            display: inline-block;
             align-items: center;
             gap: 10px;
             background: var(--green-dim);
             border: 1px solid var(--green-border);
-            padding: 14px 28px;
+            padding: 14px 16px;
+            max-width: 100%;
+            overflow-wrap: anywhere;
             border-radius: 10px;
             color: var(--green);
             font-family: 'Space Mono', monospace;
@@ -363,6 +367,23 @@
             font-size: 12px;
             color: var(--text-muted);
         }
+
+        .contact-box .contact-address {
+            margin: 16px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-address a {
+            color: var(--green);
+            text-underline-offset: 3px;
+        }
+
+        .contact-email:focus-visible, .contact-address a:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 4px;
+        }
+
+        #contact { scroll-margin-top: 24px; padding-top: 0; }
 
         /* ─── Requirements ─── */
         .req-list {
@@ -417,6 +438,7 @@
             </a>
             <nav class="header-nav">
                 <a href="#" class="active">Support</a>
+                <a href="#contact">Report an issue</a>
                 <a href="./privacy.html">Privacy</a>
             </nav>
         </div>
@@ -428,6 +450,20 @@
             <h1>How can we <span class="accent">help?</span></h1>
             <p>Find answers to common questions, troubleshoot issues, or reach out directly.</p>
         </div>
+    </div>
+
+    <!-- Direct support is visible before the FAQ and needs no JavaScript. -->
+    <div class="container">
+        <section id="contact" aria-labelledby="contact-title">
+            <div class="contact-box">
+                <h2 id="contact-title">Contact support or report an issue</h2>
+                <p>Having trouble with Vault? Email us for help, to report a bug, or to share feedback.</p>
+                <a class="contact-email" href="mailto:support@leanorbit.app?subject=Vault%20app%20issue">Email support / report an issue</a>
+                <p class="contact-address"><a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
+                <p>Tell us what happened, what you expected, and the steps to reproduce the issue. Include your device model, iOS version, and Vault app version if available.</p>
+                <p>If the button doesn't open your email app, copy the address above into your preferred email service. If you attach a screenshot, hide account numbers and other personal financial details first.</p>
+            </div>
+        </section>
     </div>
 
     <!-- FAQ -->
@@ -638,12 +674,11 @@
         </section>
     </div>
 
-</div>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>© 2025 Vault: Trading Journal. All rights reserved. · <a href="./privacy.html">Privacy Policy</a></p>
+            <p>Support and issue reports: <a href="mailto:support@leanorbit.app?subject=Vault%20support">support@leanorbit.app</a></p>
         </div>
     </footer>
 
