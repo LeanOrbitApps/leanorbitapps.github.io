@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.leanorbit.app/dbtdailydiary/sitemap.xml
+
+# ChatGPT search crawling; training access remains allowed by the wildcard above.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Sitemap: https://www.leanorbit.app/sitemap.xml
