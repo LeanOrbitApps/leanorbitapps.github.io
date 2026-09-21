@@ -1,0 +1,129 @@
+{
+  "checked": "2026-09-21",
+  "source": "Apple iTunes Lookup API, country=us",
+  "apps": [
+    {
+      "name": "Shadow Work Journal - Ember",
+      "inventoryName": "Shadow Work Journal: Ember",
+      "appStore": "https://apps.apple.com/us/app/id6762090343",
+      "landingPage": "https://www.leanorbit.app/shadowwork/",
+      "minimumIOS": "18.0",
+      "downloadPriceUSD": 0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/81/99/0c8199d9-8809-53a2-32fc-f7f7b79ae3a8/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/512x512bb.jpg",
+      "iconFile": "assets/icons/ember.png",
+      "iconChecked": "2026-09-21",
+      "appleLookupDownloadPriceUSD": 2.99,
+      "pricingSource": "Owner confirmed free to start with in-app purchases on September 21, 2026."
+    },
+    {
+      "name": "PnL Trading Journal: Vault",
+      "inventoryName": "PnL Trading Journal: Vault",
+      "appStore": "https://apps.apple.com/us/app/id6761550736",
+      "landingPage": "https://www.leanorbit.app/tradingjournal/",
+      "minimumIOS": "18.6",
+      "downloadPriceUSD": 3.99,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/5f/03/415f0347-758f-d231-910c-e7d01f692ec5/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/vault.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "DBT Diary Card: Skills Tracker",
+      "inventoryName": "DBT Diary: Daily Skill Tracker",
+      "appStore": "https://apps.apple.com/us/app/id6759234731",
+      "landingPage": "https://www.leanorbit.app/dbtdailydiary/",
+      "minimumIOS": "17.0",
+      "downloadPriceUSD": 0.0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7c/20/27/7c20275d-1502-a122-9ad4-9209587c394e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/dbt-diary-card.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "Pacing To Do & Plans: Wattdo",
+      "inventoryName": "Pacing To Do & Plans: Wattdo",
+      "appStore": "https://apps.apple.com/us/app/id6758806733",
+      "landingPage": "https://www.leanorbit.app/wattdo/",
+      "minimumIOS": "18.6",
+      "downloadPriceUSD": 0.99,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/94/60/20946034-ba6e-b83b-4c87-861b8b808a87/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/wattdo.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "General Knowledge Quiz: Spark",
+      "inventoryName": "General Knowledge Quiz: Spark",
+      "appStore": "https://apps.apple.com/us/app/id6504156248",
+      "landingPage": "https://www.leanorbit.app/generalknowledgequiz/",
+      "minimumIOS": "18.0",
+      "downloadPriceUSD": 0.0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/f2/0f/e6f20fc1-ceff-a3b9-0197-b37592828c6f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "generalknowledgequiz/spark-icon.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "Lock Screen Sticky Notes-Loxit",
+      "inventoryName": "Lock Screen Sticky Notes - Loxit",
+      "appStore": "https://apps.apple.com/us/app/id6758485452",
+      "landingPage": "https://www.leanorbit.app/loxit/",
+      "minimumIOS": "18.0",
+      "downloadPriceUSD": 0.99,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3f/43/0c/3f430cbb-8059-1ed5-d35f-8032117bd489/AppIcon-0-0-1x_U007epad-0-8-0-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/loxit.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "Interview Prep AI - PrepLine",
+      "inventoryName": "Interview Prep AI - PrepLine",
+      "appStore": "https://apps.apple.com/us/app/id6773124282",
+      "landingPage": "https://www.leanorbit.app/prepline/",
+      "minimumIOS": "18.6",
+      "downloadPriceUSD": 0.0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/62/2a/13/622a133d-39d6-0ce7-c17a-2b77cbc0c409/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/prepline.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "Stockroom Inventory: ReStocker",
+      "inventoryName": "Stockroom Inventory: ReStocker",
+      "appStore": "https://apps.apple.com/us/app/id6779429905",
+      "landingPage": "https://www.leanorbit.app/restocker/",
+      "minimumIOS": "17.6",
+      "downloadPriceUSD": 0.0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/48/b7/81/48b78166-6ad6-7429-a5b3-f6e93b28b3a9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/restocker.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "Color Analysis AI: Season",
+      "inventoryName": "Color Analysis AI: Season",
+      "appStore": "https://apps.apple.com/us/app/id6790160082",
+      "landingPage": "https://www.leanorbit.app/colorseasonai/",
+      "minimumIOS": "17.6",
+      "downloadPriceUSD": 0.0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d8/9b/86/d89b8646-d642-fbde-2a8f-d0cb6f7911cf/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/color-analysis.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "Signature Scanner & Creator",
+      "inventoryName": "Signature Scanner & Creator",
+      "appStore": "https://apps.apple.com/us/app/id6800861469",
+      "landingPage": "https://www.leanorbit.app/signify/",
+      "minimumIOS": "18.0",
+      "downloadPriceUSD": 0.0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ec/30/d6/ec30d67f-8e10-f89c-9356-09228bb32300/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "signify/app-icon.png",
+      "iconChecked": "2026-09-21"
+    },
+    {
+      "name": "Peptide Tracker: PepLedger",
+      "inventoryName": "Peptide Tracker: PepLedger",
+      "appStore": "https://apps.apple.com/us/app/id6809966755",
+      "landingPage": "https://www.leanorbit.app/PeptideTracker/",
+      "minimumIOS": "17.0",
+      "downloadPriceUSD": 0.0,
+      "iconSource": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/95/ae/5a95ae18-19f6-0741-c867-48d26f3de12b/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "iconFile": "assets/icons/pepledger.png",
+      "iconChecked": "2026-09-21"
+    }
+  ]
+}

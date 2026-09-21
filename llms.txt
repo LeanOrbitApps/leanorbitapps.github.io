@@ -1,0 +1,94 @@
+# Lean Orbit
+
+> Independent iOS apps by Lean Orbit LLC. Official app pages, features, and App Store downloads.
+
+## Released apps
+
+- [Shadow Work Journal - Ember](https://www.leanorbit.app/shadowwork/): Ember is an iPhone shadow work journal for daily self-reflection, with guided prompts and the choice to keep or burn an entry.
+  - Features: Daily shadow work prompts; Private archive of kept entries; Deliberate burn mode; Optional daily reminder.
+  - [App Store](https://apps.apple.com/us/app/id6762090343) · Free to start, with in-app purchases for additional access. See current purchase options in the app.
+- [PnL Trading Journal: Vault](https://www.leanorbit.app/tradingjournal/): Vault is an iPhone trading journal that scans trade confirmations, logs trading emotions, and displays profit and loss on a calendar.
+  - Features: On-device OCR for trade confirmations; Ticker, direction, price, and quantity capture; Emotion tags for trade entries; Calendar view of profit and loss.
+  - [App Store](https://apps.apple.com/us/app/id6761550736) · Paid download. Check your regional App Store for the current price.
+- [DBT Diary Card: Skills Tracker](https://www.leanorbit.app/dbtdailydiary/): DBT Diary Card: Skills Tracker is an iPhone and iPad diary card app for recording emotions, urges, behaviors, and DBT skills and exporting PDF reports.
+  - Features: Daily emotion and urge ratings; DBT skills and behavior tracking; PDF reports for sessions; On-device diary entries.
+  - [App Store](https://apps.apple.com/us/app/id6759234731) · Free to download. Full access is available through a subscription or lifetime purchase; current trial terms are shown in the app.
+- [Pacing To Do & Plans: Wattdo](https://www.leanorbit.app/wattdo/): Wattdo is an iPhone pacing and to-do app that adjusts your task list to your current energy level.
+  - Features: High, medium, or low energy check-in; Energy cost for each task; Hide heavier tasks on low-energy days; Home Screen widget.
+  - [App Store](https://apps.apple.com/us/app/id6758806733) · Paid download. Check your regional App Store for the current price.
+- [General Knowledge Quiz: Spark](https://www.leanorbit.app/generalknowledgequiz/): Spark is a daily general knowledge quiz for iPhone and iPad with short rounds and explanations for every answer.
+  - Features: Five-question quiz rounds; Explanations for every answer; Trivia, history, science, words, and math; Offline play.
+  - [App Store](https://apps.apple.com/us/app/id6504156248) · Free daily World Trivia. A one-time in-app purchase unlocks all categories and unlimited rounds.
+- [Lock Screen Sticky Notes-Loxit](https://www.leanorbit.app/loxit/): Loxit is an iPhone sticky notes app for capturing quick thoughts and reminders from the Lock Screen, Control Center, or Home Screen.
+  - Features: Lock Screen capture; Control Center access; Home Screen quick action; Check off completed notes.
+  - [App Store](https://apps.apple.com/us/app/id6758485452) · Paid download. Check your regional App Store for the current price.
+- [Interview Prep AI - PrepLine](https://www.leanorbit.app/prepline/): PrepLine is an iPhone interview preparation app that generates practice questions from a job description and gives STAR feedback on your answers.
+  - Features: Questions tailored to a job description; Answer scores and STAR feedback; Practice across multiple job targets; Readiness and weak-area review.
+  - [App Store](https://apps.apple.com/us/app/id6773124282) · Free to download. Pro uses weekly or annual subscriptions; eligible weekly plans offer a trial. See current terms in the app.
+- [Stockroom Inventory: ReStocker](https://www.leanorbit.app/restocker/): ReStocker is an iPhone and iPad inventory app for small businesses, with barcode scanning, low-stock reorder lists, and iCloud sync.
+  - Features: Barcode and QR code scanning; Low-stock reorder lists; SKU, cost, photo, expiration, and location details; CSV import and export; iCloud sync across devices.
+  - [App Store](https://apps.apple.com/us/app/id6779429905) · Free to download. A subscription or lifetime purchase is required for inventory features; eligible weekly subscribers can try them with a trial.
+- [Color Analysis AI: Season](https://www.leanorbit.app/colorseasonai/): Color Analysis AI: Season is an iPhone app that uses a selfie to suggest a seasonal color palette for clothing and makeup.
+  - Features: 12-season color analysis; Recommended colors and neutrals; Undertone, contrast, and confidence explanation; Side-by-side Draping Reveal.
+  - [App Store](https://apps.apple.com/us/app/id6790160082) · Free to download. Full access requires a weekly subscription or lifetime purchase; see current offers in the app.
+- [Signature Scanner & Creator](https://www.leanorbit.app/signify/): Signature Scanner & Creator is an iPhone app for creating a reusable signature from a photo or typed name, placing it on a PDF, and exporting a signed copy.
+  - Features: Photo and typed signature creation; Reusable signatures and initials; Place and resize signatures on PDFs; Export a new signed PDF.
+  - [App Store](https://apps.apple.com/us/app/id6800861469) · Free to download with a limited allowance. Additional use credits and a one-time unlimited unlock are available in the app.
+- [Peptide Tracker: PepLedger](https://www.leanorbit.app/PeptideTracker/): PepLedger is an iPhone record-keeping app for user-entered peptide routines, schedules, dose history, vial inventory, and progress.
+  - Features: User-entered protocols and schedules; Dose and injection-site history; Vial inventory; Optional reminders; CSV export and backup.
+  - [App Store](https://apps.apple.com/us/app/id6809966755) · Free tracking for one basic protocol and vial. Pro adds more tracking options through weekly or lifetime access; current offers are shown in the app.
+
+## Common questions
+
+### How can I start a shadow work journal on iPhone?
+
+Open Ember for a daily prompt, write your response, and decide whether to keep the entry or permanently burn it. It is a personal reflection tool.
+
+### How can I log trades from screenshots on iPhone?
+
+Use Vault to scan a brokerage confirmation or import a screenshot, then review the extracted trade details and tag the emotion behind the trade.
+
+### How can I track DBT skills between sessions?
+
+Record the skills you practiced and your daily emotions and behaviors in the app, then export a PDF to discuss with your therapist. The app is a self-tracking tool, not a substitute for professional care.
+
+### How can I plan tasks around my energy level?
+
+Set your current energy level in Wattdo and assign an energy cost to each task. The list hides heavier tasks when your energy is low so you can focus on tasks that fit your day.
+
+### How can I practice general knowledge in a few minutes?
+
+Play a five-question round in Spark and read the explanation after each answer. World Trivia is free to play daily, with other categories available through a one-time unlock.
+
+### How can I capture a note from my iPhone Lock Screen?
+
+Add Loxit to your Lock Screen controls, then use the control to capture a thought. You can also access Loxit from Control Center or by long-pressing its Home Screen icon.
+
+### How can I practice interview questions for a specific job?
+
+Paste the job description into PrepLine, answer the tailored practice questions, and use its Situation, Task, Action, and Result feedback to improve your responses.
+
+### How can I track small-business stock on iPhone?
+
+Scan items into ReStocker, set your low-stock thresholds, and review the automatic reorder list. Store item details and use CSV import or export when moving inventory records.
+
+### How can I find a seasonal color palette from a selfie?
+
+Take a clear selfie in natural light and submit it in Season after reviewing the AI-sharing disclosure. Explore the suggested palette and compare colors with Draping Reveal. Lighting and camera color can affect the result.
+
+### How can I turn my handwritten signature into a signed PDF?
+
+Photograph your signature, create a reusable signature in the app, import an existing PDF, and place your signature before exporting a signed copy. The app does not scan paper documents into PDFs.
+
+### How can I organize my peptide tracking records on iPhone?
+
+Enter your existing routine in PepLedger, record completed events and vial details, and review or export your history. PepLedger does not prescribe, recommend doses, or provide medical advice.
+
+## Studio and support
+
+- [All apps](https://www.leanorbit.app/products.html)
+- [Support](https://www.leanorbit.app/support.html)
+- [Privacy](https://www.leanorbit.app/privacy.html)
+- Email: support@leanorbit.app
+
+App Store names and availability checked against Apple’s US catalog on September 21, 2026. Prices, compatibility, and offers may change; consult each App Store listing.
