@@ -1134,8 +1134,8 @@ main { display: flex; flex-direction: column; }
    ========================================================================= */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
+  opacity: 1;
+  transform: none;
   transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
 }
 
