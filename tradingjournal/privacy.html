@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vault: Trading Journal — Privacy Policy</title>
-    <meta name="description" content="Privacy Policy for Vault: Trading Journal. No data collection, no tracking, fully offline.">
+    <title>PnL Trading Journal: Vault — Privacy Policy</title>
+    <meta name="description" content="Privacy Policy for PnL Trading Journal: Vault. No data collection, no tracking, no accounts. Your trades stay on your device; purchases are handled by Apple.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -394,7 +394,7 @@
         <div class="container header-inner">
             <a href="#" class="logo">
                 <div class="logo-icon">V</div>
-                <div class="logo-text">Vault <span>Trading Journal</span></div>
+                <div class="logo-text">Vault <span>PnL Trading Journal</span></div>
             </a>
             <nav class="header-nav">
                 <a href="./support.html">Support</a>
@@ -407,8 +407,8 @@
     <div class="container">
         <div class="hero">
             <h1>Privacy <span class="accent">Policy</span></h1>
-            <p>Vault was built with a simple privacy principle: your trading data belongs to you and stays on your device.</p>
-            <div class="effective-date">Effective: April 4, 2026</div>
+            <p>PnL Trading Journal: Vault ("Vault") was built with a simple privacy principle: your trading data belongs to you and stays on your device.</p>
+            <div class="effective-date">Effective: September 25, 2026</div>
         </div>
     </div>
 
@@ -419,7 +419,7 @@
             <div class="tldr-grid">
                 <div class="tldr-item">
                     <span class="tldr-check">✓</span>
-                    <p>No data collection whatsoever</p>
+                    <p>We collect no data about you</p>
                 </div>
                 <div class="tldr-item">
                     <span class="tldr-check">✓</span>
@@ -427,7 +427,7 @@
                 </div>
                 <div class="tldr-item">
                     <span class="tldr-check">✓</span>
-                    <p>No network calls, ever</p>
+                    <p>Purchases handled entirely by Apple</p>
                 </div>
                 <div class="tldr-item">
                     <span class="tldr-check">✓</span>
@@ -460,7 +460,8 @@
         <div class="policy-section">
             <div class="policy-num">Section 1</div>
             <h2>Data Collection</h2>
-            <p><strong>Vault does not collect, transmit, or share any personal data.</strong> The app operates entirely offline. There are no servers, no APIs, no cloud storage, and no analytics services.</p>
+            <p><strong>Vault does not collect, transmit, or share any personal data with us or anyone else.</strong> Your journal works entirely offline. Lean Orbit operates no servers, APIs, cloud storage, or analytics services for Vault.</p>
+            <p>The only time Vault connects to the internet is to talk to Apple's App Store for in-app purchases (see Section 5). That connection goes to Apple, not to us, and never includes your trade data.</p>
             <p>Specifically, Vault does not collect your name, email address, location, device identifiers, IP address, usage analytics, crash reports, or any other personal or behavioral data.</p>
             <p>The app contains no third-party SDKs, advertising frameworks, or analytics tools of any kind.</p>
         </div>
@@ -474,11 +475,12 @@
             <div class="detail-box">
                 <h3>What is stored on your device</h3>
                 <p>Trade records (ticker, direction, entry/exit prices, quantity, date, notes, tags), your tag selections, and the date each trade was created. This data persists between app sessions and is included in your standard iOS device backup.</p>
+                <p>Vault also keeps a few small settings on your device: how many trades you have logged (used for the 2 free trades), and whether your purchase or original paid download has been confirmed, so the app works offline. None of this leaves your device.</p>
             </div>
 
             <div class="detail-box">
                 <h3>How to delete your data</h3>
-                <p>You can delete individual trades from within the app by opening a trade's detail view and tapping "Delete Trade." To delete all data, uninstall the app from your device. When the app is removed, all locally stored trade data is permanently deleted by iOS.</p>
+                <p>You can delete individual trades from within the app by opening a trade's detail view and tapping "Delete Trade." To delete all data, uninstall the app from your device. When the app is removed, all locally stored trade data is permanently deleted by iOS. Purchases belong to your Apple Account, not the app, so you can restore them after reinstalling.</p>
             </div>
         </div>
 
@@ -518,42 +520,57 @@
             <p>The extracted text is parsed locally to identify trade details (ticker, direction, price, quantity), presented to you for review, and discarded from memory once you save or dismiss the scan.</p>
         </div>
 
-        <!-- 5. CSV Export -->
+        <!-- 5. In-App Purchases -->
         <div class="policy-section">
             <div class="policy-num">Section 5</div>
+            <h2>In-App Purchases</h2>
+            <p>Vault is free to download. Your first 2 trades are free; after that you can choose a weekly or monthly subscription or a one-time lifetime purchase. <strong>All payments are processed by Apple</strong> through the App Store. We never see or receive your name, Apple Account, email address, or payment details.</p>
+            <p>To know which features to unlock, Vault uses Apple's StoreKit framework on your device to:</p>
+            <div class="detail-box">
+                <h3>What the app checks with Apple</h3>
+                <p><strong>Product prices</strong>: the plans and prices shown on the paywall, in your local currency.</p>
+                <p><strong>Your purchases</strong>: whether you have an active subscription or the lifetime unlock, including when you tap "Restore Purchases."</p>
+                <p><strong>Your original download</strong>: if you bought Vault when it was a paid app, Apple's record of that original download lets the app give you full access at no extra cost.</p>
+            </div>
+            <p>These checks happen between your device and Apple under <a href="https://www.apple.com/legal/privacy/" style="color:var(--green)">Apple's Privacy Policy</a>. The results are stored only on your device. You can manage or cancel subscriptions at any time in Settings &gt; Apple Account &gt; Subscriptions.</p>
+        </div>
+
+        <!-- 6. CSV Export -->
+        <div class="policy-section">
+            <div class="policy-num">Section 6</div>
             <h2>CSV Export</h2>
             <p>When you export your trades, Vault generates a CSV file stored temporarily on your device. This file is shared through the standard iOS share sheet, which you control. Vault does not automatically send this file anywhere — you choose the destination (AirDrop, email, Files, etc.).</p>
             <p>The temporary CSV file is created in your device's temporary directory and is cleaned up by iOS automatically.</p>
         </div>
 
-        <!-- 6. Third-Party Services -->
-        <div class="policy-section">
-            <div class="policy-num">Section 6</div>
-            <h2>Third-Party Services</h2>
-            <p><strong>Vault uses no third-party services.</strong> There are no analytics SDKs (no Firebase, no Mixpanel, no Amplitude), no crash reporting tools (no Crashlytics, no Sentry), no advertising networks, and no social login frameworks.</p>
-            <p>The only frameworks used are Apple's first-party frameworks: SwiftUI, SwiftData, Vision, PhotosUI, and UIKit. These are built into iOS and operate under Apple's own privacy policies.</p>
-        </div>
-
-        <!-- 7. Children's Privacy -->
+        <!-- 7. Third-Party Services -->
         <div class="policy-section">
             <div class="policy-num">Section 7</div>
+            <h2>Third-Party Services</h2>
+            <p><strong>Vault uses no third-party services.</strong> There are no analytics SDKs (no Firebase, no Mixpanel, no Amplitude), no crash reporting tools (no Crashlytics, no Sentry), no advertising networks, and no social login frameworks.</p>
+            <p>The only frameworks used are Apple's first-party frameworks: SwiftUI, SwiftData, Vision, PhotosUI, AVFoundation, UIKit, and StoreKit (for in-app purchases). These are built into iOS and operate under Apple's own privacy policies.</p>
+        </div>
+
+        <!-- 8. Children's Privacy -->
+        <div class="policy-section">
+            <div class="policy-num">Section 8</div>
             <h2>Children's Privacy</h2>
             <p>Vault is not directed at children under the age of 13. The app is a trading journal intended for use by adults who actively trade stocks and ETFs. Since Vault does not collect any data from any user, it does not knowingly collect data from children.</p>
         </div>
 
-        <!-- 8. Changes to This Policy -->
+        <!-- 9. Changes to This Policy -->
         <div class="policy-section">
-            <div class="policy-num">Section 8</div>
+            <div class="policy-num">Section 9</div>
             <h2>Changes to This Policy</h2>
             <p>If we make changes to this Privacy Policy, the updated version will be posted on this page with a revised effective date. Since Vault does not collect email addresses or any contact information, we cannot notify you directly — we encourage you to review this page periodically.</p>
-            <p>Our core commitment will not change: Vault is and will remain an offline-first app that does not collect, transmit, or monetize your data.</p>
+            <p>Our core commitment will not change: Vault is and will remain an offline-first app that does not collect, transmit, or monetize your data. Vault earns money from optional purchases, never from your data.</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 Vault: Trading Journal. All rights reserved. · <a href="./support.html">Support</a></p>
+            <p>© 2026 Lean Orbit LLC. All rights reserved. · <a href="./support.html">Support</a></p>
         </div>
     </footer>
 
