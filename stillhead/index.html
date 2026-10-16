@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Headache Tracker: StillHead | Headache & Migraine Diary with Pressure Alerts</title>
+  <meta name="description" content="Log a headache in one tap and see barometric pressure drops coming. A calm, private headache and migraine diary for iPhone with a doctor-ready PDF report.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d1018">
+  <link rel="icon" type="image/png" href="stillhead-icon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-itunes-app" content="app-id=6822869867">
+  <meta property="og:title" content="Headache Tracker: StillHead | Headache & Migraine Diary with Pressure Alerts">
+  <meta property="og:description" content="Log a headache in one tap and see barometric pressure drops coming. A calm, private headache and migraine diary for iPhone with a doctor-ready PDF report.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://leanorbit.app/stillhead/stillhead-icon.png">
+  <style>
+    :root { --night:#0d1018; --night2:#141a28; --surface:#1a1e2a; --raised:#232838; --line:#2c3244;
+            --text:#dcdfe6; --muted:#9aa1b0; --faint:#6d7486; --accent:#7d9edb; --accent2:#4e72b8;
+            --rose:#c98b86; --calm:#73ad8c; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--night); color:var(--text);
+           font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+           line-height:1.6; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); } a:hover { color:#a9c0ea; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    header { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:.7rem; text-decoration:none; color:var(--text); line-height:1.05; }
+    .brand img { width:40px; height:40px; border-radius:10px; }
+    .brand span { display:grid; } .brand small { color:var(--muted); font-size:.74rem; letter-spacing:.02em; }
+    .brand b { font-size:1.12rem; color:var(--text); }
+    nav { display:flex; align-items:center; gap:1.3rem; font-size:.92rem; }
+    nav a { color:var(--muted); text-decoration:none; } nav a:hover, nav a[aria-current] { color:var(--text); }
+    .cta { background:var(--accent); color:#0d1018 !important; border-radius:999px; padding:.62rem 1.05rem; font-weight:700; }
+    .cta:hover { background:#93b0e4; }
+    footer { border-top:1px solid var(--line); color:var(--faint); font-size:.82rem; padding:1.8rem 0 2.4rem; margin-top:4rem; }
+    footer .wrap { display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:space-between; }
+    footer nav a { color:var(--muted); }
+    .disclaimer { color:var(--faint); font-size:.82rem; }
+    /* Document pages */
+    .doc { max-width:760px; margin:2.5rem auto 0; padding:0 20px; }
+    .doc h1 { font-size:clamp(2.1rem,5vw,3rem); letter-spacing:-.03em; line-height:1.1; margin:0 0 .4rem; }
+    .doc .meta { color:var(--faint); font-size:.9rem; margin:0 0 2rem; }
+    .doc h2 { font-size:1.35rem; letter-spacing:-.01em; margin:2.6rem 0 .6rem; padding-top:.4rem; }
+    .doc h3 { font-size:1.05rem; margin:1.6rem 0 .3rem; }
+    .doc p, .doc li { color:#c4c9d4; } .doc ul, .doc ol { padding-left:1.25rem; } .doc li { margin:.3rem 0; }
+    .summary { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.4rem; margin:1.5rem 0; }
+    .summary p { margin:.2rem 0; } .summary strong { color:var(--text); }
+    .toc { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.2rem 0 1rem; }
+    .toc a { background:var(--surface); border:1px solid var(--line); border-radius:999px; color:var(--text);
+             font-size:.86rem; padding:.4rem .85rem; text-decoration:none; }
+    .toc a:hover { border-color:var(--accent); }
+    table { border-collapse:collapse; width:100%; margin:1rem 0; font-size:.93rem; }
+    th, td { border-bottom:1px solid var(--line); padding:.65rem .5rem; text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-weight:600; font-size:.82rem; text-transform:uppercase; letter-spacing:.04em; }
+    td { color:#c4c9d4; }
+    .steps { counter-reset:step; list-style:none; padding:0 !important; }
+    .steps li { counter-increment:step; position:relative; padding-left:2.3rem; margin:.65rem 0; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:.08rem; width:1.55rem; height:1.55rem;
+             border-radius:50%; background:var(--raised); color:var(--accent); font-size:.8rem; font-weight:700;
+             display:grid; place-items:center; }
+    .contact { background:linear-gradient(160deg,var(--night2),var(--surface)); border:1px solid var(--line);
+               border-radius:20px; padding:1.6rem; margin-top:2.6rem; }
+    .contact h2 { margin-top:0; }
+    kbd { background:var(--raised); border-radius:6px; padding:.05rem .4rem; font-family:inherit; font-size:.9em; color:var(--text); }
+    @media (max-width:640px) { nav .hide-sm { display:none; } header { min-height:68px; } }
+
+    .hero { padding:clamp(3.5rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);
+            background:radial-gradient(circle at 15% 0%, rgba(125,158,219,.22), transparent 55%),
+                       radial-gradient(circle at 90% 80%, rgba(78,114,184,.16), transparent 55%); }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr); gap:clamp(2.5rem,7vw,6rem); align-items:center; }
+    .eyebrow { color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin:0 0 1rem; }
+    .hero h1 { font-size:clamp(2.8rem,6.6vw,5.4rem); line-height:.98; letter-spacing:-.045em; margin:0 0 1.4rem; }
+    .hero h1 em { font-style:normal; color:var(--accent); }
+    .lead { color:#c4c9d4; font-size:clamp(1.05rem,1.6vw,1.2rem); max-width:540px; margin:0; }
+    .actions { display:flex; align-items:center; gap:1.1rem; margin-top:2rem; flex-wrap:wrap; }
+    .store { background:#000; border:1px solid #3a4152; border-radius:12px; color:#fff !important; display:inline-flex;
+             flex-direction:column; line-height:1.1; padding:.6rem 1rem; text-decoration:none; min-width:160px; }
+    .store small { font-size:.62rem; } .store strong { font-size:1.15rem; }
+    .actions p { color:var(--muted); font-size:.85rem; margin:0; line-height:1.4; }
+    .phone { justify-self:center; width:min(300px,100%); aspect-ratio:9/19; border-radius:44px; padding:12px;
+             background:linear-gradient(160deg,#2b3550,#1a2033); box-shadow:0 0 0 2px rgba(125,158,219,.35), 0 40px 90px -30px rgba(0,0,0,.8); }
+    .screen { height:100%; border-radius:34px; background:var(--night); padding:26px 16px; display:flex; flex-direction:column; gap:12px; }
+    .screen .t { font-weight:700; font-size:1rem; } .screen .d { color:var(--muted); font-size:.72rem; margin-top:-10px; }
+    .big { border:1.5px solid rgba(125,158,219,.6); background:rgba(125,158,219,.14); border-radius:22px; padding:22px 10px;
+           display:grid; place-items:center; gap:6px; text-align:center; }
+    .big .plus { width:40px; height:40px; border-radius:50%; background:var(--accent); color:#0d1018; display:grid; place-items:center; font-size:1.6rem; font-weight:800; }
+    .big b { font-size:1.02rem; } .big span { color:var(--muted); font-size:.68rem; }
+    .card { background:var(--surface); border-radius:16px; padding:12px 14px; }
+    .card small { color:var(--muted); font-size:.6rem; letter-spacing:.08em; font-weight:700; }
+    .card svg { display:block; width:100%; height:46px; margin-top:6px; }
+    .dots { display:flex; justify-content:space-between; margin-top:8px; }
+    .dots i { width:18px; height:18px; border-radius:50%; border:1px solid var(--line); }
+    .dots i.m { background:#c7a35c; border:0; } .dots i.s { background:#b84d4d; border:0; } .dots i.f { background:rgba(115,173,140,.4); border:0; }
+    .jobs { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; padding:1rem 0 4rem; }
+    .job { background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:1.6rem; }
+    .job .n { color:var(--accent); font-size:.78rem; font-weight:700; letter-spacing:.1em; }
+    .job h2 { font-size:1.45rem; letter-spacing:-.02em; line-height:1.15; margin:.8rem 0 .6rem; }
+    .job p { color:var(--muted); margin:0; }
+    .section-h { text-align:center; max-width:720px; margin:2rem auto 2.2rem; }
+    .section-h h2 { font-size:clamp(2rem,4vw,3rem); letter-spacing:-.035em; line-height:1.05; margin:0 0 .8rem; }
+    .section-h p { color:var(--muted); margin:0; }
+    .features { display:grid; grid-template-columns:repeat(2,1fr); gap:0 3rem; border-top:1px solid var(--line); }
+    .feature { border-bottom:1px solid var(--line); padding:1.4rem 0; display:grid; grid-template-columns:2.2rem 1fr; gap:.8rem; }
+    .feature .i { color:var(--accent); font-size:1.2rem; line-height:1.4; }
+    .feature h3 { margin:0 0 .25rem; font-size:1.08rem; } .feature p { margin:0; color:var(--muted); }
+    .privacy-band { margin:4.5rem 0 0; background:linear-gradient(160deg,var(--night2),var(--surface)); border:1px solid var(--line);
+                    border-radius:24px; padding:clamp(1.8rem,4vw,3rem); display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; }
+    .privacy-band h2 { font-size:clamp(1.8rem,3.4vw,2.6rem); letter-spacing:-.03em; line-height:1.08; margin:0; }
+    .pills { display:flex; flex-wrap:wrap; gap:.6rem; }
+    .pills span { background:var(--raised); border:1px solid var(--line); border-radius:999px; padding:.5rem .95rem; font-size:.92rem; }
+    .closing { text-align:center; padding:4.5rem 0 1rem; }
+    .closing h2 { font-size:clamp(2rem,4.4vw,3.2rem); letter-spacing:-.035em; line-height:1.05; margin:0 0 1rem; }
+    .closing p { color:var(--muted); margin:0 0 1.8rem; }
+    @media (max-width:860px) { .hero-grid, .privacy-band { grid-template-columns:1fr; } .jobs { grid-template-columns:1fr; } .features { grid-template-columns:1fr; } .phone { width:min(260px,80%); } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="index.html" aria-label="Headache Tracker: StillHead home"><img src="stillhead-icon.png" alt=""><span><small>Headache Tracker</small><b>StillHead</b></span></a>
+    <nav><a class="hide-sm" href="support.html">Support</a><a class="hide-sm" href="privacy.html">Privacy</a><a class="cta" href="https://apps.apple.com/app/id6822869867" target="_blank" rel="noreferrer">Get the app ↗</a></nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title"><div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Headache &amp; migraine tracker for iPhone</p>
+        <h1 id="hero-title">Log a headache in one tap. <em>See pressure drops coming.</em></h1>
+        <p class="lead">StillHead is a calm, dark headache diary made for the moments you can barely look at a screen. One tap to start, one tap to end, with barometric pressure warnings and a report your doctor can use.</p>
+        <div class="actions">
+          <a class="store" href="https://apps.apple.com/app/id6822869867" target="_blank" rel="noreferrer"><small>Download on the</small><strong>App Store</strong></a>
+          <p>Free 3-day trial<br>No account needed</p>
+        </div>
+      </div>
+      <div class="phone" aria-hidden="true"><div class="screen">
+        <div class="t">StillHead</div><div class="d">Thursday, October 15</div>
+        <div class="big"><div class="plus">+</div><b>Headache started</b><span>One tap. Add details later.</span></div>
+        <div class="card"><small>PRESSURE TODAY</small>
+          <svg viewBox="0 0 200 46" preserveAspectRatio="none"><path d="M0 12 C 30 10, 50 12, 70 16 C 95 22, 110 38, 130 39 C 150 40, 170 30, 200 24" fill="none" stroke="#7d9edb" stroke-width="3" stroke-linecap="round"/></svg></div>
+        <div class="card"><small>LAST 7 DAYS</small><div class="dots"><i></i><i class="m"></i><i></i><i class="f"></i><i class="s"></i><i></i><i></i></div></div>
+      </div></div>
+    </div></section>
+
+    <section class="wrap jobs" aria-label="What StillHead does">
+      <article class="job"><div class="n">01</div><h2>One tap, even mid-attack</h2><p>Start and stop a headache timer from the app, the Home Screen, the Lock Screen or Control Center. Pain, symptoms, triggers and medication can wait until you feel better.</p></article>
+      <article class="job"><div class="n">02</div><h2>See pressure drops coming</h2><p>A 48-hour barometric pressure forecast for where you are, plus an optional quiet heads-up, at most once a day, before a big drop.</p></article>
+      <article class="job"><div class="n">03</div><h2>A report your doctor can use</h2><p>A 30- or 90-day PDF with your calendar, every attack, medication days, top triggers and pressure at onset. Share or print in seconds.</p></article>
+    </section>
+
+    <section class="wrap" aria-labelledby="features-title">
+      <div class="section-h"><h2 id="features-title">Everything a headache diary should be. Nothing it shouldn't.</h2><p>Every detail is optional, so a one-tap log is always a complete record.</p></div>
+      <div class="features">
+        <div class="feature"><div class="i">◎</div><div><h3>Head map</h3><p>Front, back, temples, eyes, sinuses and neck, left or right.</p></div></div>
+        <div class="feature"><div class="i">▦</div><div><h3>Calendar</h3><p>Headache days shaded by severity, plus pain-free and symptoms-only days. Add past headaches in a few taps.</p></div></div>
+        <div class="feature"><div class="i">≋</div><div><h3>Spot patterns</h3><p>Headache days per month, average length, your most common triggers, medication days, and how many started after a pressure drop.</p></div></div>
+        <div class="feature"><div class="i">✚</div><div><h3>Medication and what helped</h3><p>Log each medication with its dose and whether it helped, partly helped, or didn't.</p></div></div>
+        <div class="feature"><div class="i">◐</div><div><h3>Easy on the eyes</h3><p>A dark, low-glare design with big tap targets, usable at minimum brightness.</p></div></div>
+        <div class="feature"><div class="i">⇩</div><div><h3>Your data, exportable</h3><p>Export a doctor-ready PDF or your full history as a CSV whenever you like.</p></div></div>
+      </div>
+    </section>
+
+    <section class="wrap" aria-labelledby="privacy-title"><div class="privacy-band">
+      <div><h2 id="privacy-title">Your health diary stays yours.</h2><p style="color:var(--muted);margin:.8rem 0 0">No account and no tracking. Your diary lives on your iPhone and syncs through your own private iCloud. <a href="privacy.html">Read the privacy policy</a>.</p></div>
+      <div class="pills"><span>No account</span><span>No ads</span><span>No analytics</span><span>Your own iCloud</span><span>Data not collected</span></div>
+    </div></section>
+
+    <section class="wrap closing" aria-labelledby="closing-title">
+      <h2 id="closing-title">The next one, logged in a tap.</h2>
+      <p>Start with a free 3-day trial, or unlock StillHead once with a lifetime purchase.</p>
+      <a class="store" href="https://apps.apple.com/app/id6822869867" target="_blank" rel="noreferrer"><small>Download on the</small><strong>App Store</strong></a>
+      <p class="disclaimer" style="margin-top:2rem">StillHead is a personal diary. It doesn't diagnose, treat or prevent any condition. Talk to a doctor about your headaches.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p style="margin:0">© 2026 Lean Orbit LLC · StillHead is a diary, not medical advice.</p>
+      <nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noreferrer">Terms of Use</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

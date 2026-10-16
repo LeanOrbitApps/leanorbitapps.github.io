@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support | Headache Tracker: StillHead</title>
+  <meta name="description" content="Help for Headache Tracker: StillHead: logging, adding the widget, pressure alerts, doctor reports, iCloud sync and subscriptions.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d1018">
+  <link rel="icon" type="image/png" href="stillhead-icon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-itunes-app" content="app-id=6822869867">
+  <meta property="og:title" content="Support | Headache Tracker: StillHead">
+  <meta property="og:description" content="Help for Headache Tracker: StillHead: logging, adding the widget, pressure alerts, doctor reports, iCloud sync and subscriptions.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://leanorbit.app/stillhead/stillhead-icon.png">
+  <style>
+    :root { --night:#0d1018; --night2:#141a28; --surface:#1a1e2a; --raised:#232838; --line:#2c3244;
+            --text:#dcdfe6; --muted:#9aa1b0; --faint:#6d7486; --accent:#7d9edb; --accent2:#4e72b8;
+            --rose:#c98b86; --calm:#73ad8c; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--night); color:var(--text);
+           font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+           line-height:1.6; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); } a:hover { color:#a9c0ea; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    header { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:.7rem; text-decoration:none; color:var(--text); line-height:1.05; }
+    .brand img { width:40px; height:40px; border-radius:10px; }
+    .brand span { display:grid; } .brand small { color:var(--muted); font-size:.74rem; letter-spacing:.02em; }
+    .brand b { font-size:1.12rem; color:var(--text); }
+    nav { display:flex; align-items:center; gap:1.3rem; font-size:.92rem; }
+    nav a { color:var(--muted); text-decoration:none; } nav a:hover, nav a[aria-current] { color:var(--text); }
+    .cta { background:var(--accent); color:#0d1018 !important; border-radius:999px; padding:.62rem 1.05rem; font-weight:700; }
+    .cta:hover { background:#93b0e4; }
+    footer { border-top:1px solid var(--line); color:var(--faint); font-size:.82rem; padding:1.8rem 0 2.4rem; margin-top:4rem; }
+    footer .wrap { display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:space-between; }
+    footer nav a { color:var(--muted); }
+    .disclaimer { color:var(--faint); font-size:.82rem; }
+    /* Document pages */
+    .doc { max-width:760px; margin:2.5rem auto 0; padding:0 20px; }
+    .doc h1 { font-size:clamp(2.1rem,5vw,3rem); letter-spacing:-.03em; line-height:1.1; margin:0 0 .4rem; }
+    .doc .meta { color:var(--faint); font-size:.9rem; margin:0 0 2rem; }
+    .doc h2 { font-size:1.35rem; letter-spacing:-.01em; margin:2.6rem 0 .6rem; padding-top:.4rem; }
+    .doc h3 { font-size:1.05rem; margin:1.6rem 0 .3rem; }
+    .doc p, .doc li { color:#c4c9d4; } .doc ul, .doc ol { padding-left:1.25rem; } .doc li { margin:.3rem 0; }
+    .summary { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.4rem; margin:1.5rem 0; }
+    .summary p { margin:.2rem 0; } .summary strong { color:var(--text); }
+    .toc { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.2rem 0 1rem; }
+    .toc a { background:var(--surface); border:1px solid var(--line); border-radius:999px; color:var(--text);
+             font-size:.86rem; padding:.4rem .85rem; text-decoration:none; }
+    .toc a:hover { border-color:var(--accent); }
+    table { border-collapse:collapse; width:100%; margin:1rem 0; font-size:.93rem; }
+    th, td { border-bottom:1px solid var(--line); padding:.65rem .5rem; text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-weight:600; font-size:.82rem; text-transform:uppercase; letter-spacing:.04em; }
+    td { color:#c4c9d4; }
+    .steps { counter-reset:step; list-style:none; padding:0 !important; }
+    .steps li { counter-increment:step; position:relative; padding-left:2.3rem; margin:.65rem 0; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:.08rem; width:1.55rem; height:1.55rem;
+             border-radius:50%; background:var(--raised); color:var(--accent); font-size:.8rem; font-weight:700;
+             display:grid; place-items:center; }
+    .contact { background:linear-gradient(160deg,var(--night2),var(--surface)); border:1px solid var(--line);
+               border-radius:20px; padding:1.6rem; margin-top:2.6rem; }
+    .contact h2 { margin-top:0; }
+    kbd { background:var(--raised); border-radius:6px; padding:.05rem .4rem; font-family:inherit; font-size:.9em; color:var(--text); }
+    @media (max-width:640px) { nav .hide-sm { display:none; } header { min-height:68px; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="index.html" aria-label="Headache Tracker: StillHead home"><img src="stillhead-icon.png" alt=""><span><small>Headache Tracker</small><b>StillHead</b></span></a>
+    <nav><a class="hide-sm" href="support.html" aria-current="page">Support</a><a class="hide-sm" href="privacy.html">Privacy</a><a class="cta" href="https://apps.apple.com/app/id6822869867" target="_blank" rel="noreferrer">Get the app ↗</a></nav>
+  </header>
+  <main class="doc">
+    <h1>Support</h1>
+    <p class="meta">Headache Tracker: StillHead · Help and answers</p>
+
+    <nav class="toc" aria-label="Topics">
+      <a href="#start">Getting started</a><a href="#widget">Add the widget</a><a href="#pressure">Pressure &amp; alerts</a>
+      <a href="#report">Doctor report</a><a href="#sync">iCloud &amp; new phone</a><a href="#subscription">Subscription</a><a href="#contact">Contact us</a>
+    </nav>
+
+    <h2 id="start">Getting started</h2>
+    <h3>Log a headache</h3>
+    <p>On the <strong>Today</strong> tab, tap <strong>Headache started</strong>. A timer runs until you tap <strong>Headache ended</strong>. That's a complete log; everything else is optional.</p>
+    <h3>Add details</h3>
+    <p>Tap <strong>Add details</strong> while it's running, or open any headache from the calendar, to add pain, where it hurts, symptoms, triggers, medication and notes. Changes save as you go.</p>
+    <h3>Add a past headache</h3>
+    <p>Tap <strong>Add past headache</strong> on the Today tab, or <strong>+</strong> on the Calendar tab, pick the day, and tap <strong>Save</strong>.</p>
+    <h3>Forgot to tap "ended"?</h3>
+    <p>If a headache has been running for more than a day, the Today tab asks "Still going?". Tap <strong>Set end time</strong>, then <strong>Ended earlier</strong>, and adjust the end time.</p>
+
+    <h2 id="widget">Add the StillHead widget</h2>
+    <p>Start or end a headache without opening the app. iPhone doesn't let apps add widgets for you, so add them once yourself:</p>
+    <h3>Home Screen</h3>
+    <ol class="steps">
+      <li>Touch and hold an empty spot on your Home Screen until the apps jiggle.</li>
+      <li>Tap <strong>Edit</strong> in the top-left corner, then <strong>Add Widget</strong>.</li>
+      <li>Search for <strong>StillHead</strong>, choose the widget, and tap <strong>Add Widget</strong>.</li>
+    </ol>
+    <h3>Lock Screen</h3>
+    <ol class="steps">
+      <li>Touch and hold your Lock Screen, then tap <strong>Customize</strong> › <strong>Lock Screen</strong>.</li>
+      <li>Tap the widget area below the clock.</li>
+      <li>Choose <strong>StillHead</strong> and pick the round or rectangular "Start headache" widget.</li>
+    </ol>
+    <h3>Control Center (iOS 18 and later)</h3>
+    <ol class="steps">
+      <li>Swipe down from the top-right corner to open Control Center.</li>
+      <li>Tap <strong>+</strong> in the top-left corner, then <strong>Add a Control</strong>.</li>
+      <li>Search for <strong>Headache</strong> and add it.</li>
+    </ol>
+    <p>Tap the widget once to start a headache and again to end it. It appears in StillHead the next time you open the app. If StillHead isn't in the widget list, restart your iPhone and try again.</p>
+
+    <h2 id="pressure">Pressure &amp; alerts</h2>
+    <h3>"Pressure unavailable right now"</h3>
+    <p>Check that you have an internet connection, then pull down on the <strong>Pressure</strong> tab to refresh. Logging always works, even when pressure can't load.</p>
+    <h3>Change your location</h3>
+    <p>On the Pressure tab, tap <strong>Change</strong>. You can use your approximate location or type a city or ZIP code.</p>
+    <h3>Not getting drop alerts</h3>
+    <ul>
+      <li>Make sure <strong>Drop alerts</strong> is on in StillHead's Settings.</li>
+      <li>If StillHead says notifications are off, tap <strong>Open Notification Settings</strong> and turn on <strong>Allow Notifications</strong>.</li>
+      <li>Alerts are sent at most once a day, and only when pressure is set to fall by your chosen amount (Small, Medium or Large) within 12 hours. Try <strong>Small</strong> for more alerts.</li>
+      <li>Alerts are delivered quietly, so check Notification Center. Keeping <strong>Background App Refresh</strong> on (iPhone Settings › General) helps StillHead check the forecast when the app is closed.</li>
+    </ul>
+
+    <h2 id="report">Doctor report &amp; export</h2>
+    <p>Open <strong>Insights</strong> and tap <strong>Report</strong>, or go to Settings › <strong>Doctor report &amp; export</strong>. Choose 30 or 90 days, tap <strong>Create and share PDF</strong>, then send, save or print it. <strong>Export CSV</strong> gives you your full history for a spreadsheet.</p>
+
+    <h2 id="sync">iCloud &amp; moving to a new phone</h2>
+    <p>StillHead syncs your diary through your own iCloud account; there's no StillHead account to sign in to. On a new iPhone, sign in with the same Apple Account, make sure iCloud is on for StillHead (iPhone Settings › your name › iCloud), and install StillHead. Your history comes back automatically, which can take a few minutes on first launch.</p>
+
+    <h2 id="subscription">Subscription &amp; purchases</h2>
+    <h3>Free trial</h3>
+    <p>The weekly plan starts with a 3-day free trial. StillHead sends a reminder a day before the trial ends. You're only charged if you don't cancel at least 24 hours before the trial ends.</p>
+    <h3>Cancel</h3>
+    <p>Open iPhone Settings › your name › <strong>Subscriptions</strong> › <strong>StillHead</strong> › <strong>Cancel Subscription</strong>. You keep access until the end of the current period.</p>
+    <h3>Restore a purchase</h3>
+    <p>On a new phone or after reinstalling, tap <strong>Restore</strong> at the top of the StillHead purchase screen, or Settings › <strong>Restore purchases</strong>. Use the same Apple Account you bought with.</p>
+    <h3>Refunds</h3>
+    <p>Purchases are handled by Apple. Request a refund at <a href="https://reportaproblem.apple.com" target="_blank" rel="noreferrer">reportaproblem.apple.com</a>.</p>
+    <h3>If your subscription ends</h3>
+    <p>Your diary isn't deleted. You can still export your history as a PDF or CSV from the purchase screen with <strong>Export my data</strong>.</p>
+
+    <div class="contact" id="contact">
+      <h2>Contact us</h2>
+      <p>Couldn't find an answer? Email <a href="mailto:support@leanorbit.app?subject=StillHead%20support">support@leanorbit.app</a>. Please include your iPhone model and iOS version. We usually reply within two business days.</p>
+      <p class="disclaimer" style="margin:0">StillHead is a diary, not medical advice. If you have severe, sudden or unusual headaches, contact a doctor or emergency services.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p style="margin:0">© 2026 Lean Orbit LLC · StillHead is a diary, not medical advice.</p>
+      <nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noreferrer">Terms of Use</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

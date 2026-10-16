@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy | Headache Tracker: StillHead</title>
+  <meta name="description" content="How Headache Tracker: StillHead handles your data. No account, no analytics, no tracking. Your diary stays on your iPhone and in your own iCloud.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d1018">
+  <link rel="icon" type="image/png" href="stillhead-icon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-itunes-app" content="app-id=6822869867">
+  <meta property="og:title" content="Privacy Policy | Headache Tracker: StillHead">
+  <meta property="og:description" content="How Headache Tracker: StillHead handles your data. No account, no analytics, no tracking. Your diary stays on your iPhone and in your own iCloud.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://leanorbit.app/stillhead/stillhead-icon.png">
+  <style>
+    :root { --night:#0d1018; --night2:#141a28; --surface:#1a1e2a; --raised:#232838; --line:#2c3244;
+            --text:#dcdfe6; --muted:#9aa1b0; --faint:#6d7486; --accent:#7d9edb; --accent2:#4e72b8;
+            --rose:#c98b86; --calm:#73ad8c; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--night); color:var(--text);
+           font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+           line-height:1.6; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); } a:hover { color:#a9c0ea; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    header { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:.7rem; text-decoration:none; color:var(--text); line-height:1.05; }
+    .brand img { width:40px; height:40px; border-radius:10px; }
+    .brand span { display:grid; } .brand small { color:var(--muted); font-size:.74rem; letter-spacing:.02em; }
+    .brand b { font-size:1.12rem; color:var(--text); }
+    nav { display:flex; align-items:center; gap:1.3rem; font-size:.92rem; }
+    nav a { color:var(--muted); text-decoration:none; } nav a:hover, nav a[aria-current] { color:var(--text); }
+    .cta { background:var(--accent); color:#0d1018 !important; border-radius:999px; padding:.62rem 1.05rem; font-weight:700; }
+    .cta:hover { background:#93b0e4; }
+    footer { border-top:1px solid var(--line); color:var(--faint); font-size:.82rem; padding:1.8rem 0 2.4rem; margin-top:4rem; }
+    footer .wrap { display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:space-between; }
+    footer nav a { color:var(--muted); }
+    .disclaimer { color:var(--faint); font-size:.82rem; }
+    /* Document pages */
+    .doc { max-width:760px; margin:2.5rem auto 0; padding:0 20px; }
+    .doc h1 { font-size:clamp(2.1rem,5vw,3rem); letter-spacing:-.03em; line-height:1.1; margin:0 0 .4rem; }
+    .doc .meta { color:var(--faint); font-size:.9rem; margin:0 0 2rem; }
+    .doc h2 { font-size:1.35rem; letter-spacing:-.01em; margin:2.6rem 0 .6rem; padding-top:.4rem; }
+    .doc h3 { font-size:1.05rem; margin:1.6rem 0 .3rem; }
+    .doc p, .doc li { color:#c4c9d4; } .doc ul, .doc ol { padding-left:1.25rem; } .doc li { margin:.3rem 0; }
+    .summary { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.4rem; margin:1.5rem 0; }
+    .summary p { margin:.2rem 0; } .summary strong { color:var(--text); }
+    .toc { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.2rem 0 1rem; }
+    .toc a { background:var(--surface); border:1px solid var(--line); border-radius:999px; color:var(--text);
+             font-size:.86rem; padding:.4rem .85rem; text-decoration:none; }
+    .toc a:hover { border-color:var(--accent); }
+    table { border-collapse:collapse; width:100%; margin:1rem 0; font-size:.93rem; }
+    th, td { border-bottom:1px solid var(--line); padding:.65rem .5rem; text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-weight:600; font-size:.82rem; text-transform:uppercase; letter-spacing:.04em; }
+    td { color:#c4c9d4; }
+    .steps { counter-reset:step; list-style:none; padding:0 !important; }
+    .steps li { counter-increment:step; position:relative; padding-left:2.3rem; margin:.65rem 0; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:.08rem; width:1.55rem; height:1.55rem;
+             border-radius:50%; background:var(--raised); color:var(--accent); font-size:.8rem; font-weight:700;
+             display:grid; place-items:center; }
+    .contact { background:linear-gradient(160deg,var(--night2),var(--surface)); border:1px solid var(--line);
+               border-radius:20px; padding:1.6rem; margin-top:2.6rem; }
+    .contact h2 { margin-top:0; }
+    kbd { background:var(--raised); border-radius:6px; padding:.05rem .4rem; font-family:inherit; font-size:.9em; color:var(--text); }
+    @media (max-width:640px) { nav .hide-sm { display:none; } header { min-height:68px; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="index.html" aria-label="Headache Tracker: StillHead home"><img src="stillhead-icon.png" alt=""><span><small>Headache Tracker</small><b>StillHead</b></span></a>
+    <nav><a class="hide-sm" href="support.html">Support</a><a class="hide-sm" href="privacy.html" aria-current="page">Privacy</a><a class="cta" href="https://apps.apple.com/app/id6822869867" target="_blank" rel="noreferrer">Get the app ↗</a></nav>
+  </header>
+  <main class="doc">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Headache Tracker: StillHead · Lean Orbit LLC · Effective October 15, 2026</p>
+
+    <div class="summary">
+      <p><strong>The short version:</strong> Lean Orbit LLC does not collect, see or sell your data.</p>
+      <p>StillHead has no account, no servers of our own, no ads, no analytics and no tracking. Your headache diary is stored on your iPhone and synced through your own private iCloud account, which we cannot access.</p>
+    </div>
+
+    <h2>What StillHead stores, and where</h2>
+    <table>
+      <tr><th>Information</th><th>Where it's kept</th><th>Who can see it</th></tr>
+      <tr><td>Your headache diary: start and end times, pain, head areas, symptoms, triggers, medications, what helped, notes, and pain-free or symptoms-only days</td><td>On your iPhone, and in your private iCloud database if iCloud is on</td><td>Only you. It's tied to your Apple Account; Lean Orbit has no access.</td></tr>
+      <tr><td>Your location (approximate) or the city or ZIP code you enter</td><td>On your iPhone only. It is not synced to iCloud.</td><td>Sent to Apple's weather and location services to look up your forecast and place name. Lean Orbit never receives it.</td></tr>
+      <tr><td>Barometric pressure readings</td><td>On your iPhone, cached for up to an hour, and stored with each headache</td><td>Only you</td></tr>
+      <tr><td>Settings (units, alert sensitivity, pain scale, reminders)</td><td>On your iPhone</td><td>Only you</td></tr>
+      <tr><td>Purchases and subscription status</td><td>Handled by Apple</td><td>Apple processes payment. We never receive your payment details.</td></tr>
+    </table>
+
+    <h2>Location</h2>
+    <p>StillHead asks for your location only to show the barometric pressure forecast where you are. Approximate location is enough, and you can decline and type a city or ZIP code instead. The coordinates are sent to Apple's WeatherKit service to get the forecast, and to Apple's geocoding service to show a place name such as "Seattle, US". StillHead does not track your location in the background and does not keep a location history.</p>
+
+    <h2>Weather data</h2>
+    <p>Pressure data comes from Apple Weather through Apple's WeatherKit service. Apple's handling of these requests is described in <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noreferrer">Apple's Privacy Policy</a>. Weather data sources are listed at <a href="https://weatherkit.apple.com/legal-attribution.html" target="_blank" rel="noreferrer">weatherkit.apple.com/legal-attribution.html</a>.</p>
+
+    <h2>iCloud sync</h2>
+    <p>If iCloud is turned on for StillHead, your diary is stored in the private CloudKit database of your Apple Account so it can sync across your devices and come back after you reinstall. This data is protected by Apple and only accessible to you. You can turn sync off in iPhone Settings › your name › iCloud.</p>
+
+    <h2>Notifications</h2>
+    <p>Pressure-drop alerts, check-in reminders and the free-trial reminder are scheduled on your iPhone. They're optional, and you can turn them off in StillHead's Settings or in iPhone Settings › Notifications.</p>
+
+    <h2>Widgets</h2>
+    <p>The Home Screen, Lock Screen and Control Center widgets share a small amount of information with the app on your iPhone (whether a headache is in progress and when it started) so they can start and stop a headache. This never leaves your device except through your own iCloud sync.</p>
+
+    <h2>Exports</h2>
+    <p>Doctor reports (PDF) and data exports (CSV) are created on your iPhone. They go only where you choose to send them through the iOS share sheet.</p>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't collect personal or health information.</li>
+      <li>We don't use analytics, advertising or tracking SDKs.</li>
+      <li>We don't sell or share data with data brokers or advertisers.</li>
+      <li>We don't require an account or an email address.</li>
+    </ul>
+
+    <h2>Deleting your data</h2>
+    <ul>
+      <li><strong>A single headache:</strong> open it in StillHead and tap "Delete this headache".</li>
+      <li><strong>Everything on your iPhone:</strong> delete the StillHead app.</li>
+      <li><strong>Your iCloud copy:</strong> iPhone Settings › your name › iCloud › Manage Account Storage (or Manage Storage) › StillHead › Delete Data.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>StillHead is not directed to children under 13, and we don't knowingly collect information from anyone.</p>
+
+    <h2>Health information</h2>
+    <p>StillHead is a personal diary. It does not provide medical advice, diagnosis or treatment. Because Lean Orbit never receives your diary, we cannot view, recover or share it.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, we'll update this page and its effective date. Significant changes will also be noted in the app's release notes.</p>
+
+    <div class="contact">
+      <h2>Contact</h2>
+      <p style="margin:0">Questions about privacy? Email <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.<br>Lean Orbit LLC</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p style="margin:0">© 2026 Lean Orbit LLC · StillHead is a diary, not medical advice.</p>
+      <nav><a href="index.html">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noreferrer">Terms of Use</a></nav>
+    </div>
+  </footer>
+</body>
+</html>
