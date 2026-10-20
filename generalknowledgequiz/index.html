@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="spark-icon.png">
-  
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="description" content="A general knowledge quiz with 2,500 questions in 11 categories, from trivia and history to space and food. Every answer is explained. No ads, account, or subscription.">
   <meta name="keywords" content="general knowledge quiz, daily trivia, trivia app, history quiz, science quiz, math quiz, word quiz, quiz game for iPhone">
   <meta name="robots" content="index, follow">
-  
-  
-  
+  <meta property="og:title" content="General Knowledge Quiz: Spark — Know more. Remember it.">
+  <meta property="og:description" content="Five questions. About a minute. Every answer explained.">
+  <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <title>General Knowledge Quiz: Spark for iPhone | Lean Orbit</title>
+  <title>General Knowledge Quiz: Spark | Daily Trivia for iPhone &amp; iPad</title>
   <style>
     :root { --ink:#102c32; --muted:#456167; --teal:#047b87; --coral:#f6814c; --paper:#f8f5ed; --line:#d9e0d8; --white:#fffefa; }
     * { box-sizing:border-box; } html { scroll-behavior:smooth; } body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial,Helvetica,sans-serif; } a { color:inherit; }
@@ -30,58 +30,15 @@
     .promise { margin:auto; max-width:980px; padding:clamp(4rem,8vw,7rem) 20px; text-align:center; } .promise p:first-child { color:var(--coral); font-family:Georgia,serif; font-size:clamp(2rem,4vw,3.7rem); letter-spacing:-.055em; line-height:1; margin:0 0 1.2rem; } .promise p:last-child { color:var(--muted); font-size:1.1rem; line-height:1.6; margin:auto; max-width:630px; }
     .section { padding:clamp(4.5rem,8vw,8rem) max(20px,calc((100vw - 1180px)/2)); } .how { background:var(--white); display:grid; grid-template-columns:minmax(260px,.85fr) minmax(0,1.15fr); gap:clamp(3rem,9vw,9rem); } .section .eyebrow { color:var(--teal); } h2 { font-size:clamp(2.5rem,4.6vw,4.6rem); line-height:.94; margin:0 0 1.4rem; } .intro p:last-child { color:var(--muted); font-size:1.05rem; line-height:1.6; max-width:420px; }
     ol { list-style:none; margin:0; padding:0; } li { border-top:1px solid var(--line); display:grid; grid-template-columns:70px 1fr; padding:1.45rem 0; } li:last-child { border-bottom:1px solid var(--line); } li > b { color:var(--coral); font-size:.78rem; padding-top:.35rem; } h3 { font-size:1.22rem; margin:0 0 .45rem; } li p { color:var(--muted); grid-column:2; line-height:1.5; margin:0; }
-    .categories { background:var(--ink); color:var(--white); } .category-heading { margin-bottom:3rem; } .category-heading .eyebrow { color:#9fd5cf; } .category-heading h2 { margin:0; } .grid { display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid #3e5e62; } .card { border-right:1px solid #3e5e62; min-height:235px; padding:1.45rem 1.2rem; } .card:first-child { border-left:1px solid #3e5e62; } .card b { color:var(--coral); font-size:.75rem; } .card h3 { font-family:Georgia,serif; font-size:1.65rem; font-weight:400; letter-spacing:-.04em; line-height:1; margin:3.3rem 0 1rem; } .card p { color:#bad0cb; font-size:.9rem; line-height:1.45; margin:0; }
+    .categories { background:var(--ink); color:var(--white); } .category-heading { margin-bottom:3rem; } .category-heading .eyebrow { color:#9fd5cf; } .category-heading h2 { margin:0; } .category-heading > p:not(.eyebrow) { color:#bad0cb; max-width:40rem; margin:1rem 0 0; line-height:1.5; } .grid { display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid #3e5e62; } .card { border-right:1px solid #3e5e62; min-height:235px; padding:1.45rem 1.2rem; } .card:first-child { border-left:1px solid #3e5e62; } .card b { color:var(--coral); font-size:.75rem; } .card h3 { font-family:Georgia,serif; font-size:1.65rem; font-weight:400; letter-spacing:-.04em; line-height:1; margin:3.3rem 0 1rem; } .card p { color:#bad0cb; font-size:.9rem; line-height:1.45; margin:0; }
     .friction { display:grid; grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr); gap:clamp(3rem,9vw,9rem); } .friction h2 { margin:0; } .friction ul { list-style:none; margin:0; padding:0; } .friction li { grid-template-columns:minmax(120px,.6fr) 1fr; gap:1rem; } .friction strong { font-family:Georgia,serif; font-size:1.35rem; font-weight:400; letter-spacing:-.035em; } .friction span { color:var(--muted); line-height:1.5; }
     .closing { background:var(--coral); color:var(--ink); padding:clamp(4.5rem,8vw,7rem) 20px; text-align:center; } .closing .eyebrow { color:var(--ink); } .closing h2 { max-width:750px; margin:0 auto 1rem; } .closing p:not(.eyebrow) { font-size:1.07rem; margin-bottom:2rem; } .closing a { border-bottom:1px solid var(--ink); font-size:1rem; font-weight:800; padding-bottom:.35rem; text-decoration:none; }
     footer { color:var(--muted); display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:.5rem 1.25rem; font-size:.78rem; padding:1.7rem 20px; } footer p { margin:0; } footer a { text-decoration:none; }
     @media (max-width:760px) { header { grid-template-columns:1fr auto; min-height:72px; } .nav-link { display:none; } .header-cta { font-size:.78rem; padding:.64rem .85rem; } .hero-grid,.how,.friction { grid-template-columns:1fr; } .proof { border-left:0; border-top:1px solid rgba(255,255,255,.36); padding:1.8rem 0 0; } .grid { grid-template-columns:1fr 1fr; } .card { min-height:190px; border-bottom:1px solid #3e5e62; } .card:nth-child(odd) { border-left:1px solid #3e5e62; } .card:last-child { grid-column:span 2; } .card h3 { margin-top:2rem; } .friction li { grid-template-columns:1fr; gap:.35rem; } }
     @media (max-width:400px) { h1 { font-size:3.5rem; } .actions { align-items:flex-start; flex-direction:column; } }
   </style>
-<meta name="description" content="Spark is a daily general knowledge quiz for iPhone and iPad with short rounds and explanations for every answer.">
-<link rel="canonical" href="https://www.leanorbit.app/generalknowledgequiz/">
-<meta property="og:title" content="General Knowledge Quiz: Spark for iPhone | Lean Orbit">
-<meta property="og:description" content="Spark is a daily general knowledge quiz for iPhone and iPad with short rounds and explanations for every answer.">
-<meta property="og:url" content="https://www.leanorbit.app/generalknowledgequiz/">
-<meta property="og:type" content="website">
-<link rel="stylesheet" href="/discovery.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "@id": "https://www.leanorbit.app/generalknowledgequiz/#app",
-  "name": "General Knowledge Quiz: Spark",
-  "url": "https://www.leanorbit.app/generalknowledgequiz/",
-  "description": "Spark is a daily general knowledge quiz for iPhone and iPad with short rounds and explanations for every answer.",
-  "operatingSystem": "iOS 18.0 or later",
-  "applicationCategory": "GameApplication",
-  "downloadUrl": "https://apps.apple.com/us/app/id6504156248",
-  "sameAs": "https://apps.apple.com/us/app/id6504156248",
-  "identifier": "id6504156248",
-  "featureList": [
-    "Five-question quiz rounds",
-    "Explanations for every answer",
-    "Trivia, history, science, words, and math",
-    "Offline play"
-  ],
-  "publisher": {
-    "@type": "Organization",
-    "@id": "https://www.leanorbit.app/#organization",
-    "name": "Lean Orbit LLC",
-    "url": "https://www.leanorbit.app/"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "0.0",
-    "priceCurrency": "USD",
-    "url": "https://apps.apple.com/us/app/id6504156248",
-    "description": "Free daily World Trivia. A one-time in-app purchase unlocks all categories and unlimited rounds."
-  },
-  "image": "https://www.leanorbit.app/generalknowledgequiz/spark-icon.png"
-}
-</script>
 </head>
 <body>
-<nav class="app-discovery-nav" aria-label="Lean Orbit app navigation"><a href="/">Lean Orbit</a> · <a href="/products.html">All apps</a> · <a href="/generalknowledgequiz/support.html">Support</a> · <a href="/generalknowledgequiz/privacy.html">Privacy</a></nav>
   <header class="wrap">
     <a class="brand" href="#top" aria-label="General Knowledge Quiz: Spark home"><img src="spark-icon-1024.png" alt=""><span><strong>General Knowledge Quiz</strong><b>Spark</b></span></a>
     <a class="nav-link" href="#how-it-works">How it works</a>
@@ -89,24 +46,16 @@
   </header>
   <main id="top">
     <section class="hero" aria-labelledby="hero-title"><div class="hero-grid">
-      <div><p class="eyebrow">A daily quiz that teaches you something</p><h1 id="hero-title">Know more.<br><em>Remember it.</em></h1><p class="lead">Five questions. About a minute. Every answer explained. General Knowledge Quiz: Spark turns quick trivia into knowledge that stays with you.</p><div class="actions"><a class="store" href="https://apps.apple.com/us/app/general-knowledge-quiz-spark/id6504156248" target="_blank" rel="noreferrer"><small>Download on the</small><strong>App Store</strong></a><p>Free to play every day<br>iPhone &amp; iPad</p></div></div>
-      <aside class="proof" aria-label="What makes Spark different"><img class="hero-icon" src="spark-icon-1024.png" alt="General Knowledge Quiz: Spark app icon"><p><b>484</b><span>questions written to be worth your time</span></p><p><b>5</b><span>categories to keep curiosity moving</span></p><p><b>0</b><span>ads, accounts, or subscriptions</span></p></aside>
+      <div><p class="eyebrow">A daily quiz that teaches you something</p><h1 id="hero-title">Know more.<br><em>Remember it.</em></h1><p class="lead">Five questions. About a minute. Every answer explained. General Knowledge Quiz: Spark turns quick trivia into knowledge that stays with you.</p><div class="actions"><a class="store" href="https://apps.apple.com/us/app/general-knowledge-quiz-spark/id6504156248" target="_blank" rel="noreferrer"><small>Download on the</small><strong>App Store</strong></a><p>Two free rounds, then pay once<br>iPhone &amp; iPad</p></div></div>
+      <aside class="proof" aria-label="What makes Spark different"><img class="hero-icon" src="spark-icon-1024.png" alt="General Knowledge Quiz: Spark app icon"><p><b>2,500</b><span>questions written to be worth your time</span></p><p><b>11</b><span>categories to keep curiosity moving</span></p><p><b>0</b><span>ads, accounts, or subscriptions</span></p></aside>
     </div></section>
     <section class="promise" aria-label="The Spark promise"><p>Wrong answers are the start, not the end.</p><p>Every question comes with a short explanation, so you understand the fact instead of simply seeing the score.</p></section>
     <section class="section how" id="how-it-works" aria-labelledby="how-title"><div class="intro"><p class="eyebrow">Built for a curious minute</p><h2 id="how-title">A small habit with a real payoff.</h2><p>Open Spark for a quick daily challenge, a study break, or a little extra confidence before quiz night.</p></div><ol><li><b>01</b><div><h3>Choose a category</h3><p>Start with the kind of knowledge you want to stretch.</p></div></li><li><b>02</b><div><h3>Play five questions</h3><p>There’s no rushing. Think it through at your own pace.</p></div></li><li><b>03</b><div><h3>Learn the why</h3><p>Get the context behind every answer and carry it into the day.</p></div></li></ol></section>
-    <section class="section categories" aria-labelledby="categories-title"><div class="category-heading"><p class="eyebrow">Five ways to get sharper</p><h2 id="categories-title">A broader kind of trivia.</h2></div><div class="grid"><article class="card"><b>01</b><h3>World Trivia</h3><p>Geography, culture, and the useful miscellany.</p></article><article class="card"><b>02</b><h3>History Quiz</h3><p>The people and moments that shaped the world.</p></article><article class="card"><b>03</b><h3>Science Quiz</h3><p>Atoms, planets, cells, and forces.</p></article><article class="card"><b>04</b><h3>Word Power</h3><p>Etymology, idiom, and language worth knowing.</p></article><article class="card"><b>05</b><h3>Quick Math</h3><p>Equations, geometry, probability, and patterns.</p></article></div></section>
-    <section class="section friction" aria-labelledby="friction-title"><div><p class="eyebrow">Made to fit your day</p><h2 id="friction-title">More curious.<br>Less cluttered.</h2></div><ul><li><strong>No ads</strong><span>Your attention stays on the questions.</span></li><li><strong>No account</strong><span>Open the app and start playing.</span></li><li><strong>No subscription</strong><span>Unlock every category once, if you want more.</span></li><li><strong>Works offline</strong><span>Play on the sofa, the train, or a plane.</span></li></ul></section>
+    <section class="section categories" aria-labelledby="categories-title"><div class="category-heading"><p class="eyebrow">Five ways to get sharper</p><h2 id="categories-title">A broader kind of trivia.</h2><p>Spark Pro adds 2,000 more questions in Geography, Animals &amp; Nature, Arts &amp; Literature, Space, Food &amp; Drink and Inventions, plus Speed Round, Speed Math, Advanced Mode and Adaptive Practice.</p></div><div class="grid"><article class="card"><b>01</b><h3>World Trivia</h3><p>Geography, culture, and the useful miscellany.</p></article><article class="card"><b>02</b><h3>History Quiz</h3><p>The people and moments that shaped the world.</p></article><article class="card"><b>03</b><h3>Science Quiz</h3><p>Atoms, planets, cells, and forces.</p></article><article class="card"><b>04</b><h3>Word Power</h3><p>Etymology, idiom, and language worth knowing.</p></article><article class="card"><b>05</b><h3>Quick Math</h3><p>Equations, geometry, probability, and patterns.</p></article></div></section>
+    <section class="section friction" aria-labelledby="friction-title"><div><p class="eyebrow">Made to fit your day</p><h2 id="friction-title">More curious.<br>Less cluttered.</h2></div><ul><li><strong>No ads</strong><span>Your attention stays on the questions.</span></li><li><strong>No account</strong><span>Open the app and start playing.</span></li><li><strong>No subscription</strong><span>Pay once for Standard or Pro. Nothing renews.</span></li><li><strong>Works offline</strong><span>Play on the sofa, the train, or a plane.</span></li></ul></section>
     <section class="closing" aria-labelledby="closing-title"><p class="eyebrow">General Knowledge Quiz: Spark</p><h2 id="closing-title">You already know more than you think.</h2><p>Find out what you remember — and why it matters.</p><a href="https://apps.apple.com/us/app/general-knowledge-quiz-spark/id6504156248" target="_blank" rel="noreferrer">Download free on the App Store ↗</a></section>
-  <section class="app-discovery" aria-label="About General Knowledge Quiz: Spark">
-<p class="app-discovery__label">General Knowledge Quiz: Spark · iOS app by Lean Orbit</p>
-<p>Spark is a daily general knowledge quiz for iPhone and iPad with short rounds and explanations for every answer.</p>
-<h2>How can I practice general knowledge in a few minutes?</h2><p>Play a five-question round in Spark and read the explanation after each answer. World Trivia is free to play daily, with other categories available through a one-time unlock.</p>
-<h2>What features does the app include?</h2><ul><li>Five-question quiz rounds</li><li>Explanations for every answer</li><li>Trivia, history, science, words, and math</li><li>Offline play</li></ul>
-<h2>How do I download General Knowledge Quiz: Spark?</h2>
-<p><a href="https://apps.apple.com/us/app/id6504156248">View General Knowledge Quiz: Spark on the App Store</a>. Requires iOS 18.0 or later. Free daily World Trivia. A one-time in-app purchase unlocks all categories and unlimited rounds. Prices and offers vary by region.</p>
-<p><a href="/products.html">Explore all Lean Orbit apps</a></p></section>
-</main>
+  </main>
   <footer><p>© 2026 Lean Orbit LLC</p><a href="https://www.leanorbit.app/generalknowledgequiz/privacy.html" target="_blank" rel="noreferrer">Privacy Policy</a><a href="https://apps.apple.com/us/app/general-knowledge-quiz-spark/id6504156248" target="_blank" rel="noreferrer">App Store</a></footer>
-  
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"General Knowledge Quiz: Spark","applicationCategory":"GameApplication","applicationSubCategory":"Trivia Game","operatingSystem":"iOS, iPadOS","description":"A general knowledge quiz with 2,500 questions in 11 categories, plus speed and type-in modes. Every answer is explained.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":"https://apps.apple.com/us/app/general-knowledge-quiz-spark/id6504156248","author":{"@type":"Organization","name":"Lean Orbit LLC"}}</script>
 </body>
 </html>
