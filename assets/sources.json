@@ -1,0 +1,17 @@
+{
+  "daily-card": "images-v22/01-daily-entry.png",
+  "emotions": "images-v22/02-emotions.png",
+  "skills": "images-v22/03-skills-used.png",
+  "weekly-overview": "images-v22/04-weekly-overview.png",
+  "behaviors": "images-v22/05-behaviors.png",
+  "skills-by-module": "images-v22/06-skills-by-module.png",
+  "pdf-export": "images-v22/07-pdf-export.png",
+  "privacy": "images-v22/08-privacy.png",
+  "reminder": "images-v22/09-reminder.png",
+  "settings": "images-v22/10-settings.png",
+  "ipad-diary": "images-ipad-v2/01-daily-card.png",
+  "social-preview.png": "screenshots/01-dbt-hero.png",
+  "sample-dbt-diary-card-report.pdf": "DBT_Diary_Card_Oct_17_2026_to_Oct_21_2026.pdf",
+  "sample-report-preview-640.webp": "Page 1 rendered from DBT_Diary_Card_Oct_17_2026_to_Oct_21_2026.pdf",
+  "sample-report-preview-1280.webp": "Page 1 rendered from DBT_Diary_Card_Oct_17_2026_to_Oct_21_2026.pdf"
+}
