@@ -10,5 +10,8 @@
   "reminder": "images-v22/09-reminder.png",
   "settings": "images-v22/10-settings.png",
   "ipad-diary": "images-ipad-v2/01-daily-card.png",
-  "social-preview.png": "screenshots/01-dbt-hero.png"
+  "social-preview.png": "screenshots/01-dbt-hero.png",
+  "sample-dbt-diary-card-report.pdf": "DBT_Diary_Card_Oct_17_2026_to_Oct_21_2026.pdf",
+  "sample-report-preview-640.webp": "Page 1 rendered from DBT_Diary_Card_Oct_17_2026_to_Oct_21_2026.pdf",
+  "sample-report-preview-1280.webp": "Page 1 rendered from DBT_Diary_Card_Oct_17_2026_to_Oct_21_2026.pdf"
 }
