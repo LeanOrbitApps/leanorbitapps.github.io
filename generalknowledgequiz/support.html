@@ -29,6 +29,13 @@
             --science: #2F9E78;  --science-tint: #E4F3EC;
             --word:    #6B5DC8;  --word-tint:    #ECEAF8;
             --math:    #2E7DA8;  --math-tint:    #E5F0F7;
+            --geography:  #3A7D44;  --geography-tint:  #E6F1E7;
+            --animals:    #B05A7A;  --animals-tint:    #F6E6EC;
+            --arts:       #8E4FB5;  --arts-tint:       #F1E7F7;
+            --space:      #34459A;  --space-tint:      #E6E9F6;
+            --food:       #9A8A1A;  --food-tint:       #F5F3DD;
+            --inventions: #4F6D7A;  --inventions-tint: #E7EDF0;
+            --gold-text:  #8D6626;  /* Palette.goldText */
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -108,6 +115,18 @@
         .cat-card.science { border-top: 3px solid var(--science); background: linear-gradient(180deg, var(--science-tint) 0%, #fff 60%); }
         .cat-card.word    { border-top: 3px solid var(--word);    background: linear-gradient(180deg, var(--word-tint) 0%, #fff 60%); }
         .cat-card.math    { border-top: 3px solid var(--math);    background: linear-gradient(180deg, var(--math-tint) 0%, #fff 60%); }
+        .cat-card.geography  { border-top: 3px solid var(--geography);  background: linear-gradient(180deg, var(--geography-tint) 0%, #fff 60%); }
+        .cat-card.animals    { border-top: 3px solid var(--animals);    background: linear-gradient(180deg, var(--animals-tint) 0%, #fff 60%); }
+        .cat-card.arts       { border-top: 3px solid var(--arts);       background: linear-gradient(180deg, var(--arts-tint) 0%, #fff 60%); }
+        .cat-card.space      { border-top: 3px solid var(--space);      background: linear-gradient(180deg, var(--space-tint) 0%, #fff 60%); }
+        .cat-card.food       { border-top: 3px solid var(--food);       background: linear-gradient(180deg, var(--food-tint) 0%, #fff 60%); }
+        .cat-card.inventions { border-top: 3px solid var(--inventions); background: linear-gradient(180deg, var(--inventions-tint) 0%, #fff 60%); }
+        .category-grid.pro { grid-template-columns: repeat(6, 1fr); }
+        .grid-label {
+            font-size: 12px; font-weight: 700; letter-spacing: 1.3px;
+            color: var(--ink-faint); margin: 20px 0 10px 4px;
+        }
+        .grid-label:first-of-type { margin-top: 0; }
         .cat-icon { font-size: 24px; margin-bottom: 8px; }
         .cat-name { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.3; }
         .cat-count { font-size: 12px; color: var(--ink-faint); margin-top: 4px; }
@@ -119,6 +138,23 @@
             border-radius: 100px; padding: 2px 8px;
         }
         .grid-note { font-size: 13px; color: var(--ink-faint); text-align: right; }
+        .pro-tag {
+            display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 1.2px;
+            color: var(--gold-text); background: #FFF6E3;
+            border: 1px solid rgba(224,162,60,0.55); border-radius: 100px;
+            padding: 1px 9px; vertical-align: middle; margin-left: 6px;
+        }
+        .mode-icon {
+            flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px;
+            display: flex; align-items: center; justify-content: center; font-size: 16px;
+        }
+        .plan-table { width: 100%; border-collapse: collapse; margin: 4px 0 14px; font-size: 14px; }
+        .plan-table th, .plan-table td {
+            text-align: left; vertical-align: top; padding: 9px 10px;
+            border-bottom: 1px solid var(--hairline); color: var(--ink-soft);
+        }
+        .plan-table th { color: var(--ink); font-weight: 700; }
+        .plan-table td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
 
         /* ── steps ── */
         .steps { display: flex; flex-direction: column; gap: 14px; }
@@ -192,21 +228,23 @@
         footer a { color: var(--primary-dk); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
 
+        @media (min-width: 701px) and (max-width: 860px) {
+            .category-grid.pro { grid-template-columns: repeat(3, 1fr); }
+        }
+
         @media (max-width: 700px) {
             nav { padding: 0 20px; }
             .hero { padding: 60px 20px 40px; }
-            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-grid, .category-grid.pro { grid-template-columns: repeat(2, 1fr); }
             .grid-note { text-align: left; }
             .contact-card { padding: 28px 20px; }
         }
     </style>
-<link rel="canonical" href="https://www.leanorbit.app/generalknowledgequiz/support.html">
 </head>
 <body>
-<nav aria-label="App links" style="padding:16px;text-align:center"><a href="/generalknowledgequiz/">General Knowledge Quiz: Spark</a> · <a href="/products.html">All Lean Orbit apps</a></nav>
 
 <nav>
-    <a href="support.html" class="nav-brand">
+    <a href="./" class="nav-brand" aria-label="General Knowledge Quiz: Spark home">
         <div class="nav-logo">✦</div>
         <span class="nav-name">Spark</span>
     </a>
@@ -222,55 +260,45 @@
 <div class="container">
 
     <!-- About the App -->
-    <div class="section-title">The five categories</div>
-    <p class="section-lead">484 questions in total. Every single one comes with an explanation of <em>why</em> the answer is right — that is the point of the app, not the question count.</p>
+    <div class="section-title">The eleven categories</div>
+    <p class="section-lead">2,500 questions in total. Every one comes with an explanation of <em>why</em> the answer is right, and a source you can open to read more.</p>
 
+    <div class="grid-label">STANDARD · 500 QUESTIONS</div>
     <div class="category-grid">
-        <div class="cat-card trivia">
-            <div class="cat-icon">🌎</div>
-            <div class="cat-name">World Trivia</div>
-            <div class="cat-count">98 questions</div>
-            <span class="cat-free">FREE DAILY</span>
-        </div>
-        <div class="cat-card history">
-            <div class="cat-icon">🏛️</div>
-            <div class="cat-name">History Quiz</div>
-            <div class="cat-count">100 questions</div>
-        </div>
-        <div class="cat-card science">
-            <div class="cat-icon">🔬</div>
-            <div class="cat-name">Science Quiz</div>
-            <div class="cat-count">100 questions</div>
-        </div>
-        <div class="cat-card word">
-            <div class="cat-icon">📖</div>
-            <div class="cat-name">Word Power</div>
-            <div class="cat-count">90 questions</div>
-        </div>
-        <div class="cat-card math">
-            <div class="cat-icon">➗</div>
-            <div class="cat-name">Quick Math</div>
-            <div class="cat-count">96 questions</div>
-        </div>
+        <div class="cat-card trivia"><div class="cat-icon">🌎</div><div class="cat-name">World Trivia</div><div class="cat-count">100 questions</div></div>
+        <div class="cat-card history"><div class="cat-icon">🏛️</div><div class="cat-name">History Quiz</div><div class="cat-count">100 questions</div></div>
+        <div class="cat-card science"><div class="cat-icon">🔬</div><div class="cat-name">Science Quiz</div><div class="cat-count">100 questions</div></div>
+        <div class="cat-card word"><div class="cat-icon">📖</div><div class="cat-name">Word Power</div><div class="cat-count">100 questions</div></div>
+        <div class="cat-card math"><div class="cat-icon">➗</div><div class="cat-name">Quick Math</div><div class="cat-count">100 questions</div></div>
     </div>
-    <p class="grid-note">World Trivia is free to play every day. The other four are included in the one-time unlock.</p>
+
+    <div class="grid-label">PRO LIBRARY · 2,000 MORE QUESTIONS</div>
+    <div class="category-grid pro">
+        <div class="cat-card geography"><div class="cat-icon">🗺️</div><div class="cat-name">Geography</div><div class="cat-count">350 questions</div></div>
+        <div class="cat-card animals"><div class="cat-icon">🐾</div><div class="cat-name">Animals &amp; Nature</div><div class="cat-count">350 questions</div></div>
+        <div class="cat-card arts"><div class="cat-icon">🎨</div><div class="cat-name">Arts &amp; Literature</div><div class="cat-count">350 questions</div></div>
+        <div class="cat-card space"><div class="cat-icon">🌙</div><div class="cat-name">Space &amp; Astronomy</div><div class="cat-count">300 questions</div></div>
+        <div class="cat-card food"><div class="cat-icon">🍽️</div><div class="cat-name">Food &amp; Drink</div><div class="cat-count">300 questions</div></div>
+        <div class="cat-card inventions"><div class="cat-icon">💡</div><div class="cat-name">Inventions &amp; Tech</div><div class="cat-count">350 questions</div></div>
+    </div>
+    <p class="grid-note">Standard includes the first five categories. Pro adds the other six, plus the four modes below.</p>
 
     <!-- How to Play -->
-    <div class="section-title">How to play</div>
+    <div class="section-title">How to play a round</div>
 
     <div class="steps">
         <div class="step">
             <div class="step-num">1</div>
             <div class="step-content">
                 <h4>Pick a category</h4>
-                <p>World Trivia, History Quiz, Science Quiz, Word Power, or Quick Math from the home screen.</p>
+                <p>Choose any category on the home screen.</p>
             </div>
         </div>
         <div class="step">
             <div class="step-num">2</div>
             <div class="step-content">
                 <h4>Answer five questions</h4>
-                <p>Each round is five multiple-choice questions, drawn at random from that category. There is no timer — take as long as you like.</p>
+                <p>Each round is five multiple-choice questions, drawn at random from that category. A regular round has no timer, so take as long as you like.</p>
             </div>
         </div>
         <div class="step">
@@ -284,7 +312,7 @@
             <div class="step-num">4</div>
             <div class="step-content">
                 <h4>Read the explanation</h4>
-                <p>Right or wrong, you get the correct answer and a short explanation of why it's correct. This is the part worth slowing down for.</p>
+                <p>Right or wrong, you get the correct answer and a short explanation of why it's correct. Tap <em>Learn more</em> to open the source. This is the part worth slowing down for.</p>
             </div>
         </div>
         <div class="step">
@@ -296,78 +324,142 @@
         </div>
     </div>
 
+    <!-- Modes -->
+    <div class="section-title">The four Pro modes</div>
+    <p class="section-lead">Find them under <strong>Modes</strong> on the home screen. Standard owners get one free try of Speed Round, Speed Math and Advanced Mode.</p>
+
+    <div class="steps">
+        <div class="step">
+            <div class="mode-icon" style="background:#FBEBE3">⏱️</div>
+            <div class="step-content">
+                <h4>Speed Round</h4>
+                <p>60 seconds, as many questions as you can. Play all your categories or pick one. A right answer scores a point, and a wrong one takes 3 seconds off the clock. At the end you see what you missed with the explanations, and those questions go into Adaptive Practice. You can share your score as an image.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="mode-icon" style="background:#E5F0F7">🔢</div>
+            <div class="step-content">
+                <h4>Speed Math</h4>
+                <p>60 seconds of mental math. Type each answer and a right one moves on by itself, with no Submit button. Choose Add &amp; Subtract, Multiply &amp; Divide, Mixed, or Percentages &amp; Fractions. The problems get harder as you get faster, and they never run out.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="mode-icon" style="background:#E6E9F6">⌨️</div>
+            <div class="step-content">
+                <h4>Advanced Mode</h4>
+                <p>Ten hard questions with no multiple choice: type the answer. Capitals, accents and small spelling slips are forgiven. Stuck? Tap <em>Show choices</em> to answer for half a point. If a typed answer is marked wrong but you were right, tap <em>I was right</em>. An optional 20-second timer per question is off by default.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="mode-icon" style="background:#E4F3EC">🔁</div>
+            <div class="step-content">
+                <h4>Adaptive Practice</h4>
+                <p>Every question you miss, in any mode, comes back for review: after 1 day, then 3, 7, 14 and 30. Get it right five reviews in a row and it's learned; miss it and it starts again. Each session has ten questions: reviews that are due come first, then new questions from your two weakest categories. The difficulty follows your recent accuracy.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- FAQ -->
     <div class="section-title">Frequently asked questions</div>
 
     <div class="faq-list">
 
         <details>
-            <summary>I bought this app back when it cost money. Do I have to pay again?</summary>
+            <summary>I bought Spark before version 4.0. What do I get?</summary>
             <div class="faq-body">
-                <p><strong>No.</strong> If you bought the app when it was a paid download, or bought the unlock inside an earlier version, you keep full access permanently and will never be asked to pay again.</p>
-                <p>In most cases this is automatic — install the app while signed in to the same Apple Account you originally purchased with, and everything is already unlocked. If you do see a paywall, tap <em>Restore Purchases</em> on the home screen or on the unlock screen, and make sure you are signed in to that original Apple Account.</p>
+                <p><strong>Pro, at no extra cost.</strong> If you paid for the app when it was a paid download, or bought the unlock in any version before 4.0, you get everything: all 11 categories and all four modes. You will never be asked to pay again.</p>
+                <p>In most cases this is automatic: open Spark 4.0 while signed in to the Apple Account you bought with, and everything is unlocked. If it isn't, tap <em>Restore Purchases</em> at the bottom of the home screen or in Settings.</p>
                 <p>Still locked after that? Email us and we will sort it out.</p>
             </div>
         </details>
 
         <details>
-            <summary>Is Spark free?</summary>
+            <summary>What's free?</summary>
             <div class="faq-body">
-                <p>Spark is free to download, and <strong>World Trivia is free to play every day</strong> — three rounds a day, no account, no ads, no time limit. When you pick a category during setup you also get two free rounds in that category even if it's a paid one.</p>
-                <p>A single one-time purchase unlocks all five categories and removes the daily round limit. It is <strong>not a subscription</strong>: you pay once, and there is nothing to renew or cancel. If you reinstall the app or move to a new device, tap <em>Restore Purchases</em> to get your unlock back.</p>
+                <p>Spark is free to download, and everyone gets <strong>two free rounds</strong> of five questions in any of the five Standard categories. After that, Spark asks for a one-time purchase. There are no daily free rounds and no ads.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>What do Standard and Pro include?</summary>
+            <div class="faq-body">
+                <table class="plan-table">
+                    <tr><th></th><th>Standard</th><th>Pro</th></tr>
+                    <tr><td>Price</td><td>One-time payment</td><td>One-time payment</td></tr>
+                    <tr><td>Categories</td><td>5: World Trivia, History, Science, Word Power, Quick Math</td><td>All 11: the five Standard ones plus Geography, Animals &amp; Nature, Arts &amp; Literature, Space &amp; Astronomy, Food &amp; Drink, Inventions &amp; Tech</td></tr>
+                    <tr><td>Questions</td><td>500</td><td>2,500</td></tr>
+                    <tr><td>Modes</td><td>Unlimited category rounds, plus one try each of Speed Round, Speed Math and Advanced Mode</td><td>Unlimited rounds, plus Speed Round, Speed Math, Advanced Mode and Adaptive Practice</td></tr>
+                    <tr><td>Progress</td><td>Day streak and best score</td><td>Plus Your Progress (accuracy by category, questions learned) and review reminders</td></tr>
+                </table>
+                <p>Standard owners can upgrade to Pro for the difference in price, from Settings or from any locked Pro feature. Prices are shown in the app in your local currency.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Is this a subscription?</summary>
+            <div class="faq-body">
+                <p><strong>No.</strong> Both purchases are one-time payments. Nothing renews and there is nothing to cancel. Purchases can be shared with your family through Family Sharing and restored on your other devices with <em>Restore Purchases</em>.</p>
             </div>
         </details>
 
         <details>
             <summary>Does the app need an internet connection?</summary>
             <div class="faq-body">
-                <p>No. Spark works completely offline. All 484 questions are bundled with the app, so you can play on a plane, on the subway, or anywhere without Wi-Fi.</p>
-                <p>The only moment the app needs a connection is when you make or restore the in-app purchase, which is handled by Apple.</p>
+                <p>No. All 2,500 questions are built into the app, so every mode works on a plane, on the subway, or anywhere without Wi-Fi.</p>
+                <p>You need a connection only to buy or restore a purchase (handled by Apple) and to open a <em>Learn more</em> source in your browser.</p>
             </div>
         </details>
 
         <details>
-            <summary>What makes this different from the other free quiz apps?</summary>
+            <summary>What makes this different from the other quiz apps?</summary>
             <div class="faq-body">
-                <p>Three things: <strong>every answer is explained</strong>, so a round leaves you knowing something rather than just scored; there are <strong>no ads, no account, and no subscription</strong>; and it <strong>works offline</strong>.</p>
-                <p>Spark is not trying to have the largest question bank. It's a five-question round you can finish in about a minute, built so the minute is worth something.</p>
+                <p><strong>Every answer is explained</strong>, with a source, so a round leaves you knowing something rather than just scored. In Pro, <strong>Adaptive Practice</strong> brings back what you missed until you know it. And there are <strong>no ads, no account, and no subscription</strong>.</p>
+                <p>A round still takes about a minute. Spark is built so the minute is worth something.</p>
             </div>
         </details>
 
         <details>
             <summary>How many questions are there?</summary>
             <div class="faq-body">
-                <p>484 across the five categories: 100 History, 100 Science, 98 World Trivia, 96 Quick Math, and 90 Word Power. Questions are shuffled every round, and the app avoids repeating a question you've recently seen.</p>
-                <p>We add to the bank in app updates. If there's a topic you'd like to see, tell us.</p>
+                <p>2,500: 500 in Standard (100 in each of the five categories) and 2,000 more in the Pro Library. Questions are shuffled every round, and the app avoids repeating a question you've recently seen.</p>
             </div>
         </details>
 
         <details>
             <summary>Can I change my answer after I pick it?</summary>
             <div class="faq-body">
-                <p>Yes, any time before you press Submit. Once you submit, the answer locks in and the explanation appears.</p>
+                <p>In a regular round, yes, any time before you press Submit. Once you submit, the answer locks in and the explanation appears.</p>
             </div>
         </details>
 
         <details>
             <summary>Does the app track my progress?</summary>
             <div class="faq-body">
-                <p>Yes. Spark keeps your daily streak, your best score, and how many rounds you've played, all stored locally on your device. There are no leaderboards and nothing is uploaded anywhere.</p>
+                <p>Yes, on your device only. The home screen shows your day streak and best score. With Pro, <em>Settings ▸ Your progress</em> also shows how many questions you've learned, how many are in review, your last seven days and your accuracy in each category.</p>
+                <p>There are no leaderboards and nothing is uploaded anywhere.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>How do review reminders work?</summary>
+            <div class="faq-body">
+                <p>With Pro, turn on <em>Daily review reminder</em> in Settings and pick a time. Spark reminds you only on days when you have reviews due. It's off by default, and iOS asks your permission the first time you turn it on.</p>
             </div>
         </details>
 
         <details>
             <summary>I think one of the answers is wrong. What should I do?</summary>
             <div class="faq-body">
-                <p>Please tell us. Email the question text and the answer you believe is correct, and we'll check it. We read every report and correct genuine errors in the next update.</p>
+                <p>Please tell us. After answering, tap <strong>Report a problem</strong> under the question. It opens an email with the question's details filled in; add what you think is wrong and send it. If Mail isn't set up, the details are copied for you to paste into an email to <a href="mailto:support@leanorbit.app">support@leanorbit.app</a>.</p>
+                <p>We read every report and correct genuine errors in the next update.</p>
             </div>
         </details>
 
         <details>
-            <summary>I paid for the unlock but the app still shows a paywall.</summary>
+            <summary>I paid but the app still shows a paywall.</summary>
             <div class="faq-body">
-                <p>Tap <em>Restore Purchases</em>, on the home screen or at the bottom of the unlock screen. That asks Apple to re-confirm your purchase and normally fixes it immediately.</p>
-                <p>If it doesn't: check that you're signed in to the same Apple Account you bought with (<em>Settings ▸ your name ▸ Media &amp; Purchases</em>), and that you have a connection. Purchases are tied to the Apple Account, not to the device — so a different account will not find them.</p>
+                <p>Tap <em>Restore Purchases</em>: it's at the bottom of the home screen, in Settings, and on the unlock screen. That asks Apple to re-confirm your purchase and normally fixes it immediately.</p>
+                <p>If it doesn't: check that you're signed in to the same Apple Account you bought with (<em>Settings ▸ your name ▸ Media &amp; Purchases</em>), and that you have a connection. Purchases are tied to the Apple Account, not to the device, so a different account will not find them.</p>
                 <p>If it's still not working, email us with your Apple Account region and roughly when you purchased, and we'll help.</p>
             </div>
         </details>
@@ -383,14 +475,7 @@
             <summary>Is Spark suitable for kids?</summary>
             <div class="faq-body">
                 <p>Yes. There's no adult content, no advertising, and no social or messaging features, and we collect no personal data from anyone.</p>
-                <p>The app does offer one optional in-app purchase, which unlocks the four paid categories. If you'd rather it weren't available, you can turn off in-app purchases in <em>Settings ▸ Screen Time ▸ Content &amp; Privacy Restrictions</em>.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Will you add more categories or questions?</summary>
-            <div class="faq-body">
-                <p>Yes — we're expanding the question bank and considering new categories. Anything you buy today stays unlocked as the app grows; the one-time purchase covers future categories too.</p>
+                <p>The app offers optional one-time purchases (Standard and Pro). If you'd rather they weren't available, you can turn off in-app purchases in <em>Settings ▸ Screen Time ▸ Content &amp; Privacy Restrictions</em>.</p>
             </div>
         </details>
 
@@ -403,12 +488,13 @@
         <p>Couldn't find your answer above? Send us a message — a real person reads every one.</p>
         <a href="mailto:support@leanorbit.app" class="contact-btn">Get in Touch</a>
         <span class="contact-email">or email us directly at <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></span>
+        <p class="response-note">We typically respond within 1–2 business days.</p>
     </div>
 
 </div>
 
 <footer>
-    <p>© 2026 Lean Orbit &nbsp;·&nbsp; General Knowledge Quiz: Spark &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="support.html">Support</a> &nbsp;·&nbsp; <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
+    <p>© 2026 Lean Orbit &nbsp;·&nbsp; <a href="./">General Knowledge Quiz: Spark</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="support.html">Support</a> &nbsp;·&nbsp; <a href="mailto:support@leanorbit.app">support@leanorbit.app</a></p>
 </footer>
 
 </body>
