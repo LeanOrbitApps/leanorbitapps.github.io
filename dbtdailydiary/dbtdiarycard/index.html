@@ -559,7 +559,7 @@ function buildPrint(blank){
  var html='<div class="ph"><h1>DBT Diary Card</h1><div class="pm"><span>Name: '+(blank||!m.name?'________________':esc(m.name))+'</span><span>Week of: '+(blank?'________________':esc(weekLabel()))+'</span><span>Filled out in session? '+(blank||!m.inSession?'Y / N':esc(m.inSession))+'</span><span>How often? '+(blank||!m.often?'Daily / 4–6x / 2–3x / Once':esc(m.often))+'</span></div></div>';
  html+=C.showSkills?'<div class="two"><div>'+left+notes+'</div><div>'+right+'</div></div>':left+notes;
  html+='<p class="lg">Ratings: 0 = none, 5 = most intense. Wk = weekly average (ratings), times (Y), or days (skills). '+(C.showSkills?'Skills use: '+USE_LEGEND.map(function(t,i){return i+' = '+t;}).join('; ')+'.':'')+'</p>';
- html+='<p class="pf">Free online DBT diary card · leanorbit.app/dbtdailydiary/dbtdiarycard</p>';
+ html+='<p class="pf">Free online DBT diary card · dbtdiarycard.online</p>';
  P.innerHTML=html; printBuilt=true;
 }
 function doPrint(blank){buildPrint(blank); window.print();}
