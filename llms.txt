@@ -12,7 +12,7 @@
   - [App Store](https://apps.apple.com/us/app/id6761550736) · Paid download. Check your regional App Store for the current price.
 - [DBT Diary Card: Skills Tracker](https://www.leanorbit.app/dbtdailydiary/): DBT Diary Card: Skills Tracker is an iPhone and iPad diary card app for recording emotions, urges, behaviors, and DBT skills and exporting PDF reports.
   - Features: Daily emotion and urge ratings; DBT skills and behavior tracking; PDF reports for sessions; On-device diary entries.
-  - [Free online DBT diary card](https://www.leanorbit.app/dbtdailydiary/dbtdiarycard/): A free, no-sign-up weekly DBT diary card that runs in the browser, stores entries only in the browser, and prints or saves as a PDF (filled or blank).
+  - [Free online DBT diary card](https://dbtdiarycard.online/): A free, no-sign-up weekly DBT diary card that runs in the browser, stores entries only in the browser, and prints or saves as a PDF (filled or blank).
   - [App Store](https://apps.apple.com/us/app/id6759234731) · Free to download. Full access is available through a subscription or lifetime purchase; current trial terms are shown in the app.
 - [Pacing To Do & Plans: Wattdo](https://www.leanorbit.app/wattdo/): Wattdo is an iPhone pacing and to-do app that adjusts your task list to your current energy level.
   - Features: High, medium, or low energy check-in; Energy cost for each task; Hide heavier tasks on low-energy days; Home Screen widget.
